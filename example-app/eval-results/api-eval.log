@@ -1,0 +1,22 @@
+Running 16 cases against http://localhost:3000
+
+  ✅ p-list: ok
+  ✅ p-by-id: ok
+  ✅ p-404: ok
+  ✅ p-search-hit: ok
+  ✅ p-search-miss: ok
+  ✅ p-create-ok: ok
+  ✅ p-create-bad-status: ok
+  ✅ p-create-missing-name: ok
+  ✅ t-list: ok
+  ✅ t-by-id: ok
+  ✅ t-404: ok
+  ✅ t-for-project-1: ok
+  ✅ t-for-project-2: ok
+  ✅ t-create-ok: ok
+  ✅ t-create-bad-priority: ok
+  ✅ swagger: ok
+
+16/16 passed
+ratings: {"c0.3": 1.0, "c0.4": 1.0, "p4.2": 1.0}
+Merged c0/p4 ratings into /private/tmp/claude-502/-Users-mateusz-chabiniec-lorikeets-gdg-lorikeets/636b31eb-d29d-4e0e-98fc-8e474869c3f2/scratchpad/example-app/eval-results/scores.json

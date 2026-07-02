@@ -1,0 +1,25 @@
+<main style="font-family: system-ui; max-width: 720px; margin: 2rem auto; padding: 0 1rem">
+  <h1>Example App — Projects &amp; Tasks</h1>
+
+  <section>
+    <h2>Projects</h2>
+    <ul>
+      @for (p of projects(); track p.id) {
+        <li><strong>{{ p.name }}</strong> — {{ p.status }}</li>
+      } @empty {
+        <li>No projects.</li>
+      }
+    </ul>
+  </section>
+
+  <section>
+    <h2>Tasks</h2>
+    <ul>
+      @for (t of tasks(); track t.id) {
+        <li>[project {{ t.projectId }}] {{ t.title }} (priority {{ t.priority }})@if (t.done) { ✓ }</li>
+      } @empty {
+        <li>No tasks.</li>
+      }
+    </ul>
+  </section>
+</main>

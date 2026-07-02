@@ -1,0 +1,16 @@
+{"id":"p-list","evals":["c0","p4"],"desc":"GET all projects returns the seeded 3","method":"GET","path":"/api/project","expect":{"status":200,"count":3,"contains":[{"name":"Website Redesign","status":"active"}]}}
+{"id":"p-by-id","evals":["c0","p4"],"desc":"GET project by id returns the right record","method":"GET","path":"/api/project/1","expect":{"status":200,"equals":{"name":"Website Redesign","status":"active"}}}
+{"id":"p-404","evals":["c0","p4"],"desc":"GET missing project id returns 404","method":"GET","path":"/api/project/9999","expect":{"status":404}}
+{"id":"p-search-hit","evals":["c0","p4"],"desc":"Search projects by name substring matches one","method":"GET","path":"/api/project/search?name=App","expect":{"status":200,"count":1,"contains":[{"name":"Mobile App"}]}}
+{"id":"p-search-miss","evals":["c0","p4"],"desc":"Search with no match returns 404","method":"GET","path":"/api/project/search?name=Zzzzz","expect":{"status":404}}
+{"id":"p-create-ok","evals":["c0","p4"],"desc":"POST valid project is created (201)","method":"POST","path":"/api/project","mutating":true,"body":{"name":"Eval Project","description":"created by api_eval","status":"active"},"expect":{"status":201,"contains":[{"name":"Eval Project","status":"active"}]}}
+{"id":"p-create-bad-status","evals":["c0","p4"],"desc":"POST project with invalid status enum is rejected (400)","method":"POST","path":"/api/project","mutating":true,"body":{"name":"Bad Status","status":"nope"},"expect":{"status":400}}
+{"id":"p-create-missing-name","evals":["c0","p4"],"desc":"POST project missing required name is rejected (400)","method":"POST","path":"/api/project","mutating":true,"body":{"status":"active"},"expect":{"status":400}}
+{"id":"t-list","evals":["c0","p4"],"desc":"GET all tasks returns the seeded 6","method":"GET","path":"/api/task","expect":{"status":200,"count":6}}
+{"id":"t-by-id","evals":["c0","p4"],"desc":"GET task by id returns correct title and project","method":"GET","path":"/api/task/1","expect":{"status":200,"equals":{"projectId":1,"title":"Design homepage"}}}
+{"id":"t-404","evals":["c0","p4"],"desc":"GET missing task id returns 404","method":"GET","path":"/api/task/9999","expect":{"status":404}}
+{"id":"t-for-project-1","evals":["c0","p4"],"desc":"Project 1 has 3 tasks (relational integrity via FK)","method":"GET","path":"/api/task","expect":{"status":200,"where":{"projectId":1},"where_count":3}}
+{"id":"t-for-project-2","evals":["c0","p4"],"desc":"Project 2 has 2 tasks","method":"GET","path":"/api/task","expect":{"status":200,"where":{"projectId":2},"where_count":2}}
+{"id":"t-create-ok","evals":["c0","p4"],"desc":"POST valid task is created (201)","method":"POST","path":"/api/task","mutating":true,"body":{"projectId":1,"title":"Eval task","done":false,"priority":3},"expect":{"status":201,"contains":[{"title":"Eval task","priority":3}]}}
+{"id":"t-create-bad-priority","evals":["c0","p4"],"desc":"POST task with non-integer priority is rejected (400)","method":"POST","path":"/api/task","mutating":true,"body":{"projectId":1,"title":"Bad Priority","priority":"high"},"expect":{"status":400}}
+{"id":"swagger","evals":["p4"],"desc":"Swagger docs served at /api","method":"GET","path":"/api","expect":{"status":200}}
