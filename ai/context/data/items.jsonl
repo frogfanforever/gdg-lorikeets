@@ -1,0 +1,63 @@
+{"id":"itm-001","category":"event","event":"evt-build-with-ai-2026","title":"Build with AI Wrocław: Architecting the Future of Products","detail":"6-day intensive, cross-functional Product Creators, AI across SDLC, ends in Grand Hackathon.","source":"web"}
+{"id":"itm-002","category":"schedule","event":"evt-build-with-ai-2026","day":1,"date":"2026-06-29","title":"Product Design, Scope & MVP","detail":"Persona, problem statement, IT project lifecycle, Design Thinking, SDLC, BPMN, Event Storming, Kanban.","source":"web"}
+{"id":"itm-003","category":"schedule","event":"evt-build-with-ai-2026","day":2,"date":"2026-06-30","title":"UI/UX & AI-Native Design Systems","detail":"Digital accessibility, AI-powered design systems, designs into products via MCP servers.","source":"web"}
+{"id":"itm-004","category":"schedule","event":"evt-build-with-ai-2026","day":3,"date":"2026-07-01","title":"Scaling Frontend Architecture & AI-Assisted Debugging","detail":"Nx monorepos, modern Angular, ng-diagram, AI-powered debugging.","source":"web"}
+{"id":"itm-005","category":"schedule","event":"evt-build-with-ai-2026","day":4,"date":"2026-07-02","title":"Fullstack, Architecture & LLM Engineering","detail":"Angular↔NestJS, Docker/Sequelize, evaluation scoreboards, autonomous agentic loops.","note":"TODAY","source":"web"}
+{"id":"itm-006","category":"schedule","event":"evt-build-with-ai-2026","day":5,"date":"2026-07-03","title":"Deployment, Scale & Optimization","detail":"Building MCP servers, pytriz package, Google Cloud deploy, CI/CD.","source":"web"}
+{"id":"itm-007","category":"schedule","event":"evt-build-with-ai-2026","day":6,"date":"2026-07-04","title":"Grand Hackathon","detail":"Cross-functional teams design, build, and launch a complete product. Judged finale.","source":"web"}
+{"id":"itm-008","category":"venue","event":"evt-build-with-ai-2026","title":"Uniwersytet Ekonomiczny we Wrocławiu","detail":"118/120 Komandorska, Wrocław 53-345.","source":"web"}
+{"id":"itm-009","category":"person","role":"judge","event":"evt-build-with-ai-2026","name":"Adrian Romański","detail":"Judge; also Day 3 trainer (frontend architecture, Nx/Angular).","source":"web"}
+{"id":"itm-010","category":"person","role":"judge","event":"evt-build-with-ai-2026","name":"Dawid Perdek","detail":"Judge; also Day 1 trainer (product design, MVP scope).","source":"web"}
+{"id":"itm-011","category":"person","role":"judge","event":"evt-build-with-ai-2026","name":"Marek Mysior","detail":"Judge; also Day 5 trainer (MCP servers, Google Cloud deploy, CI/CD).","source":"web"}
+{"id":"itm-012","category":"person","role":"trainer","event":"evt-build-with-ai-2026","name":"Natalia Kierczuk","detail":"Day 1 trainer.","source":"web"}
+{"id":"itm-013","category":"person","role":"trainer","event":"evt-build-with-ai-2026","name":"Artur Suchwalko","detail":"Day 1 trainer.","source":"web"}
+{"id":"itm-014","category":"person","role":"trainer","event":"evt-build-with-ai-2026","name":"Kinga Witko","detail":"Day 2 trainer (UI/UX, accessibility, AI design systems).","source":"web"}
+{"id":"itm-015","category":"person","role":"trainer","event":"evt-build-with-ai-2026","name":"Witold Iglewski","detail":"Day 2 trainer.","source":"web"}
+{"id":"itm-016","category":"person","role":"trainer","event":"evt-build-with-ai-2026","name":"Przemyslaw Nowak","detail":"Day 2 trainer.","source":"web"}
+{"id":"itm-017","category":"person","role":"trainer","event":"evt-build-with-ai-2026","name":"Julia Rapczynska","detail":"Day 3 trainer.","source":"web"}
+{"id":"itm-018","category":"person","role":"trainer","event":"evt-build-with-ai-2026","name":"Jakub Kubacki","detail":"Day 3 trainer.","source":"web"}
+{"id":"itm-019","category":"person","role":"trainer","event":"evt-build-with-ai-2026","name":"Dominika Zając","detail":"Day 3 trainer.","source":"web"}
+{"id":"itm-020","category":"person","role":"trainer","event":"evt-build-with-ai-2026","name":"Greg Radzio","detail":"Day 4 trainer (fullstack Angular/NestJS, LLM engineering).","source":"web"}
+{"id":"itm-021","category":"person","role":"trainer","event":"evt-build-with-ai-2026","name":"Adam Kowalski","detail":"Day 4 trainer.","source":"web"}
+{"id":"itm-022","category":"person","role":"trainer","event":"evt-build-with-ai-2026","name":"Moksh Atukuri","detail":"Day 5 trainer.","source":"web"}
+{"id":"itm-023","category":"person","role":"trainer","event":"evt-build-with-ai-2026","name":"Jacek Kubiak","detail":"Day 5 trainer.","source":"web"}
+{"id":"itm-024","category":"person","role":"facilitator","event":"evt-build-with-ai-2026","name":"Stanisław Synowiec","source":"web"}
+{"id":"itm-025","category":"person","role":"facilitator","event":"evt-build-with-ai-2026","name":"Michal Hadrysiak","source":"web"}
+{"id":"itm-026","category":"person","role":"facilitator","event":"evt-build-with-ai-2026","name":"Robert Harężlak","source":"web"}
+{"id":"itm-027","category":"person","role":"facilitator","event":"evt-build-with-ai-2026","name":"Krzysztof Krawiec","source":"web"}
+{"id":"itm-028","category":"person","role":"facilitator","event":"evt-build-with-ai-2026","name":"Kamil Dzieniszewski","source":"web"}
+{"id":"itm-029","category":"person","role":"facilitator","event":"evt-build-with-ai-2026","name":"Sebastian Pozoga","source":"web"}
+{"id":"itm-030","category":"person","role":"organizer","event":"evt-build-with-ai-2026","name":"Luka Malakhau","detail":"Software Developer, GDG Wrocław.","source":"web"}
+{"id":"itm-031","category":"person","role":"organizer","event":"evt-build-with-ai-2026","name":"Karol Wrótniak","detail":"GDG Organizer.","source":"web"}
+{"id":"itm-032","category":"tech","event":"evt-build-with-ai-2026","name":"Angular","detail":"Modern signal-based Angular. Frontend. Days 3-4.","source":"web"}
+{"id":"itm-033","category":"tech","event":"evt-build-with-ai-2026","name":"Nx monorepo","detail":"Frontend monorepo tooling. Day 3.","source":"web"}
+{"id":"itm-034","category":"tech","event":"evt-build-with-ai-2026","name":"ng-diagram","detail":"Native diagramming in Angular. Day 3.","source":"web"}
+{"id":"itm-035","category":"tech","event":"evt-build-with-ai-2026","name":"NestJS","detail":"Backend framework connected to Angular. Day 4.","source":"web"}
+{"id":"itm-036","category":"tech","event":"evt-build-with-ai-2026","name":"Docker","detail":"Containerization. Day 4.","source":"web"}
+{"id":"itm-037","category":"tech","event":"evt-build-with-ai-2026","name":"Sequelize ORM + SQL","detail":"Relational data layer. Day 4.","source":"web"}
+{"id":"itm-038","category":"tech","event":"evt-build-with-ai-2026","name":"Gemini","detail":"Core LLM. Days 4-5.","source":"web"}
+{"id":"itm-039","category":"tech","event":"evt-build-with-ai-2026","name":"MCP servers","detail":"Model Context Protocol servers; design→product + tool integration. Days 2 & 5.","source":"web"}
+{"id":"itm-040","category":"tech","event":"evt-build-with-ai-2026","name":"Chrome DevTools MCP","detail":"AI-assisted debugging. Day 3.","source":"web"}
+{"id":"itm-041","category":"tech","event":"evt-build-with-ai-2026","name":"Autonomous agentic loops","detail":"Self-directing agent patterns. Day 4.","source":"web"}
+{"id":"itm-042","category":"tech","event":"evt-build-with-ai-2026","name":"Evaluation scoreboards","detail":"Measure/score LLM output quality. Day 4. High-value differentiator.","source":"web"}
+{"id":"itm-043","category":"tech","event":"evt-build-with-ai-2026","name":"pytriz","detail":"Package for technical problem-solving. Day 5.","source":"web"}
+{"id":"itm-044","category":"tech","event":"evt-build-with-ai-2026","name":"Google Cloud Run","detail":"Deploy target. Day 5.","source":"web"}
+{"id":"itm-045","category":"tech","event":"evt-build-with-ai-2026","name":"Cloud Build / Artifact Registry / Cloud SQL","detail":"CI/CD + managed DB on Google Cloud. Day 5.","source":"web"}
+{"id":"itm-046","category":"sponsor","event":"evt-build-with-ai-2026","name":"meet.js","source":"web"}
+{"id":"itm-047","category":"sponsor","event":"evt-build-with-ai-2026","name":"Sekurak","source":"web"}
+{"id":"itm-048","category":"sponsor","event":"evt-build-with-ai-2026","name":"HackYeah","source":"web"}
+{"id":"itm-049","category":"sponsor","event":"evt-build-with-ai-2026","name":"inQUBE","source":"web"}
+{"id":"itm-050","category":"sponsor","event":"evt-build-with-ai-2026","name":"Wroclaw AI Team","source":"web"}
+{"id":"itm-051","category":"sponsor","event":"evt-build-with-ai-2026","name":"Koło Naukowe Solvro","source":"web"}
+{"id":"itm-052","category":"challenge","event":"evt-build-with-ai-2026","title":"Grand Hackathon problem statement","detail":"UNKNOWN — not published on the web page. Resolve via Discord.","status":"open","source":"gap"}
+{"id":"itm-053","category":"challenge","event":"evt-build-with-ai-2026","title":"Judging criteria & weights","detail":"RESOLVED via Discord #ewaluacja-punktów (Adrian Romański, 2026-06-30). 100 pts = 5 pillars x 20: (1) Product Design & MVP [Day1], (2) UI/UX & A11Y [Day2], (3) Angular/NX/Debugging [Day3], (4) Fullstack NestJS/Architecture/LLM Eng [Day4], (5) Deployment/Scale/Optimization [Day5]. Panel acts as Client+Investor.","status":"resolved","source":"discord"}
+{"id":"itm-053b","category":"challenge","event":"evt-build-with-ai-2026","title":"Criterion Zero (gate)","detail":"App MUST fulfill the assigned domain task; AI/algorithms must return correct, sensible results. If it doesn't solve the assigned problem, project fails Client verification before points count.","status":"resolved","source":"discord"}
+{"id":"itm-054","category":"challenge","event":"evt-build-with-ai-2026","title":"Prizes","detail":"STILL UNKNOWN — not published in scraped channels.","status":"open","source":"gap"}
+{"id":"itm-055","category":"challenge","event":"evt-build-with-ai-2026","title":"Deliverables & demo format","detail":"PARTIAL: judged as a pitch to a Client+Investor panel; product must be working, deployed, market-ready. Exact demo length / repo/URL requirements not yet posted.","status":"partial","source":"discord"}
+{"id":"itm-058","category":"challenge","event":"evt-build-with-ai-2026","title":"Assigned per-team domain task","detail":"STILL UNKNOWN per team. Adrian Romański (2026-07-01) plans an official GDG website listing all teams + their hackathon task.","status":"open","source":"discord"}
+{"id":"itm-059","category":"community","event":"evt-build-with-ai-2026","title":"Discord channel map","detail":"Kanały Ogólne: rozmowy, meme, zdjecia. Warsztaty: dzien-1..5 (+ -rozmowy, -prezentacje). Hackathon: harmonogram (empty), ewaluacja-punktów. Zespoly-Zakwalifikowane: teams-gr-lorikeets (ours, private), lista, prezentacja-druzyn, teams-analisis. Zespoly: teams.","source":"discord"}
+{"id":"itm-060","category":"person","role":"team","event":"evt-build-with-ai-2026","name":"Team Lorikeets","detail":"Our team. Members seen: Adrian Romański, Greg Radzio, Rafał Karpicki, mateusz.chabiniec.","source":"discord"}
+{"id":"itm-061","category":"person","role":"competitor-team","event":"evt-build-with-ai-2026","name":"Competing teams","detail":"Seksowne Gnojki, Rosellas (SYZYGY: Angular/Nx), Giggs (Vue/Angular/NestJS), 404 Terror, Sum Ting Wong, AI4B, Human Agents (incl. judge Dawid Perdek), Deep Blue, The Rectangles.","source":"discord"}
+{"id":"itm-062","category":"resource","event":"evt-build-with-ai-2026","title":"Planned official GDG hackathon website","detail":"Adrian Romański building a site listing attendees, teams, and each team's hackathon task. Watch for URL — will publish domain tasks.","status":"upcoming","source":"discord"}
+{"id":"itm-056","category":"community","event":"evt-build-with-ai-2026","title":"Built with AI - Hackathon (Discord)","detail":"guild 1511768442070499399; 76 members, 22 online; invite discord.gg/ntJnE5xhw; landing channel 'dzien-4-rozmowy'.","source":"discord"}
+{"id":"itm-057","category":"resource","event":"evt-build-with-ai-2026","title":"GDG Wrocław chapter","detail":"gdg.community.dev/gdg-wroclaw/ — 436 members; socials: X, LinkedIn (company/gdg-wroclaw), Facebook (gdgwroclaw).","source":"web"}

@@ -1,0 +1,29 @@
+{
+  "source": "discord_invite_api",
+  "captured_at": "2026-07-02",
+  "invite_code": "ntJnE5xhw",
+  "invite_url": "https://discord.gg/ntJnE5xhw",
+  "invite_expires_at": "2026-08-01T16:14:16+00:00",
+  "invited_by": "mateusz.chabiniec (chabiniec)",
+  "guild": {
+    "id": "1511768442070499399",
+    "name": "Built with AI - Hackathon",
+    "approximate_member_count": 76,
+    "approximate_presence_count": 22,
+    "verification_level": 0,
+    "nsfw": false
+  },
+  "landing_channel": {
+    "id": "1521918566281117696",
+    "name": "dzien-4-rozmowy",
+    "type": "text",
+    "note": "Day 4 chat channel — Day 4 (2 Jul) is today; per-day channels imply the server is organized by hackathon day."
+  },
+  "message_history": {
+    "status": "KEY_CHANNELS_READ_VIA_BROWSER",
+    "method": "chrome-devtools MCP driving the user's own logged-in Discord web session (DOM/a11y snapshots, no bulk crawl).",
+    "channels_read": ["ewaluacja-punktow (judging rubric)", "harmonogram (empty)", "teams-gr-lorikeets (our team)", "teams-analisis (competitor rosters)", "rozmowy (recent chat)"],
+    "captured_into": ["hackathon/judging-criteria.md", "hackathon/competitors.md", "data/items.jsonl"],
+    "full_export_note": "For a complete per-channel .jsonl export, use the bot-token scraper — see SCRAPING.md."
+  }
+}
