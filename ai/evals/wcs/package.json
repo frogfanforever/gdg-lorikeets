@@ -1,0 +1,36 @@
+{
+  "name": "wcs-edd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "slides": "slidev slides/slides.md --open",
+    "slides:build": "slidev build slides/slides.md",
+    "slides:export": "slidev export slides/slides.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lowgular/wcs-edd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Lowgular/wcs-edd/issues"
+  },
+  "homepage": "https://github.com/Lowgular/wcs-edd#readme",
+  "dependencies": {
+    "angular-eslint": "^22.0.0",
+    "eslint": "^10.5.0",
+    "typescript-eslint": "^8.61.0",
+    "web-codegen-scorer": "^0.0.70"
+  },
+  "devDependencies": {
+    "@google/gemini-cli": "^0.47.0",
+    "@slidev/cli": "^52.0.0",
+    "@slidev/theme-default": "^0.25.0",
+    "vue": "^3.5.0"
+  }
+}

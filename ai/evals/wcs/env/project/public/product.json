@@ -1,0 +1,7 @@
+{
+  "id": 1,
+  "name": "Product 1",
+  "description": "This is a beautiful and high-quality product. It comes in several color variants. Choose your favorite color below to preview the product variant.",
+  "price": 100,
+  "image": "https://placehold.co/300x300?text=Product+1"
+}

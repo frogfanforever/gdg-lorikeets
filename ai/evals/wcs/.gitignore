@@ -1,0 +1,15 @@
+# WCS runtime — regenerable, do not commit
+node_modules/
+.web-codegen-scorer/
+.qmd/
+.run-debug/
+tasks/generated/
+.env
+*.log
+safety-web.log
+
+# Angular starter build artifacts (env/project)
+env/project/.angular/
+env/project/dist/
+env/project/out-tsc/
+*.tsbuildinfo

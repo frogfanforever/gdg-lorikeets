@@ -1,0 +1,22 @@
+[
+  {
+    "tab": "Overview",
+    "content": "<p>Welcome to the <strong>Overview</strong>. This section summarises the most important information at a glance.</p>"
+  },
+  {
+    "tab": "Details",
+    "content": "<p>The <strong>Details</strong> tab contains the full specification, including <em>technical attributes</em> and notes.</p>"
+  },
+  {
+    "tab": "Settings",
+    "content": "<p>Adjust your preferences in <strong>Settings</strong>. Changes are illustrative only for this demo.</p>"
+  },
+  {
+    "tab": "History",
+    "content": "<p>The <strong>History</strong> tab lists recent activity and previous revisions.</p>"
+  },
+  {
+    "tab": "Help",
+    "content": "<p>Need a hand? The <strong>Help</strong> tab points you to documentation and support resources.</p>"
+  }
+]

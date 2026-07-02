@@ -14,7 +14,9 @@ ai/evals/
   README.md                 ← this file
   rubric.jsonl              ← machine-readable criteria + checks + points
   scoreboard.py             ← runnable scoreboard (stdlib only)
+  wcs_to_scores.py          ← bridge: WCS report → eval-08 (x3.*) ratings
   scores.example.json       ← sample self-assessment (copy to scores.json)
+  wcs/                      ← vendored web-codegen-scorer harness (powers eval 08)
   criteria/
     00-criterion-zero.md    ← the gate
     01-product-design-mvp.md
@@ -49,12 +51,23 @@ Zero: a great-looking app that doesn't solve the assigned task is disqualified).
 | `scored`   | yes                | 5 pillars, 20 pts each                         |
 | `advisory` | no                 | Tie-breakers & framing (pitch, demo, AI eval) |
 
-## Two ways to fill scores
+## Three ways to fill scores
 - **Self-assessment** — the team rates honestly. Fast, subjective.
 - **LLM-judge** — feed each criterion's judge prompt (in `criteria/*.md`) plus
   evidence (repo, screenshots, live URL) to a model and have it return the
   rating. Repeatable and closer to how the panel will reason. The `criteria/`
   files contain ready-to-paste judge prompts.
+- **WCS (deterministic)** — eval 08 (`x3.*`) is scored by
+  [web-codegen-scorer](https://www.npmjs.com/package/web-codegen-scorer), which
+  generates and grades AI web code 0–100. Use the repo's **`fullRatings`** bar
+  (all custom Angular ratings + axe a11y + build) via **stage 9**:
+  ```bash
+  ( cd wcs && npm install && ./run-task.sh 9 )   # GOOGLE_GENERATIVE_AI_API_KEY required
+  python wcs_to_scores.py wcs/.web-codegen-scorer/reports/stage-9 --merge scores.json
+  python scoreboard.py scores.json
+  ```
+  The WCS harness is vendored at `wcs/` (see `wcs/README.md`).
+  See `criteria/08-ai-output-quality.md` for the full loop.
 
 > These evals are our internal preparation instrument. The real scores come from
 > the panel (Perdek, Romański, Mysior) acting as Client + Investor.

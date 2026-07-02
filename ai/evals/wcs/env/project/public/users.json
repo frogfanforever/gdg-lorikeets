@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "email": "ada.lovelace@example.com",
+    "avatarUrl": "https://i.pravatar.cc/100?img=1",
+    "lastLoggedInAt": 1781288400
+  },
+  {
+    "id": 2,
+    "email": "alan.turing@example.com",
+    "avatarUrl": "https://i.pravatar.cc/100?img=12",
+    "lastLoggedInAt": 1781202000
+  },
+  {
+    "id": 3,
+    "email": "grace.hopper@example.com",
+    "avatarUrl": "https://i.pravatar.cc/100?img=5",
+    "lastLoggedInAt": 1781115600
+  },
+  {
+    "id": 4,
+    "email": "linus.torvalds@example.com",
+    "avatarUrl": "https://i.pravatar.cc/100?img=33",
+    "lastLoggedInAt": 1780943400
+  },
+  {
+    "id": 5,
+    "email": "margaret.hamilton@example.com",
+    "avatarUrl": "https://i.pravatar.cc/100?img=9",
+    "lastLoggedInAt": 1780684200
+  },
+  {
+    "id": 6,
+    "email": "dennis.ritchie@example.com",
+    "avatarUrl": "https://i.pravatar.cc/100?img=51",
+    "lastLoggedInAt": 1780338600
+  }
+]
