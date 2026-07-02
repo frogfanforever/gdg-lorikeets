@@ -48,3 +48,13 @@ python ai/evals/api_eval.py \
   --dataset ai/evals/datasets/example-app/api-cases.jsonl \
   --base-url http://localhost:3000 --include-mutating
 ```
+
+### One-shot gate
+`./eval-all.sh` does the whole loop and always tears down:
+Postgres up → build + serve API → `api_eval --gate` → teardown. It **exits
+non-zero if any case fails**, so it's a drop-in pre-commit / CI gate.
+```bash
+./eval-all.sh                # run the gate
+SCOREBOARD=1 ./eval-all.sh   # also print the full-rubric scoreboard
+```
+

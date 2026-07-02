@@ -42,3 +42,4 @@ Thumbs.db
 .nx/workspace-data
 
 .angular
+eval-results/api-serve.log

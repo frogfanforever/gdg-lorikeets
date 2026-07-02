@@ -19,4 +19,4 @@ Running 16 cases against http://localhost:3000
 
 16/16 passed
 ratings: {"c0.3": 1.0, "c0.4": 1.0, "p4.2": 1.0}
-Merged c0/p4 ratings into /private/tmp/claude-502/-Users-mateusz-chabiniec-lorikeets-gdg-lorikeets/636b31eb-d29d-4e0e-98fc-8e474869c3f2/scratchpad/example-app/eval-results/scores.json
+Merged c0/p4 ratings into /Users/mateusz.chabiniec/lorikeets/gdg-lorikeets/example-app/eval-results/scores.json

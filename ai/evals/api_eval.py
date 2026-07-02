@@ -158,6 +158,7 @@ def main() -> None:
     ap.add_argument("--include-mutating", action="store_true", help="Also run POST/PUT/DELETE cases.")
     ap.add_argument("--timeout", type=float, default=5.0)
     ap.add_argument("--merge", metavar="SCORES", help="Write c0/p4 ratings into this scores JSON.")
+    ap.add_argument("--gate", action="store_true", help="Exit non-zero if any executed case fails (for CI / pre-commit gating).")
     args = ap.parse_args()
 
     cases = load_cases(args.dataset)
@@ -213,6 +214,9 @@ def main() -> None:
         with open(args.merge, "w", encoding="utf-8") as fh:
             json.dump(data, fh, indent=2)
         print(f"Merged c0/p4 ratings into {args.merge}")
+
+    if args.gate and passed < len(executed):
+        raise SystemExit(f"GATE FAILED: {len(executed) - passed}/{len(executed)} case(s) failed")
 
 
 if __name__ == "__main__":
