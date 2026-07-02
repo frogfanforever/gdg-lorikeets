@@ -5,32 +5,19 @@ aliases: [Stack, Required Stack]
 
 # Tech Stack
 
-The stack taught across the week — and, because [[People|the judges are the
-trainers]], effectively the [[Judging Criteria]] in disguise. Source:
-`ai/context/hackathon/tech-stack.md`.
+The stack taught across the week — effectively the [[Judging Criteria]] in disguise,
+since [[People|the judges are the trainers]].
 
-| Layer | Tech | Day |
-|-------|------|-----|
-| Frontend | **Angular** (signals), **Nx** monorepo, **ng-diagram** | 3, 4 |
-| Backend | **NestJS**, **Docker** | 4 |
-| Data | **SQL** + **Sequelize**, **Cloud SQL** | 4, 5 |
-| AI / agents | **Gemini**, **MCP servers**, Chrome DevTools MCP, autonomous agentic loops, **evaluation scoreboards**, `pytriz` | 2, 4, 5 |
-| Cloud | **Cloud Run**, Cloud Build, Artifact Registry (CI/CD) | 5 |
+> 📄 **Canonical:** `ai/context/hackathon/tech-stack.md` (full table + reference
+> architecture).
 
-## Reference architecture
-```
-Angular (Nx, signals) → NestJS (+ Sequelize) → Cloud SQL
-                           ↕
-        MCP server ↔ Gemini + agentic loop
-                           ↓
-     evaluation scoreboard → deployed on Cloud Run (CI/CD)
-```
+- **Frontend:** Angular (signals), Nx, ng-diagram.
+- **Backend/data:** NestJS, Docker, SQL + Sequelize, Cloud SQL.
+- **AI:** Gemini, MCP servers, agentic loops, evaluation scoreboards.
+- **Cloud:** Cloud Run + CI/CD.
 
-## How the evals exercise the stack
-- **Angular quality** (pillar 3) → graded deterministically by [[WCS]] (fullRatings).
-- **Fullstack/backend** (pillar 4) → measured by the [[API Acceptance Eval]].
-- **Evaluation scoreboards** are literally what we build → see [[Eval Suite]].
+How the evals exercise it: Angular quality → [[WCS]]; backend → [[API Acceptance Eval]].
 
-See also: [[Judging Criteria]] · [[Winning Playbook]] · [[Home]]
+See also: [[Winning Playbook]] · [[Home]]
 
 #tech

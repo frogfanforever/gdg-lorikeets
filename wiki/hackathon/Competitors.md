@@ -4,29 +4,14 @@ tags: [hackathon, competitors]
 
 # Competitors
 
-Other teams in [[Build with AI 2026]], scraped from Discord `#teams-analisis`.
-Source: `ai/context/hackathon/competitors.md`. List may be incomplete.
+Other teams in [[Build with AI 2026]], read from Discord `#teams-analisis`.
 
-## Our team
-- **Lorikeets** — Adrian Romański, Greg Radzio, Rafał Karpicki, mateusz.chabiniec.
-  (Note: a judge + a trainer sit in our channel, likely as mentors.)
+> 📄 **Canonical:** `ai/context/hackathon/competitors.md` (full roster + skills).
 
-## Known teams
-| Team | Notable |
-|------|---------|
-| Rosellas | SYZYGY — strong Angular/Nx/SSR |
-| Giggs | Vue3/Nuxt3/Angular/NestJS/MySQL |
-| 404 Terror | — |
-| Sum Ting Wong | — |
-| AI4B | — |
-| Human Agents | incl. judge **Dawid Perdek** |
-| Deep Blue | incl. facilitator Robert Harężlak |
-| Seksowne Gnojki | full strategic .md analysis exists in channel |
-| The Rectangles | — |
-
-## Read on the field
-Several strong Angular teams → frontend polish alone won't differentiate. Lean on
-the **AI/eval + deployment** pillars ([[Winning Playbook]], [[WCS]]).
+- **Our team: Lorikeets** — Adrian Romański, Greg Radzio, Rafał Karpicki,
+  mateusz.chabiniec.
+- Strong Angular teams in the field (Rosellas, Giggs) → frontend polish alone won't
+  differentiate; lean on the AI/eval + deployment pillars ([[Winning Playbook]]).
 
 See also: [[People]] · [[Home]]
 
