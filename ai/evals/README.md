@@ -16,7 +16,10 @@ ai/evals/
   scoreboard.py             ← runnable scoreboard (stdlib only)
   wcs_to_scores.py          ← bridge: WCS report → eval-08 (x3.*) ratings
   scores.example.json       ← sample self-assessment (copy to scores.json)
+  api_eval.py               ← runs an API acceptance dataset → c0/p4 ratings
   wcs/                      ← vendored web-codegen-scorer harness (powers eval 08)
+  datasets/
+    nan-stack/              ← API acceptance data (users/orders) for eval 04 + c0
   criteria/
     00-criterion-zero.md    ← the gate
     01-product-design-mvp.md
@@ -68,6 +71,13 @@ Zero: a great-looking app that doesn't solve the assigned task is disqualified).
   ```
   The WCS harness is vendored at `wcs/` (see `wcs/README.md`).
   See `criteria/08-ai-output-quality.md` for the full loop.
+- **API acceptance (deterministic)** — eval 04 (`p4.2`) and the Criterion Zero
+  gate (`c0.3`, `c0.4`) can be measured against a running NestJS/Sequelize API
+  with `api_eval.py` + `datasets/nan-stack/`:
+  ```bash
+  python api_eval.py --base-url http://localhost:3000 --merge scores.json
+  python scoreboard.py scores.json
+  ```
 
 > These evals are our internal preparation instrument. The real scores come from
 > the panel (Perdek, Romański, Mysior) acting as Client + Investor.

@@ -41,3 +41,14 @@ python scoreboard.py scores.json
 
 `fullRatings` is defined in `env/ratings/index.mjs`:
 all 13 custom Angular ratings + `axeRating` (accessibility) + `successfulBuildRating`.
+
+## Added tech-stack tasks (nan-stack domain)
+`tasks/nan-users-table.md` and `tasks/nan-orders-table.md` (with public fixtures
+`env/project/public/nan-users.json` / `nan-orders.json`) are extra codegen targets
+modelled on the nan-stack domain. They are written **tech-stack-first** — the
+graded bar is modern Angular (signals, standalone, OnPush, typed `type` models,
+`providedIn:'root'` services, reactive fetch, a11y), with the data kept minimal.
+Run a single one with a filter:
+```bash
+./run-task.sh 9 nan-users-table      # fullRatings, just this task
+```

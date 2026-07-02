@@ -26,6 +26,20 @@ measured evaluation of AI output quality or an autonomous agentic loop, not a
 claim. EVIDENCE: <paste>. Return JSON {"p4.1":0..1, ..., "notes":"..."}.
 ```
 
+## Measured data (nan-stack)
+`p4.1`, `p4.2` and the Criterion Zero gate can be **measured**, not self-rated,
+against a real NestJS+Sequelize+Postgres app via the acceptance dataset in
+`../datasets/nan-stack/` (users/orders, pinned to the seed):
+```bash
+cd ai/evals
+python api_eval.py --dry-run                    # validate offline
+python api_eval.py --base-url http://localhost:3000 --merge scores.json
+python scoreboard.py scores.json
+```
+It writes `c0.3` (correctness), `c0.4` (end-to-end), `p4.2` (data layer). The
+relational-integrity and ValidationPipe cases are direct gate evidence. See
+`../datasets/nan-stack/README.md`.
+
 ## Our unfair advantage (p4.5)
 The "evaluation scoreboard" check is exactly what this repo already does:
 `ai/integrations/` ingests signal to `.jsonl`, and `ai/evals/scoreboard.py`
