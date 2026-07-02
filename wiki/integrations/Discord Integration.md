@@ -16,7 +16,8 @@ Scrapes message data from the hackathon Discord into newline-delimited JSON
 The [[Judging Criteria]] rubric and [[Competitors]] roster were read live from the
 **Built with AI - Hackathon** server via the Chrome DevTools MCP driving a
 logged-in session (DOM snapshots). Full history export still needs the bot-token
-scraper — see `ai/context/discord/SCRAPING.md`.
+scraper — see `wiki/discord/SCRAPING.md`. Captured server metadata:
+`wiki/discord/server-metadata.json`.
 
 ## Usage
 ```bash

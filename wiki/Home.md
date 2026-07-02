@@ -34,6 +34,8 @@ an Obsidian vault; each bracketed link below opens a note.
 
 ### Reference
 - [[Glossary]] — terms and tools
+- **Raw data:** `data/` (structured `.jsonl` facts, see `data/README.md`) ·
+  `discord/` (server metadata + how to pull full history)
 
 ## 🔑 The one thing to remember
 Points split **evenly across the 5 workshop days**, and **the judges are the

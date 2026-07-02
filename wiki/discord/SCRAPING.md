@@ -29,7 +29,7 @@ cd ai/integrations/discord
 pip install -r requirements.txt
 export DISCORD_BOT_TOKEN="your-bot-token"
 python scraper.py --guild 1511768442070499399 --limit 1000 \
-  --out ../../context/discord/messages.jsonl
+  --out ../../../wiki/discord/messages.jsonl
 ```
 
 Output is one JSON object per line: `message_id`, `channel_id`, `channel_name`,

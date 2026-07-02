@@ -2,15 +2,16 @@
 
 > Built to win. Let's take this hackathon. 🏆
 
-Team Lorikeets' toolkit for **[Build with AI Wrocław 2026](ai/context/hackathon/build-with-ai-2026.md)**
-(GDG Wrocław, 29 Jun – 4 Jul 2026). Two things live here: **intel** about the event
-scraped from the web + Discord, and an **eval system** that scores our build the way
-the judges will — so we optimize against the real rubric, not a guess.
+Team Lorikeets' toolkit for **Build with AI Wrocław 2026** (GDG Wrocław,
+29 Jun – 4 Jul 2026). Two things live here: **intel** about the event (in the
+`wiki/` knowledge base) and a clean **eval system** (`ai/evals/`) that scores our
+build the way the judges will — so we can evaluate produced code before shipping.
 
 ## 🚀 Why we win
 
-- **We know the rubric.** The official [judging criteria](ai/context/hackathon/judging-criteria.md)
-  are scraped and codified: 100 pts = 5 pillars × 20 + a Criterion Zero gate.
+- **We know the rubric.** The official judging criteria are scraped and codified in
+  the [wiki](wiki/hackathon/Judging%20Criteria.md): 100 pts = 5 pillars × 20 + a
+  Criterion Zero gate.
 - **We measure, not guess.** A runnable [eval scoreboard](ai/evals/) grades the
   project deterministically (WCS for AI-code quality, API acceptance tests for the
   backend).
@@ -21,11 +22,7 @@ the judges will — so we optimize against the real rubric, not a guess.
 
 ```
 ai/
-  context/            scraped hackathon intel (event, rubric, tech stack, people, competitors)
-    hackathon/*.md    the source-of-truth docs
-    data/*.jsonl      categorized structured facts
-    discord/          Discord server metadata + how to pull full history
-  evals/              the eval system (mirrors the judging rubric)
+  evals/              the eval system (mirrors the judging rubric) — clean, run-ready
     rubric.jsonl      machine-readable criteria + points
     scoreboard.py     runnable 0–100 scorer (Criterion Zero gate + 5 pillars)
     criteria/*.md     one doc per criterion (checks, evidence, LLM-judge prompt)
@@ -35,7 +32,12 @@ ai/
     api_eval.py       runs the API dataset → eval ratings
   integrations/
     discord/          community-signal scraper → .jsonl
-wiki/                 Obsidian vault — navigable overview (start at Home.md)
+wiki/                 knowledge base (Obsidian vault) — the single source of context
+  Home.md             start here: map of the hackathon intel + eval system
+  hackathon/          event, rubric, tech stack, people, competitors, playbook
+  evals/              navigation notes for the eval system
+  data/*.jsonl        categorized structured facts
+  discord/            Discord server metadata + how to pull full history
 ```
 
 ## ⚡ Quick start
@@ -73,8 +75,8 @@ python scraper.py --out messages.jsonl
 ## 📚 Learn the repo
 
 Open `wiki/` as an [Obsidian](https://obsidian.md) vault and start at **`Home.md`** —
-an interlinked map of the hackathon intel and the eval system. Prefer plain files?
-The source of truth is `ai/context/` and `ai/evals/`.
+the single, interlinked source of context for the hackathon. The eval tooling lives
+in `ai/evals/` (each criterion documented under `ai/evals/criteria/`).
 
 ## 💪 Team Lorikeets — let's fly
 
