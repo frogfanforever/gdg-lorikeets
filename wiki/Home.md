@@ -28,8 +28,10 @@ an Obsidian vault; each bracketed link below opens a note.
 - [[Scoreboard]] — the runnable 0–100 scorer
 - [[WCS]] — deterministic AI-code scoring (web-codegen-scorer)
 - [[API Acceptance Eval]] — measure the fullstack backend
+- [[MCP Acceptance Eval]] — measure the MCP server (p5.3)
 
 ### Plumbing
+- [[MCP Server]] — the Day-5 TRIZ MCP server (pytriz, FastMCP)
 - [[Discord Integration]] — community-signal scraper
 
 ### Reference

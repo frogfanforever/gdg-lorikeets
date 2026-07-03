@@ -17,9 +17,11 @@ ai/evals/
   wcs_to_scores.py          ← bridge: WCS report → eval-08 (x3.*) ratings
   scores.example.json       ← sample self-assessment (copy to scores.json)
   api_eval.py               ← runs an API acceptance dataset → c0/p4 ratings
+  mcp_eval.py               ← runs an MCP tool acceptance dataset → p5.3 rating
   wcs/                      ← vendored web-codegen-scorer harness (powers eval 08)
   datasets/
     nan-stack/              ← API acceptance data (users/orders) for eval 04 + c0
+    triz-mcp/               ← MCP tool acceptance data (TRIZ server) for eval 05 (p5.3)
   criteria/
     00-criterion-zero.md    ← the gate
     01-product-design-mvp.md
@@ -76,6 +78,14 @@ Zero: a great-looking app that doesn't solve the assigned task is disqualified).
   with `api_eval.py` + `datasets/nan-stack/`:
   ```bash
   python api_eval.py --base-url http://localhost:3000 --merge scores.json
+  python scoreboard.py scores.json
+  ```
+- **MCP acceptance (deterministic)** — eval 05 (`p5.3`, MCP server) can be
+  measured against a running TRIZ MCP server (FastMCP + pytriz) with `mcp_eval.py`
+  + `datasets/triz-mcp/`. Point `--url` at the local or Cloud Run `/mcp` endpoint:
+  ```bash
+  python mcp_eval.py --url http://localhost:8123/mcp --merge scores.json
+  python mcp_eval.py --include-embeddings   # also run the semantic-search tools
   python scoreboard.py scores.json
   ```
 

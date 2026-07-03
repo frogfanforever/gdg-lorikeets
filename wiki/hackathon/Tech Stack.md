@@ -48,8 +48,9 @@ AI-powered design systems. Naming these signals full-lifecycle fluency — the
 
 ## How the evals exercise the stack
 Angular quality (pillar 3) → [[WCS]] (fullRatings). Fullstack/backend (pillar 4) →
-[[API Acceptance Eval]]. Evaluation scoreboards are literally what we build →
-[[Eval Suite]].
+[[API Acceptance Eval]]. MCP server (pillar 5, p5.3) → [[MCP Acceptance Eval]]
+against the [[MCP Server|TRIZ MCP server]]. Evaluation scoreboards are literally
+what we build → [[Eval Suite]].
 
 See also: [[Judging Criteria]] · [[Winning Playbook]] · [[Home]]
 
