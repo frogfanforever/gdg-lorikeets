@@ -12,13 +12,21 @@
 | p5.5 | Performance optimization (bundle, caching, cold-start) | 3 |
 
 ## Evidence to collect
-- The public Cloud Run URL, live during judging.
-- CI/CD config (Cloud Build trigger, Artifact Registry image).
-- The MCP server (repo + a call to one of its tools). Measure `p5.3`
+- **p5.1** — the public Cloud Run URLs, live during judging. Measure
+  deterministically: `python deploy_eval.py --frontend-url … --backend-url …
+  --mcp-url …/mcp --merge scores.json` (probes reachability; add `--gate` as a
+  post-deploy check). Reference topology: 4 Cloud Run services (Angular/Nginx →
+  NestJS/Prisma → ADK agent → MCP) — see the wiki `GCP Deployment` note.
+- **p5.2** — CI/CD config: `cloudbuild.yaml` (builds+pushes all 4 images to
+  Artifact Registry with BuildKit) and the `Makefile` `build-*` / `deploy-*`
+  targets (`gcloud builds submit` / `gcloud run deploy`). Not manual `docker push`.
+- **p5.3** — the MCP server (repo + a call to one of its tools). Measure
   deterministically: `python mcp_eval.py --url <…/mcp> --merge scores.json`
   (dataset `datasets/triz-mcp/`; reference server = TRIZ MCP / pytriz).
-- Cloud SQL connection; note on statelessness.
-- Before/after perf numbers (bundle size, TTFB, cold-start).
+- **p5.4** — Cloud SQL (Postgres 15) via `--add-cloudsql-instances` socket / Auth
+  Proxy; note statelessness (services carry no local state; Prisma `db push` on boot).
+- **p5.5** — `--min-instances=1` (warm) + MCP 2Gi for cold-start; Cloud Logging
+  for observability; before/after perf numbers (bundle size, TTFB, cold-start).
 
 ## LLM-judge prompt
 ```

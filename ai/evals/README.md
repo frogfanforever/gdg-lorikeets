@@ -18,6 +18,7 @@ ai/evals/
   scores.example.json       ← sample self-assessment (copy to scores.json)
   api_eval.py               ← runs an API acceptance dataset → c0/p4 ratings
   mcp_eval.py               ← runs an MCP tool acceptance dataset → p5.3 rating
+  deploy_eval.py            ← probes live Cloud Run endpoints → p5.1 rating
   wcs/                      ← vendored web-codegen-scorer harness (powers eval 08)
   datasets/
     nan-stack/              ← API acceptance data (users/orders) for eval 04 + c0
@@ -86,6 +87,16 @@ Zero: a great-looking app that doesn't solve the assigned task is disqualified).
   ```bash
   python mcp_eval.py --url http://localhost:8123/mcp --merge scores.json
   python mcp_eval.py --include-embeddings   # also run the semantic-search tools
+  python scoreboard.py scores.json
+  ```
+- **Deploy reachability (deterministic)** — eval 05 (`p5.1`, live on Cloud Run)
+  can be measured against the deployed stack (Cloud Build CI/CD → Cloud Run, per
+  the workshop's `gcp-deploy` branch) with `deploy_eval.py`. Pass whichever
+  service URLs you have:
+  ```bash
+  python deploy_eval.py --frontend-url https://…run.app \
+    --backend-url https://…run.app --mcp-url https://…run.app/mcp \
+    --merge scores.json --gate
   python scoreboard.py scores.json
   ```
 

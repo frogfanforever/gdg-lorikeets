@@ -26,6 +26,12 @@ Two containers:
   used by pytriz for the semantic-search tools. On Cloud Run this needs a GPU
   (NVIDIA L4; the Dockerfile pins `ollama/ollama:0.23.4` for L4 compatibility).
 
+> **Branch note:** the above is the `main` branch. On the deployable `gcp-deploy`
+> branch the MCP server is **self-contained** — `get_store()` is just
+> `TRIZStore()` (no Ollama), so no embeddings container to run — and it's one of
+> **4 Cloud Run services**, called by a **Google ADK agent** via `McpToolset`
+> (Streamable HTTP). See [[GCP Deployment]].
+
 ```
 LLM / MCP client ──Streamable HTTP──► FastMCP (/mcp)
                                          │  pytriz TRIZStore
@@ -56,6 +62,6 @@ tool *we* deployed and watch it solve a real engineering contradiction live.
 [[Criterion Zero]]. We measure it deterministically with the
 [[MCP Acceptance Eval]] → `p5.3`.
 
-See also: [[Tech Stack]] · [[Eval Suite]] · [[Discord Integration]] · [[Home]]
+See also: [[Tech Stack]] · [[GCP Deployment]] · [[Eval Suite]] · [[Discord Integration]] · [[Home]]
 
 #integration #tool #ai

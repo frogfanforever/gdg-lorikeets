@@ -16,11 +16,12 @@ panel will, find gaps, fix them before the finale. Mirrors the [[Judging Criteri
 - [[WCS]] — deterministic AI-code scoring
 - [[API Acceptance Eval]] — fullstack backend measurement
 - [[MCP Acceptance Eval]] — MCP server measurement (p5.3)
+- [[Deploy Reachability Eval]] — live Cloud Run deployment (p5.1)
 
 ## Fill scores three ways
 Self-assessment · LLM-judge (prompts in `criteria/*.md`) · **deterministic**
-([[WCS]] + [[API Acceptance Eval]] + [[MCP Acceptance Eval]], all `--merge` into
-`scores.json`).
+([[WCS]] + [[API Acceptance Eval]] + [[MCP Acceptance Eval]] +
+[[Deploy Reachability Eval]], all `--merge` into `scores.json`).
 
 See also: [[Winning Playbook]] · [[Home]]
 
