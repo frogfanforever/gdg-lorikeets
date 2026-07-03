@@ -29,8 +29,10 @@ an Obsidian vault; each bracketed link below opens a note.
 - [[WCS]] — deterministic AI-code scoring (web-codegen-scorer)
 - [[API Acceptance Eval]] — measure the fullstack backend
 - [[MCP Acceptance Eval]] — measure the MCP server (p5.3)
+- [[Deploy Reachability Eval]] — measure the live deployment (p5.1)
 
 ### Plumbing
+- [[GCP Deployment]] — Day-5 Cloud Run + Cloud Build CI/CD (4-service stack)
 - [[MCP Server]] — the Day-5 TRIZ MCP server (pytriz, FastMCP)
 - [[Discord Integration]] — community-signal scraper
 

@@ -9,10 +9,15 @@ check `p5.3`** — "MCP server built and/or integrated" — it measures whether 
 running MCP server actually registers its tools and returns correct results.
 
 ## The server
-Two containers (see the workshop repo):
+Two containers on the `main` branch (see the workshop repo):
 - `mcp-server/` — FastMCP app (`stateless_http=True`, `json_response=True`),
   listens on `MCP_PORT` (default `8123`), endpoint `POST /mcp`.
 - `embeddings/` — Ollama serving `embeddinggemma:300m` for pytriz semantic search.
+
+> **Branch note:** on the deployable `gcp-deploy` branch the MCP server is
+> **self-contained** (`get_store()` = `TRIZStore()`, no external embeddings), so
+> the `needs_embeddings` gating below is only required against `main`. Point
+> `--url` at the deployed `…run.app/mcp` to score `p5.3` on the live service.
 
 Six registered tools:
 

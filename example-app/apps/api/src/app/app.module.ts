@@ -16,7 +16,11 @@ import { TaskModule } from './task/task.module';
       database: process.env.DB_NAME || 'example',
       models: [Project, Task],
       autoLoadModels: true,
-      synchronize: false,
+      // Off by default (local dev + evals use the pre-seeded schema in docker/init).
+      // Set DB_SYNC=true in Cloud Run so the API creates its own tables on boot.
+      // For Cloud SQL, DB_HOST is the unix socket dir (/cloudsql/<conn>); the pg
+      // driver connects via socket automatically when host is a filesystem path.
+      synchronize: process.env.DB_SYNC === 'true',
     }),
     ProjectModule,
     TaskModule,

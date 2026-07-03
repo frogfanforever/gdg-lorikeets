@@ -58,3 +58,29 @@ non-zero if any case fails**, so it's a drop-in pre-commit / CI gate.
 SCOREBOARD=1 ./eval-all.sh   # also print the full-rubric scoreboard
 ```
 
+## Deploy to Google Cloud ☁️
+Two **Cloud Run** services (API + Angular/Nginx) backed by **Cloud SQL** (Postgres),
+built and pushed via **Cloud Build → Artifact Registry** — the pillar-5 stack. See
+`deploy/`:
+- `apps/api/Dockerfile`, `apps/frontend/Dockerfile` + `apps/frontend/nginx.conf`
+  (Nginx serves the SPA and reverse-proxies `/api` to the backend — same-origin,
+  no CORS).
+- `deploy/cloudbuild.yaml` — builds + pushes both images.
+- `deploy/deploy.sh` — one idempotent flow: enable APIs → Artifact Registry →
+  Cloud SQL → Cloud Build → deploy both services (Cloud SQL socket, dynamic URL
+  injection) → seed 3 projects + 6 tasks via the live API → print URLs.
+
+```bash
+gcloud auth login
+PROJECT=<your-gcp-project> ./deploy/deploy.sh            # deploy (region defaults to europe-west1)
+PROJECT=<your-gcp-project> ./deploy/deploy.sh cleanup    # tear it all down
+```
+The API creates its own schema on boot when `DB_SYNC=true` (set by `deploy.sh`);
+locally the schema/seed still comes from `docker/init/` so dev + evals are
+unchanged. Verify a live deploy with `python ai/evals/deploy_eval.py
+--frontend-url <url> --backend-url <url> --tls-check` (→ rating `p5.1`).
+
+> **Live reference deploy** (project `my-gdg-lorikeets`, europe-west1, 2026-07-03):
+> frontend `https://example-frontend-410644511969.europe-west1.run.app`, API
+> `…/api`. `deploy_eval` = `p5.1 1.0`. Ephemeral — may be torn down to avoid charges.
+
