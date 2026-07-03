@@ -15,10 +15,12 @@ panel will, find gaps, fix them before the finale. Mirrors the [[Judging Criteri
 - [[Criterion Zero]] — the pass/fail gate
 - [[WCS]] — deterministic AI-code scoring
 - [[API Acceptance Eval]] — fullstack backend measurement
+- [[MCP Acceptance Eval]] — MCP server measurement (p5.3)
 
 ## Fill scores three ways
 Self-assessment · LLM-judge (prompts in `criteria/*.md`) · **deterministic**
-([[WCS]] + [[API Acceptance Eval]], both `--merge` into `scores.json`).
+([[WCS]] + [[API Acceptance Eval]] + [[MCP Acceptance Eval]], all `--merge` into
+`scores.json`).
 
 See also: [[Winning Playbook]] · [[Home]]
 

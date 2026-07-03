@@ -14,7 +14,9 @@
 ## Evidence to collect
 - The public Cloud Run URL, live during judging.
 - CI/CD config (Cloud Build trigger, Artifact Registry image).
-- The MCP server (repo + a call to one of its tools).
+- The MCP server (repo + a call to one of its tools). Measure `p5.3`
+  deterministically: `python mcp_eval.py --url <…/mcp> --merge scores.json`
+  (dataset `datasets/triz-mcp/`; reference server = TRIZ MCP / pytriz).
 - Cloud SQL connection; note on statelessness.
 - Before/after perf numbers (bundle size, TTFB, cold-start).
 
