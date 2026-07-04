@@ -1,5 +1,5 @@
 # Multi-stage build for the Angular frontend, served by Nginx (Nx monorepo).
-# Build context = example-app/ root.
+# Build context = solvermaster/ root.
 FROM node:20-alpine AS builder
 WORKDIR /usr/src/app
 

@@ -1,0 +1,44 @@
+# Build → push → deploy the Angular frontend to Cloud Run. The deploy step wires the
+# nginx /api proxy to the live solver-api URL at deploy time. Submit from solvermaster/:
+#   gcloud builds submit --config apps/frontend/cloudbuild.yaml --substitutions=_TAG=<sha> .
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'build', '-f', 'apps/frontend/Dockerfile',
+      '-t', '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/solver-frontend:${_TAG}',
+      '-t', '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/solver-frontend:latest',
+      '.'
+    ]
+    env: ['DOCKER_BUILDKIT=1']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', '--all-tags', '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/solver-frontend']
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        set -e
+        BACKEND=$$(gcloud run services describe ${_BACKEND_SERVICE} --region=${_REGION} --format='value(status.url)')
+        echo "wiring frontend /api → $$BACKEND"
+        gcloud run deploy ${_SERVICE} \
+          --image ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/solver-frontend:${_TAG} \
+          --region ${_REGION} --platform managed --allow-unauthenticated --port 8080 \
+          --min-instances 0 --max-instances 3 \
+          --set-env-vars BACKEND_URL=$$BACKEND
+
+images:
+  - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/solver-frontend:${_TAG}'
+  - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/solver-frontend:latest'
+
+substitutions:
+  _REGION: 'europe-west1'
+  _REPO: 'solvermaster-repo'
+  _SERVICE: 'solver-frontend'
+  _BACKEND_SERVICE: 'solver-api'
+  _TAG: 'manual'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: 'E2_HIGHCPU_8'
