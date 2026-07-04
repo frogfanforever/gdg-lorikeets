@@ -57,8 +57,21 @@ method registry, in-memory `StepResult` store, stub LLM seam). Same wire contrac
 (Actions + WIF → Cloud Build → Cloud Run `solver-api`) on every push under
 `solvermaster/apps/solver-api/**`.
 
+### Live services & CI/CD (all Cloud Run, europe-west1, public)
+| Service | What | URL |
+|---------|------|-----|
+| `solver-be` | Python MVP (stdlib) | `https://solver-be-66obdg3tha-ew.a.run.app` |
+| `solver-api` | **NestJS/Nx** (target stack) | `https://solver-api-66obdg3tha-ew.a.run.app` |
+| `solver-frontend` | **Angular/Nx** (Nginx, proxies `/api` → solver-api) | `https://solver-frontend-66obdg3tha-ew.a.run.app` |
+
+Each has a GitHub Actions workflow (`.github/workflows/deploy-*.yml`) that, on push to
+`main` under its paths, authenticates via **Workload Identity Federation** (keyless)
+and runs **Cloud Build** → Artifact Registry (tagged by commit SHA) → `gcloud run
+deploy`. `deploy_eval` `p5.1 = 1.0` across the deployed stack.
+
 Next slices: generate candidates (per method) → evaluate → select → trail; then the
-edit → `resume_from` → version loop; then in-memory store → Prisma + Cloud SQL.
+edit → `resume_from` → version loop; then in-memory store → Prisma + Cloud SQL; and a
+solver-specific Angular UI (the current frontend is the demo placeholder).
 
 ## Maps to the event graph
 Orchestrator ↔ backbone sequencing · method adapters ↔ *Candidates Generated (per
