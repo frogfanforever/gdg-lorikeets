@@ -43,6 +43,13 @@ into one hostable process for now (same contract when split later). Eval:
 python -m ai.solver.service            # host on :8080 (stub LLM, sqlite)
 python ai/evals/be_eval.py --base-url http://localhost:8080 --gate
 ```
+**Deployed & CI/CD:** live on Cloud Run at
+`https://solver-be-66obdg3tha-ew.a.run.app` (project `my-gdg-lorikeets`, europe-west1,
+public). Every push to `main` under `ai/solver/**` triggers **GitHub Actions →
+Workload Identity Federation (keyless) → Cloud Build** (`ai/solver/service/cloudbuild.yaml`),
+publishing a new Cloud Run revision tagged with the commit SHA. `be_eval` = 9/9,
+`deploy_eval` `p5.1 = 1.0` against the live URL.
+
 Next slices: generate candidates (per method) → evaluate → select → trail; then the
 edit → `resume_from` → version loop; then split into NestJS + Postgres.
 

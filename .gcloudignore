@@ -1,0 +1,16 @@
+# Keep `gcloud builds submit` uploads small. The solver-be Dockerfile only COPYs ai/,
+# so everything else is excluded from the build context.
+.git/
+**/node_modules/
+**/dist/
+**/.nx/
+**/__pycache__/
+**/*.pyc
+**/.venv/
+.venv/
+**/.DS_Store
+
+# Not needed to build the solver-be image:
+example-app/
+wiki/
+ai/evals/wcs/
