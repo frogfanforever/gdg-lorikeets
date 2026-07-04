@@ -27,10 +27,22 @@ one prompt dressed up to look structured.
 > beside it. So the backbone says "Candidate Solutions Generated (per method)", never
 > "TRIZ queried" — the pipeline runs whatever methods are configured.
 
+**Iterative & editable by design.** The pipeline is not a one-shot run: **every step
+records metadata** (inputs, output, method, model + params, tokens/cost, timestamp,
+duration, run version), the user can **edit any step's reasoning**, which **invalidates
+the downstream steps** and **re-runs the pipeline from there**, and **each iteration is
+saved as a new version**. That editable-rerun loop is the product's core UX and its
+Criterion-Zero credibility (every step is inspectable *and* correctable).
+
 > ▶️ **Do it here:** open **[[Event Storming — TRIZ Solver.canvas|the board]]** (an
-> Obsidian canvas). It currently holds **only the domain-event backbone** (the
-> Big-Picture level). Enrich it (commands, actors, policies…) in later passes using
-> the legend below. Capture each session with the [[Session Template]].
+> Obsidian canvas). It holds the **domain-event backbone** (top row) plus the
+> **iteration lane** (edit → invalidate → re-run → version) looping back into it.
+> Events only for now; enrich (commands, actors, policies…) in later passes using the
+> legend below. Capture each session with the [[Session Template]].
+
+> 🔍 **Zoom-ins:** [[Event Storming — Detail (Generation & Metadata).canvas|the detail
+> board]] expands two backbone events — *Candidates Generated (per method)* (per-method
+> fan-out → converge) and *Step Result Recorded* (lifecycle + the `StepResult` schema).
 
 ## 🎨 Sticky legend
 Standard Event Storming colours, and how we map them onto Obsidian canvas colours

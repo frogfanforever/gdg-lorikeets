@@ -19,6 +19,21 @@ not a prompt) runs them.
 exact events on [[Event Storming — TRIZ Solver.canvas|the board]]. Each step is
 independently inspectable/testable; only candidate *text* comes from the LLM.
 
+## Iterative & editable (product requirement)
+The pipeline must run as **individually re-runnable, metadata-logging steps**, not a
+single call:
+- **Persist per step** — inputs, output, method, model + params, tokens/cost,
+  timestamp, duration, and a **run version**. (Scaffold TODO: a `StepResult` record +
+  a store; today `pipeline.solve()` runs straight through.)
+- **Edit any step** — the user overrides a step's input/output; this **invalidates all
+  downstream steps** and **re-runs from that step** (upstream results are reused).
+- **Version each iteration** — every (partial) re-run is saved so runs are comparable.
+
+Design implication for `ai/solver/`: steps become addressable units keyed by
+`(run_id, step)`; `solve()` gains a `resume_from(step, overrides)` path that reuses
+cached upstream `StepResult`s and recomputes the rest. See the iteration lane on the
+board.
+
 ## The two methods
 - **TRIZ** (mandatory) — reframe as a contradiction, look up the 39-parameter matrix
   via the [[MCP Server|TRIZ MCP server]] (`pytriz`), turn each Inventive Principle
