@@ -59,8 +59,8 @@ make show-urls        # live Cloud Run URLs
 ```
 
 ## Our live deploy (proof it works end-to-end)
-The repo's `example-app` (NestJS + Sequelize + Angular) is **already deployed** with
-this exact pattern — see `example-app/deploy/` (`cloudbuild.yaml` + `deploy.sh`, a
+The repo's `solvermaster` workspace (NestJS + Sequelize + Angular) is **already
+deployed** with this pattern — see `solvermaster/deploy/` (`cloudbuild.yaml` + `deploy.sh`, a
 one-command idempotent flow). Two Cloud Run services (API + Angular/Nginx) on Cloud
 SQL Postgres, europe-west1, seeded via the live API. Differences from the workshop
 reference: **Sequelize** (not Prisma), `synchronize` gated behind `DB_SYNC`, and the

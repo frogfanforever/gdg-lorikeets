@@ -50,8 +50,15 @@ Workload Identity Federation (keyless) → Cloud Build** (`ai/solver/service/clo
 publishing a new Cloud Run revision tagged with the commit SHA. `be_eval` = 9/9,
 `deploy_eval` `p5.1 = 1.0` against the live URL.
 
+**NestJS realization (the target stack):** the same endpoint is now also implemented
+as **`solvermaster/apps/solver-api`** — a NestJS app in the Nx monorepo (pluggable
+method registry, in-memory `StepResult` store, stub LLM seam). Same wire contract, so
+`be_eval` passes **9/9** against it too. CI/CD: `.github/workflows/deploy-solver-api.yml`
+(Actions + WIF → Cloud Build → Cloud Run `solver-api`) on every push under
+`solvermaster/apps/solver-api/**`.
+
 Next slices: generate candidates (per method) → evaluate → select → trail; then the
-edit → `resume_from` → version loop; then split into NestJS + Postgres.
+edit → `resume_from` → version loop; then in-memory store → Prisma + Cloud SQL.
 
 ## Maps to the event graph
 Orchestrator ↔ backbone sequencing · method adapters ↔ *Candidates Generated (per

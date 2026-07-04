@@ -1,0 +1,9 @@
+# Keep the Cloud Build upload small; the Dockerfile npm-installs, so no need to ship
+# node_modules / build outputs.
+.git/
+node_modules/
+dist/
+tmp/
+.nx/
+**/*.log
+.DS_Store

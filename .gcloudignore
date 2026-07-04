@@ -11,6 +11,6 @@
 **/.DS_Store
 
 # Not needed to build the solver-be image:
-example-app/
+solvermaster/
 wiki/
 ai/evals/wcs/

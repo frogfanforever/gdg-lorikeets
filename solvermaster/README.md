@@ -1,13 +1,16 @@
-# example-app
+# solvermaster
 
-A bootstrapped **Nx monorepo** on the hackathon stack, built as the first
-"produce code → eval → then commit" cycle. Domain: **projects & tasks**.
+The product **Nx monorepo** (formerly `example-app`) on the hackathon stack. Hosts
+the real inventive-problem solver plus the original demo.
 
 ```
-example-app/
+solvermaster/
   apps/
-    api/        NestJS + Sequelize REST API (projects, tasks)
-    frontend/   Angular (standalone, signals, OnPush) reading the API
+    solver-api/ NestJS backend for the solver — POST /runs → contradiction per method
+                (ported from ai/solver/service; see apps/solver-api + its Dockerfile
+                + cloudbuild.yaml; CI/CD via .github/workflows/deploy-solver-api.yml)
+    api/        NestJS + Sequelize REST API (projects, tasks) — original demo
+    frontend/   Angular (standalone, signals, OnPush) reading the demo API
   docker/
     docker-compose.yml     Postgres 16
     init/                  schema + seed (3 projects, 6 tasks)
