@@ -15,7 +15,15 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@solvermaster/ui": ["libs/ui/src/index.ts"]
+      "@solvermaster/ui": ["libs/ui/src/index.ts"],
+      "@solvermaster/data-access": ["libs/data-access/src/index.ts"],
+      "@solvermaster/pages/shell": ["libs/pages/shell/src/index.ts"],
+      "@solvermaster/pages/problem": ["libs/pages/problem/src/index.ts"],
+      "@solvermaster/pages/contradiction": ["libs/pages/contradiction/src/index.ts"],
+      "@solvermaster/pages/mapping": ["libs/pages/mapping/src/index.ts"],
+      "@solvermaster/pages/generation": ["libs/pages/generation/src/index.ts"],
+      "@solvermaster/pages/evaluation": ["libs/pages/evaluation/src/index.ts"],
+      "@solvermaster/pages/choice": ["libs/pages/choice/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
