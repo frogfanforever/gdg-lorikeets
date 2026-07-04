@@ -10,6 +10,8 @@
     "../src/**/*.stories.jsx",
     "../src/**/*.stories.tsx",
     "../src/**/*.stories.mdx",
+    "../../../libs/ui/src/**/*.stories.ts",
+    "../../../libs/ui/src/**/*.stories.mdx",
     "*.js",
     "*.ts"
   ]

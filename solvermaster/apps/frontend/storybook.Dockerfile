@@ -6,7 +6,10 @@ COPY package*.json ./
 RUN npm install --legacy-peer-deps
 
 COPY . .
-RUN npx nx build-storybook frontend
+# CI=true + telemetry opt-out so the build never blocks on Storybook's
+# interactive "send anonymous crash reports?" prompt (no stdin in the container).
+ENV CI=true STORYBOOK_DISABLE_TELEMETRY=1 STORYBOOK_TELEMETRY_DISABLED=1
+RUN npx nx build-storybook frontend --configuration ci
 
 # --- Nginx runtime ---
 FROM nginx:alpine
