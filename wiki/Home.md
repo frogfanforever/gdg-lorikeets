@@ -15,6 +15,11 @@ an Obsidian vault; each bracketed link below opens a note.
 - [[Project Overview]] — what this repo is and why
 - [[Winning Playbook]] — how we take first place
 
+### Product design (Day 1)
+- [[Event Storming]] — model the TRIZ-solver domain before we build
+- [[Event Storming — TRIZ Solver.canvas|The board]] — the working canvas
+- [[Session Template]] — capture each storming session
+
 ### Hackathon intel
 - [[Build with AI 2026]] — the event (6-day agenda, venue, dates)
 - [[Judging Criteria]] — the official rubric (100 pts + gate)
