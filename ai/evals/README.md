@@ -19,10 +19,12 @@ ai/evals/
   api_eval.py               ← runs an API acceptance dataset → c0/p4 ratings
   mcp_eval.py               ← runs an MCP tool acceptance dataset → p5.3 rating
   deploy_eval.py            ← probes live Cloud Run endpoints → p5.1 rating
+  be_eval.py                ← runs the solver-BE acceptance dataset → c0/p4.1 ratings
   wcs/                      ← vendored web-codegen-scorer harness (powers eval 08)
   datasets/
     nan-stack/              ← API acceptance data (users/orders) for eval 04 + c0
     triz-mcp/               ← MCP tool acceptance data (TRIZ server) for eval 05 (p5.3)
+    solver-be/              ← solver BE acceptance data (define problem → contradictions)
   criteria/
     00-criterion-zero.md    ← the gate
     01-product-design-mvp.md
