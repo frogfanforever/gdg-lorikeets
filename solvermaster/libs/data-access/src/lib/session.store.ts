@@ -1,7 +1,16 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { ApiService } from './api.service';
-import { SessionState } from './models';
+import { Candidate, SessionState } from './models';
+
+const EXAMPLE_CANDIDATES: Candidate[] = [
+  { name: 'Materiały kompozytowe', tag: 'TRIZ', scores: { e: 5, i: 4, z: 2, w: 3 } },
+  { name: 'Segmentacja', tag: 'TRIZ', scores: { e: 3, i: 3, z: 4, w: 5 } },
+  { name: 'SCAMPER: Combine', tag: 'SCMP', scores: { e: 4, i: 5, z: 3, w: 2 } },
+  { name: 'Koncept własny', tag: 'TY', scores: { e: 4, i: 4, z: 4, w: 4 } },
+];
+
+const score = (id: number, mult: number) => 2 + ((id * mult) % 4); // deterministic 2..5
 
 /** Global signal store for the solver flow: current session + busy/error, shared
  *  across the page features. The shell reads `busy` to show the loader overlay. */
@@ -17,6 +26,23 @@ export class SessionStore {
   readonly stepIndex = signal(0);
 
   readonly hasSession = computed(() => this.session() !== null);
+
+  /** Candidate pool for evaluation/choice — from the matrix principles (TRIZ) plus a
+   *  SCAMPER + own-concept stand-in; falls back to the design's example set. */
+  readonly candidates = computed<Candidate[]>(() => {
+    const principles = this.session()?.matrix?.principles ?? [];
+    if (!principles.length) return EXAMPLE_CANDIDATES;
+    const triz: Candidate[] = principles.slice(0, 3).map((p) => ({
+      name: p.name,
+      tag: 'TRIZ' as const,
+      scores: { e: score(p.id, 7), i: score(p.id, 13), z: score(p.id, 17), w: score(p.id, 23) },
+    }));
+    return [
+      ...triz,
+      { name: 'SCAMPER: Combine', tag: 'SCMP', scores: { e: 4, i: 5, z: 3, w: 2 } },
+      { name: 'Koncept własny', tag: 'TY', scores: { e: 4, i: 4, z: 4, w: 4 } },
+    ];
+  });
 
   private run<T extends SessionState>(obs: Observable<T>): Observable<T> {
     this.busy.set(true);

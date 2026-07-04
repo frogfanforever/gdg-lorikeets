@@ -31,3 +31,17 @@ export const STEPS = [
   { key: 'evaluation', label: 'Ocena' },
   { key: 'choice', label: 'Wybór' },
 ] as const;
+
+/** Evaluation criteria (blind rubric, 1–5). */
+export const CRITERIA = [
+  { key: 'e', label: 'Eliminacja' },
+  { key: 'i', label: 'Idealność' },
+  { key: 'z', label: 'Zasoby' },
+  { key: 'w', label: 'Wykonalność' },
+] as const;
+
+export interface Candidate {
+  name: string;
+  tag: 'TRIZ' | 'SCMP' | 'TY';
+  scores: { e: number; i: number; z: number; w: number };
+}
