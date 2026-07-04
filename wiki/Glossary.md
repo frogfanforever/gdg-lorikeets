@@ -24,5 +24,17 @@ Terms and tools across the wiki. See [[Home]] for the map.
   (pillar 5, [[Tech Stack]]).
 - **A11Y** — accessibility; a full 20-pt pillar (Day 2) and the axe gate in [[WCS]].
 - **Client + Investor** — the roles the panel plays when judging ([[Judging Criteria]]).
+- **[[Event Storming]]** — Day-1 domain-modelling with coloured stickies: a timeline
+  of **domain events** (past tense) enriched with commands, actors, policies,
+  read models, and **hotspots**.
+- **domain event** — in [[Event Storming]], a past-tense fact ("Contradiction
+  Identified") on the orange backbone.
+- **hotspot** — a red Event Storming sticky: a conflict, risk, or open question to
+  capture (not solve) — often becomes an [[Eval Suite]] check.
+- **aggregate** — a consistency boundary that handles commands and emits events; the
+  Software-Design output of [[Event Storming]] that maps to a service/module.
+- **TRIZ** — Theory of Inventive Problem Solving; the app's solution *criterion*
+  (39 parameters → contradiction matrix → Inventive Principles), via the
+  [[MCP Server|TRIZ MCP server]].
 
 #reference
