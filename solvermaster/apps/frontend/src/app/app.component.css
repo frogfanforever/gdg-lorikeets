@@ -1,0 +1,22 @@
+/* Rough, deliberately minimal — placeholder until the design system lands. */
+.wrap { font-family: system-ui, sans-serif; max-width: 760px; margin: 1.5rem auto; padding: 0 1rem; color: #1a1a1a; }
+h1 { font-size: 1.4rem; }
+.rough { font-size: .6rem; background: #ffe08a; padding: .1rem .4rem; border-radius: 4px; vertical-align: middle; }
+.card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin: 1rem 0; }
+.card h2 { margin: 0 0 .6rem; font-size: 1.05rem; }
+.in { display: block; width: 100%; margin: .4rem 0; padding: .5rem; border: 1px solid #ccc; border-radius: 6px; font: inherit; box-sizing: border-box; }
+.num { width: 5rem; margin-left: .3rem; }
+button { background: #2b6cb0; color: #fff; border: 0; border-radius: 6px; padding: .5rem .8rem; cursor: pointer; font: inherit; }
+button:disabled { opacity: .5; cursor: default; }
+.chip { background: #edf2f7; color: #2b6cb0; border: 1px solid #cbd5e0; padding: .25rem .5rem; margin: .2rem; border-radius: 999px; font-size: .85rem; }
+.link { background: none; color: #2b6cb0; text-decoration: underline; padding: .3rem 0; }
+.row { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; margin: .5rem 0; }
+.alts { margin: .3rem 0; }
+.conf { color: #2f855a; font-weight: 600; margin-left: .3rem; }
+.sel { font-size: .75rem; color: #666; margin-right: .8rem; }
+.muted { color: #888; font-size: .85rem; }
+.err { color: #c53030; }
+.detail { background: #fafafa; }
+.rec { background: #f0fff4; border-color: #9ae6b4; }
+.ver { font-size: .7rem; background: #c6f6d5; padding: .1rem .4rem; border-radius: 4px; }
+ul, ol { margin: .3rem 0 .6rem 1.2rem; }
