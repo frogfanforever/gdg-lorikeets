@@ -20,6 +20,7 @@ an Obsidian vault; each bracketed link below opens a note.
 - [[Event Storming — TRIZ Solver.canvas|The board]] — the working canvas
 - [[Session Template]] — capture each storming session
 - [[Concept Generation Methods]] — TRIZ + SCAMPER pluggable solver (`ai/solver/`)
+- [[Backend Architecture]] — service topology fitted to the pipeline
 
 ### Hackathon intel
 - [[Build with AI 2026]] — the event (6-day agenda, venue, dates)
