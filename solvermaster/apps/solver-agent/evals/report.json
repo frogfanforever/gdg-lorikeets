@@ -1,0 +1,190 @@
+{
+  "timestamp": "2026-07-04T11:24:34.713Z",
+  "model": "gemini-2.5-flash",
+  "mcpServerUrl": "https://triz-mcp-server-66obdg3tha-ew.a.run.app/mcp",
+  "cases": [
+    {
+      "id": "ewaste-recovery",
+      "problem": "Zaproponuj sposób na zwiększenie bezpiecznego odzysku materiałów z elektrośmieci, przy zachowaniu rocznych upgrade'ów telefonów.",
+      "checks": [
+        {
+          "name": "output_valid",
+          "ok": false,
+          "detail": "runAgent threw: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [400 Bad Request] Invalid JSON payload received. Unknown name \"$schema\" at 'generation_config.response_schema': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[0].value.items.properties[0].value': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[0].value.items.properties[1].value': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[0].value.items': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[1].value.items': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema': Cannot find field. [{\"@type\":\"type.googleapis.com/google.rpc.BadRequest\",\"fieldViolations\":[{\"field\":\"generation_config.response_schema\",\"description\":\"Invalid JSON payload received. Unknown name \\\"$schema\\\" at 'generation_config.response_schema': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[0].value.items.properties[0].value\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[0].value.items.properties[0].value': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[0].value.items.properties[1].value\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[0].value.items.properties[1].value': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[0].value.items\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[0].value.items': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[1].value.items\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[1].value.items': Cannot find field.\"},{\"field\":\"generation_config.response_schema\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema': Cannot find field.\"}]}]"
+        }
+      ],
+      "passed": 0,
+      "total": 1,
+      "ok": false,
+      "durationMs": 46583
+    },
+    {
+      "id": "aircraft-wing-strength-weight",
+      "problem": "Zwiększenie grubości skrzydeł samolotu poprawia wytrzymałość konstrukcji, ale zwiększa masę i opór aerodynamiczny. Jak rozwiązać tę sprzeczność?",
+      "checks": [
+        {
+          "name": "output_valid",
+          "ok": false,
+          "detail": "no ```json block found in output"
+        },
+        {
+          "name": "conflict_present",
+          "ok": false,
+          "detail": "no contradictions in output"
+        },
+        {
+          "name": "param_ids_valid",
+          "ok": false,
+          "detail": "no solution"
+        },
+        {
+          "name": "principle_ids_valid",
+          "ok": false,
+          "detail": "no solution"
+        },
+        {
+          "name": "delegation_used",
+          "ok": false,
+          "detail": "missing delegations: parameter-mapper, principle-finder"
+        },
+        {
+          "name": "param_match",
+          "ok": false,
+          "detail": "no solution"
+        },
+        {
+          "name": "principle_recall",
+          "ok": false,
+          "detail": "no solution to evaluate"
+        }
+      ],
+      "passed": 0,
+      "total": 7,
+      "ok": false,
+      "durationMs": 44134
+    },
+    {
+      "id": "battery-energy-safety",
+      "problem": "Bateria litowo-jonowa z wyższą gęstością energii pozwala na dłuższe działanie urządzenia, ale zwiększa ryzyko przegrzania i pożaru.",
+      "checks": [
+        {
+          "name": "output_valid",
+          "ok": false,
+          "detail": "runAgent threw: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [400 Bad Request] Invalid JSON payload received. Unknown name \"$schema\" at 'generation_config.response_schema': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[0].value.items.properties[0].value': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[0].value.items.properties[1].value': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[0].value.items': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[1].value.items': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema': Cannot find field. [{\"@type\":\"type.googleapis.com/google.rpc.BadRequest\",\"fieldViolations\":[{\"field\":\"generation_config.response_schema\",\"description\":\"Invalid JSON payload received. Unknown name \\\"$schema\\\" at 'generation_config.response_schema': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[0].value.items.properties[0].value\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[0].value.items.properties[0].value': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[0].value.items.properties[1].value\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[0].value.items.properties[1].value': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[0].value.items\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[0].value.items': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[1].value.items\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[1].value.items': Cannot find field.\"},{\"field\":\"generation_config.response_schema\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema': Cannot find field.\"}]}]"
+        }
+      ],
+      "passed": 0,
+      "total": 1,
+      "ok": false,
+      "durationMs": 20018
+    },
+    {
+      "id": "drug-delivery-precision",
+      "problem": "Lek o wyższym stężeniu działa skuteczniej, ale powoduje silniejsze skutki uboczne. Jak zwiększyć skuteczność bez wzrostu toksyczności?",
+      "checks": [
+        {
+          "name": "output_valid",
+          "ok": false,
+          "detail": "no ```json block found in output"
+        },
+        {
+          "name": "conflict_present",
+          "ok": false,
+          "detail": "no contradictions in output"
+        },
+        {
+          "name": "param_ids_valid",
+          "ok": false,
+          "detail": "no solution"
+        },
+        {
+          "name": "principle_ids_valid",
+          "ok": false,
+          "detail": "no solution"
+        },
+        {
+          "name": "delegation_used",
+          "ok": false,
+          "detail": "missing delegations: parameter-mapper"
+        },
+        {
+          "name": "param_match",
+          "ok": false,
+          "detail": "no solution"
+        },
+        {
+          "name": "principle_recall",
+          "ok": false,
+          "detail": "no solution to evaluate"
+        }
+      ],
+      "passed": 0,
+      "total": 7,
+      "ok": false,
+      "durationMs": 43325
+    },
+    {
+      "id": "bridge-span-deflection",
+      "problem": "Zwiększenie rozpiętości mostu pozwala uniknąć filarów w korycie rzeki, ale powoduje nadmierne ugięcie i drgania.",
+      "checks": [
+        {
+          "name": "output_valid",
+          "ok": false,
+          "detail": "runAgent threw: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [400 Bad Request] Invalid JSON payload received. Unknown name \"$schema\" at 'generation_config.response_schema': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[0].value.items.properties[0].value': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[0].value.items.properties[1].value': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[0].value.items': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[1].value.items': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema': Cannot find field. [{\"@type\":\"type.googleapis.com/google.rpc.BadRequest\",\"fieldViolations\":[{\"field\":\"generation_config.response_schema\",\"description\":\"Invalid JSON payload received. Unknown name \\\"$schema\\\" at 'generation_config.response_schema': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[0].value.items.properties[0].value\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[0].value.items.properties[0].value': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[0].value.items.properties[1].value\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[0].value.items.properties[1].value': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[0].value.items\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[0].value.items': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[1].value.items\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[1].value.items': Cannot find field.\"},{\"field\":\"generation_config.response_schema\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema': Cannot find field.\"}]}]"
+        }
+      ],
+      "passed": 0,
+      "total": 1,
+      "ok": false,
+      "durationMs": 21538
+    },
+    {
+      "id": "software-response-time-accuracy",
+      "problem": "System rozpoznawania mowy działa szybciej, gdy używa mniejszego modelu, ale wtedy dokładność spada. Jak jednocześnie skrócić czas odpowiedzi i zachować wysoką dokładność?",
+      "checks": [
+        {
+          "name": "output_valid",
+          "ok": false,
+          "detail": "runAgent threw: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [400 Bad Request] Invalid JSON payload received. Unknown name \"$schema\" at 'generation_config.response_schema': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[0].value.items.properties[0].value': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[0].value.items.properties[1].value': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[0].value.items': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[1].value.items': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema': Cannot find field. [{\"@type\":\"type.googleapis.com/google.rpc.BadRequest\",\"fieldViolations\":[{\"field\":\"generation_config.response_schema\",\"description\":\"Invalid JSON payload received. Unknown name \\\"$schema\\\" at 'generation_config.response_schema': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[0].value.items.properties[0].value\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[0].value.items.properties[0].value': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[0].value.items.properties[1].value\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[0].value.items.properties[1].value': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[0].value.items\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[0].value.items': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[1].value.items\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[1].value.items': Cannot find field.\"},{\"field\":\"generation_config.response_schema\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema': Cannot find field.\"}]}]"
+        }
+      ],
+      "passed": 0,
+      "total": 1,
+      "ok": false,
+      "durationMs": 32797
+    },
+    {
+      "id": "thermal-insulation-conductivity",
+      "problem": "Grubsza izolacja termiczna budynku zmniejsza straty ciepła, ale utrudnia odprowadzanie ciepła z elektroniki wewnątrz ścian.",
+      "checks": [
+        {
+          "name": "output_valid",
+          "ok": false,
+          "detail": "runAgent threw: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [400 Bad Request] Invalid JSON payload received. Unknown name \"$schema\" at 'generation_config.response_schema': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[0].value.items.properties[0].value': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[0].value.items.properties[1].value': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[0].value.items': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[1].value.items': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema': Cannot find field. [{\"@type\":\"type.googleapis.com/google.rpc.BadRequest\",\"fieldViolations\":[{\"field\":\"generation_config.response_schema\",\"description\":\"Invalid JSON payload received. Unknown name \\\"$schema\\\" at 'generation_config.response_schema': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[0].value.items.properties[0].value\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[0].value.items.properties[0].value': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[0].value.items.properties[1].value\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[0].value.items.properties[1].value': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[0].value.items\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[0].value.items': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[1].value.items\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[1].value.items': Cannot find field.\"},{\"field\":\"generation_config.response_schema\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema': Cannot find field.\"}]}]"
+        }
+      ],
+      "passed": 0,
+      "total": 1,
+      "ok": false,
+      "durationMs": 31559
+    },
+    {
+      "id": "robot-speed-precision",
+      "problem": "Robot przemysłowy, który porusza się szybciej, wykonuje więcej operacji na minutę, ale traci dokładność pozycjonowania.",
+      "checks": [
+        {
+          "name": "output_valid",
+          "ok": false,
+          "detail": "runAgent threw: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [400 Bad Request] Invalid JSON payload received. Unknown name \"$schema\" at 'generation_config.response_schema': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[0].value.items.properties[0].value': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[0].value.items.properties[1].value': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[0].value.items': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema.properties[1].value.items': Cannot find field.\nInvalid JSON payload received. Unknown name \"additionalProperties\" at 'generation_config.response_schema': Cannot find field. [{\"@type\":\"type.googleapis.com/google.rpc.BadRequest\",\"fieldViolations\":[{\"field\":\"generation_config.response_schema\",\"description\":\"Invalid JSON payload received. Unknown name \\\"$schema\\\" at 'generation_config.response_schema': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[0].value.items.properties[0].value\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[0].value.items.properties[0].value': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[0].value.items.properties[1].value\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[0].value.items.properties[1].value': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[0].value.items\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[0].value.items': Cannot find field.\"},{\"field\":\"generation_config.response_schema.properties[1].value.items\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema.properties[1].value.items': Cannot find field.\"},{\"field\":\"generation_config.response_schema\",\"description\":\"Invalid JSON payload received. Unknown name \\\"additionalProperties\\\" at 'generation_config.response_schema': Cannot find field.\"}]}]"
+        }
+      ],
+      "passed": 0,
+      "total": 1,
+      "ok": false,
+      "durationMs": 17227
+    }
+  ],
+  "totalPassed": 0,
+  "totalChecks": 20,
+  "passRate": 0
+}

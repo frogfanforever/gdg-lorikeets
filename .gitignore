@@ -7,3 +7,4 @@ __pycache__/
 
 # Obsidian per-user UI state
 wiki/.obsidian/workspace.json
+logs/

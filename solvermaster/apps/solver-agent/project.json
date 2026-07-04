@@ -1,0 +1,43 @@
+{
+  "name": "solver-agent",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/solver-agent/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "webpack-cli build",
+        "args": ["node-env=production"],
+        "cwd": "apps/solver-agent"
+      },
+      "configurations": {
+        "development": {
+          "args": ["node-env=development"]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "solver-agent:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": { "buildTarget": "solver-agent:build:development" },
+        "production": { "buildTarget": "solver-agent:build:production" }
+      }
+    },
+    "test": { "options": { "passWithNoTests": true } },
+    "eval": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node --project apps/solver-agent/tsconfig.eval.json apps/solver-agent/evals/run-eval.ts",
+        "cwd": "."
+      }
+    }
+  }
+}
