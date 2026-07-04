@@ -40,6 +40,75 @@ wiki/                 knowledge base (Obsidian vault) — the single source of c
   discord/            Discord server metadata + how to pull full history
 ```
 
+## 🏗️ Architecture
+
+`solvermaster/` is the app itself — an Nx monorepo. The browser talks to the
+backend over a single Socket.io channel; the backend runs a LangGraph "Deep
+Agent" in-process, which drives the UI via `show_*` tools and looks up TRIZ data
+from a stateless pytriz engine over HTTP.
+
+```
+          +--------------------------------------------------+
+          | Browser: Angular 19 SPA (frontend)               |
+          |                                                  |
+          |  Problem -> Metody -> Analiza -> Shortlist       |
+          |                         -> Wynik                 |
+          |                                                  |
+          |  SessionStore (signals) + SocketService          |
+          +-------------------------+------------------------+
+                                    |
+                                    | WebSocket (Socket.io)
+                 solve:start ------>|<------ ui:show / solve:done/error
+                                    v
+          +--------------------------------------------------+
+          | solver-api: NestJS (port 8080)                   |
+          |                                                  |
+          |  +----------------+     +----------------------+ |
+          |  | SolverGateway  |---->| AgentRunnerService   | |
+          |  | websocket API  |     | fire-and-forget run  | |
+          |  +-------+--------+     +----------+-----------+ |
+          |          ^                         |             |
+          |          | show_* tools emit       | builds + invokes
+          |          | ui:show events          v             |
+          |  REST: /runs /sessions /reference                |
+          +----------+-------------------------+-------------+
+                     |                         |
+                     |                         v
+                     |      +----------------------------------+
+                     |      | solver-agent: LangGraph          |
+                     |      | Deep Agent orchestrator          |
+                     |      |                                  |
+                     |      |  - parameter-mapper              |
+                     |      |  - principle-finder              |
+                     |      |  - solution-synthesizer          |
+                     |      +------------+---------------------+
+                     |                   |
+                     |                   +------------------+
+                     |                   |                  |
+                     |                   | TRIZ tools       | LLM calls
+                     |                   | HTTP             |
+                     |                   v                  v
+                     |      +----------------------------+   +----------------------+
+                     |      | pytriz engine              |   | Google Gemini API    |
+                     |      | /analyze                   |   | @langchain/          |
+                     |      | /matrix/cell               |   | google-genai         |
+                     |      | /recommend                 |   +----------------------+
+                     |      | /parameters                |
+                     |      | /principles                |
+                     |      | 39 params, 40 principles   |
+                     |      +----------------------------+
+                     |
+                     +------> frontend stepper updates
+```
+
+**Flow.** The FE emits `solve:start` once (first "Dalej"). The gateway kicks off
+the agent fire-and-forget and acks the `sessionId`. As the agent runs, its
+`show_*` UI tools stream `ui:show` directives back over the socket — the FE
+navigates the stepper and renders each screen. TRIZ tools (`search_parameter`,
+`browse_contradiction_matrix`, …) call the pytriz engine; if it's unavailable
+the agent falls back to its own TRIZ knowledge. On completion the backend emits
+`solve:done` with the final session snapshot.
+
 ## ⚡ Quick start
 
 **Score the project against the rubric**
