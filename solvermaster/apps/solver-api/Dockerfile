@@ -16,7 +16,8 @@ ENV PORT=8080
 
 # Nx webpack emits dist/apps/solver-api with a generated package.json of runtime deps.
 COPY --from=builder /usr/src/app/dist/apps/solver-api ./
-RUN npm install --omit=dev --legacy-peer-deps
+RUN npm install --omit=dev --legacy-peer-deps \
+ && npm install --no-save --legacy-peer-deps @nestjs/swagger@^7.4.2 swagger-ui-express@^5.0.1
 
 EXPOSE 8080
 CMD ["node", "main.js"]

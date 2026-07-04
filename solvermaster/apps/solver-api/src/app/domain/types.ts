@@ -4,11 +4,18 @@ export interface Problem {
   sdg?: string | null;
 }
 
+export interface Principle {
+  id: number;
+  name: string;
+}
+
 export interface Contradiction {
   method: string;
   improving: string;
   preserving: string;
   summary: string;
+  /** Real TRIZ Inventive Principles (present for the pytriz-backed 'triz' method). */
+  principles?: Principle[];
 }
 
 /** Persisted "Step Result Recorded" event. snake_case on purpose: identical wire

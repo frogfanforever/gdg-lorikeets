@@ -5,9 +5,10 @@ import { RunsService } from './runs/runs.service';
 import { ReframeService } from './domain/reframe.service';
 import { StepStore } from './domain/store.service';
 import { MethodRegistry } from './domain/methods';
+import { TrizClient } from './domain/triz.client';
 
 @Module({
   controllers: [MiscController, RunsController],
-  providers: [RunsService, ReframeService, StepStore, MethodRegistry],
+  providers: [RunsService, ReframeService, TrizClient, StepStore, MethodRegistry],
 })
 export class AppModule {}

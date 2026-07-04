@@ -7,6 +7,7 @@ import {
 import { MANDATORY_METHOD, MethodRegistry } from '../domain/methods';
 import { ReframeService } from '../domain/reframe.service';
 import { StepStore } from '../domain/store.service';
+import { TrizClient } from '../domain/triz.client';
 import { Problem } from '../domain/types';
 
 @Injectable()
@@ -14,10 +15,11 @@ export class RunsService {
   constructor(
     private readonly registry: MethodRegistry,
     private readonly reframe: ReframeService,
+    private readonly triz: TrizClient,
     private readonly store: StepStore,
   ) {}
 
-  create(body: any) {
+  async create(body: any) {
     const p = body?.problem ?? {};
     const title = (p.title ?? '').trim();
     const statement = (p.statement ?? '').trim();
@@ -41,8 +43,10 @@ export class RunsService {
     const problem: Problem = { title, statement, sdg: p.sdg ?? null };
     const runId = this.store.createRun(title, statement, problem.sdg ?? null, methods);
 
-    const contradictions = methods.map((method) => {
-      const { contradiction, meta } = this.reframe.reframe(problem, method);
+    const contradictions = [];
+    for (const method of methods) {
+      const { contradiction, meta } =
+        method === MANDATORY_METHOD ? await this.triz.reframe(problem) : this.reframe.reframe(problem, method);
       this.store.recordStep({
         run_id: runId,
         step: 'reframe',
@@ -57,8 +61,8 @@ export class RunsService {
         status: 'ok',
         version: 1,
       });
-      return contradiction;
-    });
+      contradictions.push(contradiction);
+    }
 
     return { run_id: runId, problem, methods, contradictions };
   }

@@ -21,7 +21,8 @@ steps:
       '--image', '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/solver-api:${_TAG}',
       '--region', '${_REGION}', '--platform', 'managed',
       '--allow-unauthenticated', '--port', '8080',
-      '--min-instances', '0', '--max-instances', '3'
+      '--min-instances', '0', '--max-instances', '3',
+      '--set-env-vars', 'TRIZ_SERVICE_URL=${_TRIZ_SERVICE_URL}'
     ]
 
 images:
@@ -32,6 +33,7 @@ substitutions:
   _REGION: 'europe-west1'
   _REPO: 'solvermaster-repo'
   _SERVICE: 'solver-api'
+  _TRIZ_SERVICE_URL: 'https://solver-be-66obdg3tha-ew.a.run.app'
   _TAG: 'manual'
 
 options:
