@@ -16,8 +16,11 @@ class Config(BaseSettings):
 
     # ==========================================
     # Embeddings (semantic search in pytriz)
+    # Default OFF so the server runs standalone on Cloud Run (pytriz TRIZStore()
+    # uses BM25 lexical search — zero config, no Ollama). Re-enable dense semantic
+    # search by setting EMBEDDING_MODEL + EMBEDDING_SERVICE_URL to a live endpoint.
     # ==========================================
-    EMBEDDING_MODEL: str = "embeddinggemma:300m"
+    EMBEDDING_MODEL: str = ""
     EMBEDDING_SERVICE_URL: str = "http://localhost:11434/v1"
     EMBEDDING_API_KEY: str = "ollama"
 

@@ -4,6 +4,7 @@ from dataclasses import dataclass
 
 import uvicorn
 from mcp.server.fastmcp import FastMCP
+from mcp.server.transport_security import TransportSecuritySettings
 from pytriz import TRIZStore
 from starlette.middleware.cors import CORSMiddleware
 
@@ -32,6 +33,10 @@ mcp = FastMCP(
     lifespan=lifespan,
     stateless_http=True,
     json_response=True,
+    # Behind Cloud Run the Host header is the *.run.app domain; the SDK's default
+    # DNS-rebinding guard (localhost-only) would 421 it. Safe to disable for a
+    # public HTTPS service fronted by Google's proxy.
+    transport_security=TransportSecuritySettings(enable_dns_rebinding_protection=False),
 )
 
 # ---------------------------------------------------------------------------
