@@ -21,7 +21,7 @@ from __future__ import annotations
 import json
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 from ai.solver import available, base, get, stub_llm
 from ai.solver.base import Problem, parse_json_object
@@ -119,12 +119,49 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/":
             return self._send(200, {
                 "service": "solver-be",
-                "endpoints": ["GET /health", "GET /methods", "POST /runs", "GET /runs/{id}"],
+                "endpoints": [
+                    "GET /health", "GET /methods", "POST /runs", "GET /runs/{id}",
+                    "GET /parameters[?q=]", "GET /parameters/{id}",
+                    "GET /principles", "GET /principles/{id}",
+                    "GET /matrix/cell?improving=&preserving=",
+                    "POST /analyze", "POST /recommend",
+                ],
             })
         if path == "/health":
             return self._send(200, {"status": "ok", "methods": available()})
         if path == "/methods":
             return self._send(200, {"methods": available()})
+
+        # --- TRIZ engine (stateless, pytriz-backed) ---
+        q = parse_qs(urlparse(self.path).query)
+        if path == "/parameters":
+            from . import triz_engine as te
+            if q.get("q"):
+                return self._send(200, {"parameters": te.search_parameters(q["q"][0], int(q.get("limit", ["5"])[0]))})
+            return self._send(200, {"parameters": te.list_parameters()})
+        if path.startswith("/parameters/"):
+            from . import triz_engine as te
+            try:
+                return self._send(200, te.get_parameter(int(path.split("/parameters/", 1)[1])))
+            except Exception as ex:
+                return self._send(404, {"error": f"parameter not found: {ex}"})
+        if path == "/principles":
+            from . import triz_engine as te
+            return self._send(200, {"principles": te.list_principles()})
+        if path.startswith("/principles/"):
+            from . import triz_engine as te
+            try:
+                return self._send(200, te.get_principle(int(path.split("/principles/", 1)[1])))
+            except Exception as ex:
+                return self._send(404, {"error": f"principle not found: {ex}"})
+        if path == "/matrix/cell":
+            from . import triz_engine as te
+            try:
+                imp, pre = int(q["improving"][0]), int(q["preserving"][0])
+            except (KeyError, ValueError):
+                return self._send(400, {"error": "query params improving & preserving (ints) required"})
+            return self._send(200, te.matrix_cell(imp, pre))
+
         if path.startswith("/runs/"):
             run_id = path.split("/runs/", 1)[1]
             if not run_id:
@@ -144,9 +181,27 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_POST(self) -> None:
         path = urlparse(self.path).path.rstrip("/") or "/"
-        if path in ("/", "/health", "/methods") or path.startswith("/runs/"):
-            return self._send(405, {"error": f"method not allowed for {path}; POST is only on /runs"},
-                              allow="GET")
+
+        # --- TRIZ engine (stateless) ---
+        if path == "/analyze":
+            from . import triz_engine as te
+            body = self._read_json()
+            statement = (body.get("statement") or "").strip()
+            if not statement:
+                return self._send(400, {"error": "statement is required"})
+            return self._send(200, te.analyze(body.get("title", ""), statement))
+        if path == "/recommend":
+            from . import triz_engine as te
+            body = self._read_json()
+            ids = body.get("selected_principle_ids") or []
+            if not isinstance(ids, list) or not ids:
+                return self._send(400, {"error": "selected_principle_ids (non-empty list) required"})
+            return self._send(200, te.recommend(
+                body.get("improving", "the objective"), body.get("preserving", "the constraint"),
+                [int(i) for i in ids]))
+
+        if path in ("/", "/health", "/methods") or path.startswith(("/runs/", "/parameters", "/principles", "/matrix")):
+            return self._send(405, {"error": f"method not allowed for {path}"}, allow="GET")
         if path != "/runs":
             return self._send(404, {"error": f"not found: {path}"})
 
