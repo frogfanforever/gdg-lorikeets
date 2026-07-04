@@ -1,0 +1,46 @@
+name: Deploy solver-api (NestJS/Nx)
+
+# Publishes a new Cloud Run revision on every push to main that touches the Nx
+# monorepo app. Keyless auth via Workload Identity Federation (no stored secrets).
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'solvermaster/apps/solver-api/**'
+      - 'solvermaster/package.json'
+      - 'solvermaster/nx.json'
+      - '.github/workflows/deploy-solver-api.yml'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  id-token: write
+
+env:
+  PROJECT_ID: my-gdg-lorikeets
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/410644511969/locations/global/workloadIdentityPools/github-pool/providers/github-provider
+          service_account: gh-deploy@my-gdg-lorikeets.iam.gserviceaccount.com
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      - name: Build, push & deploy (Cloud Build)
+        working-directory: solvermaster
+        run: |
+          gcloud builds submit --project="$PROJECT_ID" \
+            --config apps/solver-api/cloudbuild.yaml \
+            --substitutions=_TAG="${GITHUB_SHA::7}" .
+
+      - name: Show service URL
+        run: |
+          gcloud run services describe solver-api --project="$PROJECT_ID" \
+            --region europe-west1 --format='value(status.url)'
