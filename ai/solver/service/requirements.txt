@@ -1,3 +1,0 @@
-# Solver BE runtime deps. pytriz powers the real TRIZ contradiction matrix
-# (BM25 offline mode — no API key / embeddings needed).
-pytriz==0.3.0
