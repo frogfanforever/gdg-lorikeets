@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {"id":"title","type":"text","x":-280,"y":-400,"width":2000,"height":90,"text":"# Backend Architecture — Inventive Problem Solver\nServices fitted to the [[Event Storming — TRIZ Solver.canvas|event-storming pipeline]] (iterative, editable, metadata-logging). Stack: [[Tech Stack]] · deploy: [[GCP Deployment]]. Colour = tier."},
+
+    {"id":"fe","type":"text","color":"5","x":360,"y":-250,"width":560,"height":110,"text":"🖥️ Angular 19 + Nx · Nginx — Cloud Run\nReasoning UI: pipeline view · inspect/edit a step · trigger re-run · compare versions"},
+
+    {"id":"nest","type":"text","color":"4","x":240,"y":-70,"width":800,"height":190,"text":"⚙️ NestJS API — Cloud Run  (system of record + orchestrator)\n• Controllers: Problems · Runs · Steps · Versions  (REST + WS/SSE for live step status)\n• Orchestrator: sequences the pipeline, persists every StepResult,\n   handles edit → invalidate downstream → resume\n• Prisma ORM → Cloud SQL"},
+
+    {"id":"solver","type":"text","color":"6","x":120,"y":210,"width":680,"height":200,"text":"🧠 Solver Service (Python · ai.solver) — Cloud Run  (stateless compute)\n• Pipeline: reformulate → generate(per method) → evaluate → select → trail\n• resume_from(step, overrides): reuse upstream results, recompute downstream\n• Method registry: TRIZ · SCAMPER · +N  (same generate() contract)\n• Rubric evaluator (swappable for LLM-judge)\n→ returns StepResult(output + metadata) per step"},
+
+    {"id":"mcp","type":"text","color":"6","x":860,"y":220,"width":400,"height":170,"text":"🔌 TRIZ MCP Server (FastMCP + pytriz) — Cloud Run\nbrowse_contradiction_matrix · search_parameter · get_principle_by_id\n(Streamable HTTP  /mcp)"},
+
+    {"id":"vertex","type":"text","x":120,"y":500,"width":400,"height":110,"text":"☁️ Vertex AI · Gemini 2.5  (managed)\nLLM turns: reformulate · SCAMPER generation · optional LLM-judge"},
+
+    {"id":"sql","type":"text","color":"3","x":580,"y":490,"width":680,"height":190,"text":"🗄️ Cloud SQL · Postgres  (managed)\nData model:\nProblem · Run · RunVersion · Step (StepResult) · Candidate · Evaluation\nStepResult = the persisted \"Step Result Recorded\" event\n(inputs · output · method · model+params · tokens/cost · timestamp · version)"},
+
+    {"id":"cicd","type":"text","x":-280,"y":210,"width":270,"height":130,"text":"🏗️ CI/CD\nCloud Build → Artifact Registry → Cloud Run\n(builds + deploys all services)"},
+    {"id":"logging","type":"text","x":-280,"y":500,"width":270,"height":120,"text":"📈 Cloud Logging / Monitoring\ntokens · cost · latency\n(sourced from StepResult metadata)"},
+
+    {"id":"map","type":"text","x":1320,"y":-70,"width":470,"height":480,"text":"🔗 Maps to the event storming\n• NestJS Orchestrator ↔ backbone sequencing\n• Method adapters ↔ **Candidates Generated (per method)**\n• Evaluator ↔ **Candidates Evaluated**\n• select + assemble ↔ **Solution Selected / Reasoning Trail**\n• `Step` table ↔ **Step Result Recorded**\n• `resume_from` ↔ **Re-run from Edited Step**\n• `RunVersion` ↔ **New Run Version Saved**\nDetail: [[Event Storming — Detail (Generation & Metadata).canvas|zoom board]]"}
+  ],
+  "edges": [
+    {"id":"fe_nest","fromNode":"fe","toNode":"nest","fromSide":"bottom","toSide":"top","label":"REST /api + WS (live step status)"},
+    {"id":"nest_solver","fromNode":"nest","toNode":"solver","fromSide":"bottom","toSide":"top","label":"run pipeline / resume_from · ← StepResults"},
+    {"id":"solver_mcp","fromNode":"solver","toNode":"mcp","fromSide":"right","toSide":"left","label":"TRIZ tools (/mcp)"},
+    {"id":"solver_vertex","fromNode":"solver","toNode":"vertex","fromSide":"bottom","toSide":"top","label":"LLM turns"},
+    {"id":"nest_sql","fromNode":"nest","toNode":"sql","fromSide":"bottom","toSide":"top","label":"persist runs/steps/versions (Prisma)"},
+    {"id":"cicd_nest","fromNode":"cicd","toNode":"nest","fromSide":"right","toSide":"left","label":"deploy (+ fe, solver, mcp)"},
+    {"id":"nest_log","fromNode":"nest","toNode":"logging","fromSide":"left","toSide":"top","label":"telemetry"},
+    {"id":"solver_log","fromNode":"solver","toNode":"logging","fromSide":"left","toSide":"right","label":"telemetry"}
+  ]
+}
