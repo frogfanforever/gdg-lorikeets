@@ -3,8 +3,9 @@ import { io, Socket } from 'socket.io-client';
 import { SessionStore } from './session.store';
 import { SessionState, UiDirective } from './models';
 
-// solver-api socket origin. Override via window.SOLVER_WS (defaults to local API).
-const WS_BASE: string = (globalThis as any).SOLVER_WS ?? 'http://localhost:8080';
+// solver-api socket origin. Override via window.SOLVER_WS.
+const DEFAULT_SOLVER_API_ORIGIN = 'https://solver-api-66obdg3tha-ew.a.run.app';
+const WS_BASE: string = (globalThis as any).SOLVER_WS ?? DEFAULT_SOLVER_API_ORIGIN;
 
 const EVENTS = {
   solveStart: 'solve:start',
