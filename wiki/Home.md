@@ -22,7 +22,9 @@ an Obsidian vault; each bracketed link below opens a note.
 
 ### Hackathon intel
 - [[Build with AI 2026]] — the event (6-day agenda, venue, dates)
-- [[Judging Criteria]] — the official rubric (100 pts + gate)
+- [[Hackaton task]] — the assigned problem (TRIZ + a 2nd method, reasoning trail)
+- [[Hackaton deliverables]] — per-day artifacts + pitch + rating
+- [[Judging Criteria]] — the full rubric (days + pitch + general categories + gate)
 - [[Tech Stack]] — the required stack (and the scoring rubric in disguise)
 - [[People]] — judges, trainers, organizers
 - [[Competitors]] — the other teams
