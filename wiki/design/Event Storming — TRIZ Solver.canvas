@@ -1,89 +1,21 @@
 {
   "nodes": [
-    {"id":"title","type":"text","x":-380,"y":-780,"width":940,"height":70,"text":"# TRIZ Solver — Event Storming\nBig Picture → Process Modelling · draft v0 (2026-07-04). Legend + method: [[Event Storming]]. Capture with [[Session Template]]."},
+    {"id":"title","type":"text","x":-40,"y":-360,"width":1000,"height":90,"text":"# Inventive Problem Solver — Event Storming\nBig Picture: the domain-event backbone (events only, past tense). Method: [[Event Storming]] · Task: [[Hackaton task]].\nThe generation step is **method-agnostic** — TRIZ is one strategy; a second method plugs in beside it."},
 
-    {"id":"legT","type":"text","x":-380,"y":-660,"width":220,"height":44,"text":"### LEGEND"},
-    {"id":"legEv","type":"text","color":"2","x":-380,"y":-606,"width":220,"height":90,"text":"🟧 **Domain Event**\npast tense — a fact"},
-    {"id":"legCmd","type":"text","color":"5","x":-380,"y":-506,"width":220,"height":90,"text":"🟦 **Command**\nimperative — an intent"},
-    {"id":"legAct","type":"text","color":"3","x":-380,"y":-406,"width":220,"height":90,"text":"🟨 **Actor / Persona**\nwho issues a command"},
-    {"id":"legPol","type":"text","color":"6","x":-380,"y":-306,"width":220,"height":90,"text":"🟪 **Policy**\nwhenever X → do Y"},
-    {"id":"legRm","type":"text","color":"4","x":-380,"y":-206,"width":220,"height":90,"text":"🟩 **Read Model / View**\ninfo to decide"},
-    {"id":"legExt","type":"text","x":-380,"y":-106,"width":220,"height":90,"text":"🩷 **External System** (grey)\noutside service"},
-    {"id":"legAgg","type":"text","x":-380,"y":-6,"width":220,"height":90,"text":"▢ **Aggregate** (grey)\ncommand→event boundary"},
-    {"id":"legHs","type":"text","color":"1","x":-380,"y":94,"width":220,"height":90,"text":"🟥 **Hotspot**\nconflict / open question"},
-
-    {"id":"grpIntake","type":"group","x":-40,"y":-600,"width":600,"height":1440,"label":"Context: Intake"},
-    {"id":"grpReason","type":"group","x":580,"y":-600,"width":880,"height":1440,"label":"Context: TRIZ Reasoning"},
-    {"id":"grpReco","type":"group","x":1480,"y":-600,"width":1220,"height":1440,"label":"Context: Recommendation & History"},
-
-    {"id":"act0","type":"text","color":"3","x":0,"y":-520,"width":240,"height":90,"text":"🟨 Engineer /\nProblem Owner"},
-    {"id":"act7","type":"text","color":"3","x":2100,"y":-520,"width":240,"height":90,"text":"🟨 Engineer\n(reviews result)"},
-
-    {"id":"cmd0","type":"text","color":"5","x":0,"y":-360,"width":240,"height":80,"text":"🟦 Submit Problem"},
-    {"id":"cmd1","type":"text","color":"5","x":300,"y":-360,"width":240,"height":80,"text":"🟦 Identify Contradiction"},
-    {"id":"cmd2","type":"text","color":"5","x":600,"y":-360,"width":240,"height":80,"text":"🟦 Map to TRIZ Parameters"},
-    {"id":"cmd3","type":"text","color":"5","x":900,"y":-360,"width":240,"height":80,"text":"🟦 Query Contradiction Matrix"},
-    {"id":"cmd5","type":"text","color":"5","x":1500,"y":-360,"width":240,"height":80,"text":"🟦 Generate Recommendations"},
-    {"id":"cmd7","type":"text","color":"5","x":2100,"y":-360,"width":240,"height":80,"text":"🟦 Rate Solution"},
-
-    {"id":"ev0","type":"text","color":"2","x":0,"y":-180,"width":240,"height":90,"text":"🟧 Problem Submitted"},
-    {"id":"ev1","type":"text","color":"2","x":300,"y":-180,"width":240,"height":90,"text":"🟧 Contradiction Identified"},
-    {"id":"ev2","type":"text","color":"2","x":600,"y":-180,"width":240,"height":90,"text":"🟧 Parameters Mapped\n(improving vs preserving)"},
-    {"id":"ev3","type":"text","color":"2","x":900,"y":-180,"width":240,"height":90,"text":"🟧 Contradiction Matrix Queried"},
-    {"id":"ev4","type":"text","color":"2","x":1200,"y":-180,"width":240,"height":90,"text":"🟧 Inventive Principles Retrieved"},
-    {"id":"ev5","type":"text","color":"2","x":1500,"y":-180,"width":240,"height":90,"text":"🟧 Recommendations Generated"},
-    {"id":"ev6","type":"text","color":"2","x":1800,"y":-180,"width":240,"height":90,"text":"🟧 Solution Presented"},
-    {"id":"ev7","type":"text","color":"2","x":2100,"y":-180,"width":240,"height":90,"text":"🟧 Solution Rated / Feedback Given"},
-    {"id":"ev8","type":"text","color":"2","x":2400,"y":-180,"width":240,"height":90,"text":"🟧 Session Saved to History"},
-
-    {"id":"pol1","type":"text","color":"6","x":300,"y":40,"width":240,"height":90,"text":"🟪 whenever Problem Submitted\n→ agent identifies contradiction"},
-    {"id":"pol3","type":"text","color":"6","x":900,"y":40,"width":240,"height":90,"text":"🟪 whenever Parameters Mapped\n→ query the matrix"},
-    {"id":"pol5","type":"text","color":"6","x":1500,"y":40,"width":240,"height":90,"text":"🟪 whenever Principles Retrieved\n→ generate recommendations"},
-    {"id":"pol8","type":"text","color":"6","x":2400,"y":40,"width":240,"height":90,"text":"🟪 whenever Solution Presented\n→ persist session"},
-
-    {"id":"ext1","type":"text","x":300,"y":210,"width":240,"height":80,"text":"🔌 ADK Agent (Gemini 2.5)"},
-    {"id":"ext2","type":"text","x":600,"y":210,"width":240,"height":80,"text":"🔌 TRIZ MCP · search_parameter"},
-    {"id":"ext3","type":"text","x":900,"y":210,"width":240,"height":80,"text":"🔌 TRIZ MCP · browse_contradiction_matrix"},
-    {"id":"ext5","type":"text","x":1500,"y":210,"width":240,"height":80,"text":"🔌 Gemini / Vertex AI"},
-
-    {"id":"rm1","type":"text","color":"4","x":300,"y":370,"width":240,"height":80,"text":"🟩 Contradiction summary"},
-    {"id":"rm6","type":"text","color":"4","x":1800,"y":370,"width":240,"height":80,"text":"🟩 Recommendations view\n(principles + actions)"},
-    {"id":"rm8","type":"text","color":"4","x":2400,"y":370,"width":240,"height":80,"text":"🟩 History list"},
-
-    {"id":"hs1","type":"text","color":"1","x":300,"y":540,"width":240,"height":110,"text":"🟥 Reliably extract improving/preserving params from free text?"},
-    {"id":"hs2","type":"text","color":"1","x":600,"y":540,"width":240,"height":110,"text":"🟥 Multi-contradiction problems: split, or pick the sharpest?"},
-    {"id":"hs3","type":"text","color":"1","x":900,"y":540,"width":240,"height":110,"text":"🟥 Matrix cell empty → no principles. Fallback strategy?"},
-    {"id":"hs5","type":"text","color":"1","x":1500,"y":540,"width":240,"height":110,"text":"🟥 How to measure solution quality? → an [[Eval Suite]] criterion"},
-
-    {"id":"agg1","type":"text","x":0,"y":700,"width":400,"height":90,"text":"▢ Aggregate: **Problem Session**\nSubmit/Identify → Submitted/Identified"},
-    {"id":"agg2","type":"text","x":900,"y":700,"width":420,"height":90,"text":"▢ Aggregate: **Contradiction**\nMap/Query → Mapped/Queried/Retrieved"},
-    {"id":"agg3","type":"text","x":1800,"y":700,"width":420,"height":90,"text":"▢ Aggregate: **Recommendation**\nGenerate/Rate → Generated/Presented/Saved"}
+    {"id":"ev1","type":"text","color":"2","x":0,"y":-180,"width":240,"height":100,"text":"🟧 Problem Assigned"},
+    {"id":"ev2","type":"text","color":"2","x":320,"y":-180,"width":240,"height":100,"text":"🟧 Problem Reformulated\nas Contradiction"},
+    {"id":"ev3","type":"text","color":"2","x":640,"y":-180,"width":240,"height":100,"text":"🟧 Generation Methods Selected\n(TRIZ + ≥1 other)"},
+    {"id":"ev4","type":"text","color":"2","x":960,"y":-180,"width":240,"height":100,"text":"🟧 Candidate Solutions Generated\n(per method)"},
+    {"id":"ev5","type":"text","color":"2","x":1280,"y":-180,"width":240,"height":100,"text":"🟧 Candidates Evaluated\n(against the problem)"},
+    {"id":"ev6","type":"text","color":"2","x":1600,"y":-180,"width":240,"height":100,"text":"🟧 Solution Selected"},
+    {"id":"ev7","type":"text","color":"2","x":1920,"y":-180,"width":280,"height":100,"text":"🟧 Reasoning Trail Presented\n(problem → contradiction → candidates → evaluation → choice)"}
   ],
   "edges": [
-    {"id":"b01","fromNode":"ev0","toNode":"ev1","fromSide":"right","toSide":"left"},
     {"id":"b12","fromNode":"ev1","toNode":"ev2","fromSide":"right","toSide":"left"},
     {"id":"b23","fromNode":"ev2","toNode":"ev3","fromSide":"right","toSide":"left"},
     {"id":"b34","fromNode":"ev3","toNode":"ev4","fromSide":"right","toSide":"left"},
     {"id":"b45","fromNode":"ev4","toNode":"ev5","fromSide":"right","toSide":"left"},
     {"id":"b56","fromNode":"ev5","toNode":"ev6","fromSide":"right","toSide":"left"},
-    {"id":"b67","fromNode":"ev6","toNode":"ev7","fromSide":"right","toSide":"left"},
-    {"id":"b78","fromNode":"ev7","toNode":"ev8","fromSide":"right","toSide":"left"},
-
-    {"id":"c0","fromNode":"cmd0","toNode":"ev0","fromSide":"bottom","toSide":"top"},
-    {"id":"c1","fromNode":"cmd1","toNode":"ev1","fromSide":"bottom","toSide":"top"},
-    {"id":"c2","fromNode":"cmd2","toNode":"ev2","fromSide":"bottom","toSide":"top"},
-    {"id":"c3","fromNode":"cmd3","toNode":"ev3","fromSide":"bottom","toSide":"top"},
-    {"id":"c5","fromNode":"cmd5","toNode":"ev5","fromSide":"bottom","toSide":"top"},
-    {"id":"c7","fromNode":"cmd7","toNode":"ev7","fromSide":"bottom","toSide":"top"},
-
-    {"id":"a0","fromNode":"act0","toNode":"cmd0","fromSide":"bottom","toSide":"top"},
-    {"id":"a7","fromNode":"act7","toNode":"cmd7","fromSide":"bottom","toSide":"top"},
-
-    {"id":"p1","fromNode":"pol1","toNode":"cmd1","fromSide":"top","toSide":"bottom","label":"triggers"},
-    {"id":"p3","fromNode":"pol3","toNode":"cmd3","fromSide":"top","toSide":"bottom","label":"triggers"},
-    {"id":"p5","fromNode":"pol5","toNode":"cmd5","fromSide":"top","toSide":"bottom","label":"triggers"},
-
-    {"id":"e1","fromNode":"cmd1","toNode":"ext1","fromSide":"bottom","toSide":"top","label":"uses"},
-    {"id":"e3","fromNode":"cmd3","toNode":"ext3","fromSide":"bottom","toSide":"top","label":"uses"}
+    {"id":"b67","fromNode":"ev6","toNode":"ev7","fromSide":"right","toSide":"left"}
   ]
 }

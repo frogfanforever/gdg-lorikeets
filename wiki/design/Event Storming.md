@@ -6,20 +6,31 @@ aliases: [Event Storming, ES, Domain Model]
 # Event Storming
 
 Our **Day-1** modelling technique (Product Design, Scope & MVP — see
-[[Build with AI 2026]]): put the whole team around one wall of sticky notes and
-discover the domain as a **timeline of things that happen**, before writing a line
-of code. It surfaces the real process, the hard questions (**hotspots**), and the
-natural service boundaries — which then feed the MVP scope and the [[Tech Stack]].
+[[Build with AI 2026]]) and a **graded Day-1 deliverable** (BPMN *or* Event Storming
+— [[Hackaton deliverables]], 20 pts). Put the whole team around one wall of sticky
+notes and discover the domain as a **timeline of things that happen**, before writing
+a line of code. It surfaces the real process, the hard questions (**hotspots**), and
+the natural service boundaries — which feed the MVP scope and the [[Tech Stack]].
 
-**Our domain:** a **TRIZ-criterion problem-solving app** — a user brings a technical
-*contradiction* (improving X worsens Y); the app maps it to the 39 TRIZ parameters,
-queries the contradiction matrix (via the [[MCP Server|TRIZ MCP server]] + an
-[[GCP Deployment|ADK/Gemini agent]]), and returns concrete solution recommendations
-grounded in the Inventive Principles.
+**Our domain** (the assigned [[Hackaton task]]): an **R&D inventive-problem solver**.
+Given an assigned problem (one of 7 UN-SDG challenges), the system reformulates it as
+a **technical contradiction**, generates candidate solutions with **at least two
+concept-generation methods**, evaluates every candidate against the original problem,
+selects one, and presents the full **reasoning trail** (problem → contradiction →
+candidates → evaluation → choice). Each step must be **real, inspectable logic**, not
+one prompt dressed up to look structured.
+
+> 🔌 **Method-pluggable by design.** **TRIZ** (39 parameters → contradiction matrix →
+> Inventive Principles, via the [[MCP Server|TRIZ MCP server]]) is the *mandatory*
+> method, but the generation step is a **swappable strategy** — a second method
+> (e.g. SCAMPER, morphological analysis, biomimicry, first-principles) plugs in
+> beside it. So the backbone says "Candidate Solutions Generated (per method)", never
+> "TRIZ queried" — the pipeline runs whatever methods are configured.
 
 > ▶️ **Do it here:** open **[[Event Storming — TRIZ Solver.canvas|the board]]** (an
-> Obsidian canvas) and move stickies. Capture each session with the
-> [[Session Template]].
+> Obsidian canvas). It currently holds **only the domain-event backbone** (the
+> Big-Picture level). Enrich it (commands, actors, policies…) in later passes using
+> the legend below. Capture each session with the [[Session Template]].
 
 ## 🎨 Sticky legend
 Standard Event Storming colours, and how we map them onto Obsidian canvas colours
@@ -65,6 +76,6 @@ Standard Event Storming colours, and how we map them onto Obsidian canvas colour
   and, ideally, a check we can measure in the [[Eval Suite]].
 
 See also: [[Session Template]] · [[Event Storming — TRIZ Solver.canvas|The board]] ·
-[[Project Overview]] · [[Tech Stack]] · [[Home]]
+[[Hackaton task]] · [[Hackaton deliverables]] · [[Tech Stack]] · [[Home]]
 
 #moc #design #event-storming
