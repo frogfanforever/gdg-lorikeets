@@ -1,21 +1,34 @@
 {
-  "nodes": [
-    {"id":"title","type":"text","x":-40,"y":-360,"width":1000,"height":90,"text":"# Inventive Problem Solver — Event Storming\nBig Picture: the domain-event backbone (events only, past tense). Method: [[Event Storming]] · Task: [[Hackaton task]].\nThe generation step is **method-agnostic** — TRIZ is one strategy; a second method plugs in beside it."},
-
-    {"id":"ev1","type":"text","color":"2","x":0,"y":-180,"width":240,"height":100,"text":"🟧 Problem Assigned"},
-    {"id":"ev2","type":"text","color":"2","x":320,"y":-180,"width":240,"height":100,"text":"🟧 Problem Reformulated\nas Contradiction"},
-    {"id":"ev3","type":"text","color":"2","x":640,"y":-180,"width":240,"height":100,"text":"🟧 Generation Methods Selected\n(TRIZ + ≥1 other)"},
-    {"id":"ev4","type":"text","color":"2","x":960,"y":-180,"width":240,"height":100,"text":"🟧 Candidate Solutions Generated\n(per method)"},
-    {"id":"ev5","type":"text","color":"2","x":1280,"y":-180,"width":240,"height":100,"text":"🟧 Candidates Evaluated\n(against the problem)"},
-    {"id":"ev6","type":"text","color":"2","x":1600,"y":-180,"width":240,"height":100,"text":"🟧 Solution Selected"},
-    {"id":"ev7","type":"text","color":"2","x":1920,"y":-180,"width":280,"height":100,"text":"🟧 Reasoning Trail Presented\n(problem → contradiction → candidates → evaluation → choice)"}
-  ],
-  "edges": [
-    {"id":"b12","fromNode":"ev1","toNode":"ev2","fromSide":"right","toSide":"left"},
-    {"id":"b23","fromNode":"ev2","toNode":"ev3","fromSide":"right","toSide":"left"},
-    {"id":"b34","fromNode":"ev3","toNode":"ev4","fromSide":"right","toSide":"left"},
-    {"id":"b45","fromNode":"ev4","toNode":"ev5","fromSide":"right","toSide":"left"},
-    {"id":"b56","fromNode":"ev5","toNode":"ev6","fromSide":"right","toSide":"left"},
-    {"id":"b67","fromNode":"ev6","toNode":"ev7","fromSide":"right","toSide":"left"}
-  ]
+	"nodes":[
+		{"id":"title","type":"text","x":-40,"y":-560,"width":1240,"height":110,"text":"# Inventive Problem Solver — Event Storming\nAn **iterative, editable reasoning pipeline**: every step records metadata; the user can edit any step and re-run the rest; each iteration is versioned. Events only (past tense).\nMethod: [[Event Storming]] · Task: [[Hackaton task]] · Solver: [[Concept Generation Methods]]."},
+		{"id":"meta","type":"text","color":"2","x":560,"y":-380,"width":700,"height":110,"text":"🟧 Step Result Recorded\ninputs · output · method · model + params · tokens/cost · timestamp · duration · run version\n*(recorded after every step on the backbone below)*"},
+		{"id":"ev1","type":"text","color":"2","x":0,"y":-180,"width":240,"height":100,"text":"🟧 Problem Assigned"},
+		{"id":"ev2","type":"text","color":"2","x":320,"y":-180,"width":240,"height":100,"text":"🟧 Contradiction Formulated"},
+		{"id":"ev3","type":"text","color":"2","x":640,"y":-180,"width":240,"height":100,"text":"🟧 Generation Methods Selected"},
+		{"id":"ev4","type":"text","color":"2","x":960,"y":-180,"width":240,"height":100,"text":"🟧 Candidates Generated\n(per method)"},
+		{"id":"ev5","type":"text","color":"2","x":1280,"y":-180,"width":240,"height":100,"text":"🟧 Candidates Evaluated"},
+		{"id":"ev6","type":"text","color":"2","x":1600,"y":-180,"width":240,"height":100,"text":"🟧 Solution Selected"},
+		{"id":"ev7","type":"text","color":"2","x":1920,"y":-180,"width":260,"height":100,"text":"🟧 Reasoning Trail Presented"},
+		{"id":"it1","type":"text","color":"2","x":320,"y":80,"width":260,"height":110,"text":"🟧 Step Output Inspected\n(user reviews a saved step)"},
+		{"id":"it2","type":"text","color":"2","x":640,"y":80,"width":260,"height":110,"text":"🟧 Reasoning Step Edited\n(user overrides input/output + note)"},
+		{"id":"it3","type":"text","color":"2","x":960,"y":80,"width":260,"height":110,"text":"🟧 Downstream Steps Invalidated"},
+		{"id":"it4","type":"text","color":"2","x":1280,"y":80,"width":260,"height":110,"text":"🟧 Pipeline Re-run from Edited Step"},
+		{"id":"it5","type":"text","color":"2","x":1600,"y":80,"width":260,"height":110,"text":"🟧 New Run Version Saved"}
+	],
+	"edges":[
+		{"id":"b12","fromNode":"ev1","toNode":"ev2","fromSide":"right","toSide":"left"},
+		{"id":"b23","fromNode":"ev2","toNode":"ev3","fromSide":"right","toSide":"left"},
+		{"id":"b34","fromNode":"ev3","toNode":"ev4","fromSide":"right","toSide":"left"},
+		{"id":"b45","fromNode":"ev4","toNode":"ev5","fromSide":"right","toSide":"left"},
+		{"id":"b56","fromNode":"ev5","toNode":"ev6","fromSide":"right","toSide":"left"},
+		{"id":"b67","fromNode":"ev6","toNode":"ev7","fromSide":"right","toSide":"left"},
+		{"id":"m4","fromNode":"meta","toNode":"ev4","fromSide":"bottom","toSide":"top","label":"each step"},
+		{"id":"insp","fromNode":"ev7","toNode":"it1","fromSide":"bottom","toSide":"top","label":"review saved steps"},
+		{"id":"t12","fromNode":"it1","toNode":"it2","fromSide":"right","toSide":"left"},
+		{"id":"t23","fromNode":"it2","toNode":"it3","fromSide":"right","toSide":"left"},
+		{"id":"t34","fromNode":"it3","toNode":"it4","fromSide":"right","toSide":"left"},
+		{"id":"t45","fromNode":"it4","toNode":"it5","fromSide":"right","toSide":"left"},
+		{"id":"loop","fromNode":"it4","toNode":"ev2","fromSide":"top","toSide":"bottom","label":"re-run downstream from the edited step"},
+		{"id":"reiterate","fromNode":"it5","toNode":"it1","fromSide":"bottom","toSide":"bottom","label":"iterate again"}
+	]
 }
