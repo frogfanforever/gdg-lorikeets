@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@solvermaster/agent": ["apps/solver-agent/src/index.ts"],
       "@solvermaster/ui": ["libs/ui/src/index.ts"],
       "@solvermaster/data-access": ["libs/data-access/src/index.ts"],
       "@solvermaster/pages/shell": ["libs/pages/shell/src/index.ts"],

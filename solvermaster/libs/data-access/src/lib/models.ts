@@ -24,6 +24,16 @@ export interface SessionState {
   metadata: Record<string, unknown>;
 }
 
+/** Directive the agent pushes over the socket when it calls a `show_*` tool. */
+export interface UiDirective {
+  sessionId: string;
+  component: string;
+  route: string;
+  step: number;
+  session: SessionState;
+  payload?: unknown;
+}
+
 export const STEPS = [
   { key: 'problem', label: 'Problem' },
   { key: 'methods', label: 'Metody' },
@@ -31,17 +41,3 @@ export const STEPS = [
   { key: 'shortlist', label: 'Shortlist' },
   { key: 'result', label: 'Wynik' },
 ] as const;
-
-/** Evaluation criteria (blind rubric, 1–5). */
-export const CRITERIA = [
-  { key: 'e', label: 'Eliminacja' },
-  { key: 'i', label: 'Idealność' },
-  { key: 'z', label: 'Zasoby' },
-  { key: 'w', label: 'Wykonalność' },
-] as const;
-
-export interface Candidate {
-  name: string;
-  tag: 'TRIZ' | 'SCMP' | 'TY';
-  scores: { e: number; i: number; z: number; w: number };
-}

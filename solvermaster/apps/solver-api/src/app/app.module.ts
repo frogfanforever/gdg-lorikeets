@@ -11,12 +11,15 @@ import { StepStore } from './domain/store.service';
 import { MethodRegistry } from './domain/methods';
 import { TrizClient } from './domain/triz.client';
 import { EngineClient } from './domain/engine.client';
+import { SolverGateway } from './agent/solver.gateway';
+import { AgentRunnerService } from './agent/agent-runner.service';
 
 @Module({
   controllers: [MiscController, RunsController, SessionsController, ReferenceController],
   providers: [
     RunsService, ReframeService, TrizClient, StepStore, MethodRegistry,
     SessionsService, SessionStore, EngineClient,
+    SolverGateway, AgentRunnerService,
   ],
 })
 export class AppModule {}

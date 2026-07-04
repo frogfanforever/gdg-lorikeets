@@ -14,8 +14,15 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
             <div class="text-[11px] text-slate-500 -mt-0.5">Rozwiązywanie sprzeczności technicznych</div>
           </div>
         </div>
-        <div class="flex items-center gap-2 font-mono text-[11px] text-slate-500">
-          <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>przebieg&nbsp;{{ run }}
+        <div class="flex items-center gap-4">
+          <label class="flex items-center gap-2 font-mono text-[11px] text-slate-600 cursor-default select-none" title="Agent prowadzi cały przepływ automatycznie">
+            <input type="checkbox" [checked]="automode" disabled
+              class="w-3.5 h-3.5 rounded border-line text-accent accent-accent opacity-100" />
+            Automode
+          </label>
+          <div class="flex items-center gap-2 font-mono text-[11px] text-slate-500">
+            <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>przebieg&nbsp;{{ run }}
+          </div>
         </div>
       </div>
     </header>
@@ -23,4 +30,6 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class AppHeaderComponent {
   @Input() run = '#A-042';
+  /** Automode indicator — always on; the agent drives the flow. */
+  @Input() automode = true;
 }

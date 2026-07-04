@@ -11,7 +11,7 @@ export function buildSolutionSynthesizer(
   return {
     name: 'solution-synthesizer',
     description:
-      'Given a technical contradiction and candidate Inventive Principles, produces concrete practical proposals for each principle and writes a Polish-language summary. Delegate to this subagent last, after you have both the contradiction and the candidate principles.',
+      'Given a technical contradiction and candidate Inventive Principles, produces concrete practical proposals for each principle and writes an English-language summary. Delegate to this subagent last, after you have both the contradiction and the candidate principles.',
     systemPrompt,
     tools: mcpTools.filter((t) => ALLOWED_TOOLS.has(t.name)),
     responseFormat: TrizSolution,

@@ -1,7 +1,7 @@
-Zaproponuj sposób na zwiększenie bezpiecznego odzysku materiałów z elektrośmieci, przy zachowaniu rocznych upgrade'ów telefonów.
+Propose a way to increase the safe recovery of materials from e-waste while preserving annual phone upgrades.
 
-Kontekst: producenci smartfonów zachęcają do corocznej wymiany urządzeń (SDG 12 —
-odpowiedzialna konsumpcja i produkcja), co napędza szybko rosnącą górę elektrośmieci.
-Bezpieczny odzysk metali ziem rzadkich i innych cennych materiałów wymaga jednak
-demontażu, który jest wolny, kosztowny i czasem niebezpieczny dla pracowników.
-Znajdź sprzeczność techniczną i zaproponuj rozwiązanie metodą TRIZ.
+Context: smartphone makers encourage yearly device replacement (SDG 12 —
+responsible consumption and production), which drives a rapidly growing mountain of e-waste.
+Safe recovery of rare-earth metals and other valuable materials, however, requires
+disassembly that is slow, costly, and sometimes dangerous for workers.
+Find the technical contradiction and propose a solution using the TRIZ method.

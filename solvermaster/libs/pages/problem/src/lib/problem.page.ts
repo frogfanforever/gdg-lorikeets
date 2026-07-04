@@ -1,14 +1,13 @@
 import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
-import { SessionStore } from '@solvermaster/data-access';
+import { SessionStore, SocketService } from '@solvermaster/data-access';
 import { StepTitleComponent } from '@solvermaster/ui';
 
 @Component({
   selector: 'sm-problem-page',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FormsModule, RouterLink, StepTitleComponent],
+  imports: [FormsModule, StepTitleComponent],
   template: `
     <div class="max-w-[820px] mx-auto">
       <sm-step-title eyebrow="Krok 01 · Opis problemu" title="Opisz problem techniczny">
@@ -32,17 +31,29 @@ import { StepTitleComponent } from '@solvermaster/ui';
 
       <div class="flex items-center justify-between gap-3 mt-9 pt-6 border-t border-line">
         <span class="hidden sm:inline font-mono text-[11px] text-slate-400">⌘ + ⏎ aby uruchomić</span>
-        <a routerLink="/methods" [class.pointer-events-none]="!statement.trim()" [class.opacity-50]="!statement.trim()"
-          class="inline-flex items-center gap-2 bg-accent hover:bg-accent-ink text-white text-[14px] font-medium px-5 py-2.5 rounded-lg shadow-sm transition">
+        <button type="button" (click)="submit()" [disabled]="!statement.trim() || store.busy()"
+          class="inline-flex items-center gap-2 bg-accent hover:bg-accent-ink text-white text-[14px] font-medium px-5 py-2.5 rounded-lg shadow-sm transition disabled:opacity-50 disabled:pointer-events-none">
           Dalej: wybór metod <span aria-hidden="true">→</span>
-        </a>
+        </button>
       </div>
     </div>
   `,
 })
 export class ProblemPage implements OnInit {
   readonly store = inject(SessionStore);
-  statement = 'Rama roweru musi być lżejsza, ale cieńsze ścianki rury tracą wytrzymałość pod obciążeniem.';
+  private readonly socket = inject(SocketService);
+  statement = '';
 
   ngOnInit() { this.store.setStep(0); }
+
+  /**
+   * First (and only) manual step: hand the problem to the agent over the socket.
+   * The agent then drives every subsequent screen via `ui:show` directives —
+   * we do not wait for it to finish here.
+   */
+  submit() {
+    const statement = this.statement.trim();
+    if (!statement) return;
+    this.socket.startSolve({ statement });
+  }
 }
