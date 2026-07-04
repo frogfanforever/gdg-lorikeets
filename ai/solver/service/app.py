@@ -70,11 +70,13 @@ class Handler(BaseHTTPRequestHandler):
         pass
 
     # --- helpers ---
-    def _send(self, code: int, body: dict) -> None:
+    def _send(self, code: int, body: dict, allow: str | None = None) -> None:
         payload = json.dumps(body).encode()
         self.send_response(code)
         self.send_header("Content-Type", "application/json")
         self.send_header("Content-Length", str(len(payload)))
+        if allow:
+            self.send_header("Allow", allow)   # required on 405
         self.end_headers()
         self.wfile.write(payload)
 
@@ -90,12 +92,19 @@ class Handler(BaseHTTPRequestHandler):
     # --- routes ---
     def do_GET(self) -> None:
         path = urlparse(self.path).path.rstrip("/") or "/"
+        if path == "/":
+            return self._send(200, {
+                "service": "solver-be",
+                "endpoints": ["GET /health", "GET /methods", "POST /runs", "GET /runs/{id}"],
+            })
         if path == "/health":
             return self._send(200, {"status": "ok", "methods": available()})
         if path == "/methods":
             return self._send(200, {"methods": available()})
         if path.startswith("/runs/"):
             run_id = path.split("/runs/", 1)[1]
+            if not run_id:
+                return self._send(404, {"error": "run id required: GET /runs/{id}"})
             run = STORE.get_run(run_id)
             if not run:
                 return self._send(404, {"error": f"run {run_id} not found"})
@@ -105,12 +114,17 @@ class Handler(BaseHTTPRequestHandler):
                 "contradictions": [s["output"] for s in steps if s["step"] == "reframe"],
                 "steps": steps,
             })
-        return self._send(404, {"error": "not found"})
+        if path == "/runs":  # known collection, wrong method
+            return self._send(405, {"error": "method not allowed; use POST /runs"}, allow="POST")
+        return self._send(404, {"error": f"not found: {path}"})
 
     def do_POST(self) -> None:
         path = urlparse(self.path).path.rstrip("/") or "/"
+        if path in ("/", "/health", "/methods") or path.startswith("/runs/"):
+            return self._send(405, {"error": f"method not allowed for {path}; POST is only on /runs"},
+                              allow="GET")
         if path != "/runs":
-            return self._send(404, {"error": "not found"})
+            return self._send(404, {"error": f"not found: {path}"})
 
         body = self._read_json()
         problem_in = body.get("problem", {})
