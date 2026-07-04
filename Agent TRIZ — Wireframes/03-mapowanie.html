@@ -1,0 +1,135 @@
+<!-- @dsCard group="Wireframes" -->
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>WF 3 — Mapowanie</title>
+<link rel="stylesheet" href="./tailwind.css">
+</head>
+<body class="bg-white text-black font-sans">
+<div class="max-w-[960px] mx-auto px-6 py-8 pb-16">
+
+  <div class="flex justify-between items-center border-b-2 border-black pb-3 mb-6 flex-wrap gap-3">
+    <div class="font-bold text-sm border-2 border-black px-2.5 py-1 tracking-wide">AGENT TRIZ</div>
+    <div class="flex items-center">
+      <div class="w-[26px] h-[26px] border-2 border-black rounded-full flex items-center justify-center text-xs font-bold bg-gray-200">1</div>
+      <div class="w-[18px] h-[1.5px] bg-gray-300 mx-1"></div>
+      <div class="w-[26px] h-[26px] border-2 border-black rounded-full flex items-center justify-center text-xs font-bold bg-black text-white">2</div>
+      <div class="w-[18px] h-[1.5px] bg-gray-300 mx-1"></div>
+      <div class="w-[26px] h-[26px] border-2 border-black rounded-full flex items-center justify-center text-xs font-bold bg-white">3</div>
+      <div class="w-[18px] h-[1.5px] bg-gray-300 mx-1"></div>
+      <div class="w-[26px] h-[26px] border-2 border-black rounded-full flex items-center justify-center text-xs font-bold bg-white">4</div>
+      <div class="w-[18px] h-[1.5px] bg-gray-300 mx-1"></div>
+      <div class="w-[26px] h-[26px] border-2 border-black rounded-full flex items-center justify-center text-xs font-bold bg-white">5</div>
+    </div>
+  </div>
+
+  <h1 class="text-2xl font-bold mb-1 flex items-center gap-2">
+    Zweryfikuj mapowanie na parametry
+    <span class="inline-flex items-center justify-center w-[19px] h-[19px] rounded-full bg-black text-white text-[0.68rem] font-bold">1</span>
+  </h1>
+  <p class="text-gray-600 text-sm mb-6">Krok 2 z 5 — mapowanie</p>
+
+  <div class="border-2 border-black p-4 mb-4 relative">
+    <span class="absolute -top-2.5 left-3 bg-white px-1.5 text-[0.65rem] tracking-wide uppercase text-gray-600">Parametr poprawiany (EP1: „mniejsza waga")</span>
+    <table class="w-full border-collapse text-sm">
+      <thead>
+        <tr>
+          <th class="border-2 border-black px-2.5 py-2 text-left bg-gray-200 text-[0.68rem] uppercase tracking-wide">#</th>
+          <th class="border-2 border-black px-2.5 py-2 text-left bg-gray-200 text-[0.68rem] uppercase tracking-wide">Parametr</th>
+          <th class="border-2 border-black px-2.5 py-2 text-left bg-gray-200 text-[0.68rem] uppercase tracking-wide">Dopasowanie</th>
+          <th class="border-2 border-black px-2.5 py-2 text-left bg-gray-200 text-[0.68rem] uppercase tracking-wide">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border-2 border-black px-2.5 py-2 text-center font-bold text-gray-400 line-through">2</td>
+          <td class="border-2 border-black px-2.5 py-2 text-gray-400 line-through">Waga nieruchomego obiektu</td>
+          <td class="border-2 border-black px-2.5 py-2 text-center font-bold text-gray-400 line-through">0.85</td>
+          <td class="border-2 border-black px-2.5 py-2 text-gray-400 line-through">propozycja agenta</td>
+        </tr>
+        <tr class="bg-gray-200">
+          <td class="border-2 border-black px-2.5 py-2 text-center font-bold">1</td>
+          <td class="border-2 border-black px-2.5 py-2 font-bold">Waga ruchomego obiektu</td>
+          <td class="border-2 border-black px-2.5 py-2 text-center font-bold">0.81</td>
+          <td class="border-2 border-black px-2.5 py-2 font-bold">wybrano
+            <span class="inline-flex items-center justify-center w-[19px] h-[19px] rounded-full bg-black text-white text-[0.68rem] font-bold ml-1">2</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="border-2 border-black px-2.5 py-2 text-center font-bold">5</td>
+          <td class="border-2 border-black px-2.5 py-2">Powierzchnia ruchomego obiektu</td>
+          <td class="border-2 border-black px-2.5 py-2 text-center font-bold">0.44</td>
+          <td class="border-2 border-black px-2.5 py-2">—</td>
+        </tr>
+        <tr>
+          <td class="border-2 border-black px-2.5 py-2 text-center font-bold">8</td>
+          <td class="border-2 border-black px-2.5 py-2">Objętość nieruchomego obiektu</td>
+          <td class="border-2 border-black px-2.5 py-2 text-center font-bold">0.33</td>
+          <td class="border-2 border-black px-2.5 py-2">—</td>
+        </tr>
+        <tr>
+          <td class="border-2 border-black px-2.5 py-2 text-center font-bold">21</td>
+          <td class="border-2 border-black px-2.5 py-2">Moc</td>
+          <td class="border-2 border-black px-2.5 py-2 text-center font-bold">0.19</td>
+          <td class="border-2 border-black px-2.5 py-2">—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="border-2 border-dashed border-gray-400 px-3 py-2.5 text-sm text-gray-600 mb-4 flex items-center gap-2">
+    Zmieniono parametr poprawiany: <b class="text-black">2 → 1</b>. Kroki 3–5 zostały przeliczone.
+    <span class="inline-flex items-center justify-center w-[19px] h-[19px] rounded-full bg-black text-white text-[0.68rem] font-bold flex-none">3</span>
+  </div>
+
+  <div class="border-2 border-black p-4 mb-4 relative">
+    <span class="absolute -top-2.5 left-3 bg-white px-1.5 text-[0.65rem] tracking-wide uppercase text-gray-600">Parametr zachowywany (EP2: „niższa wytrzymałość")</span>
+    <table class="w-full border-collapse text-sm">
+      <thead>
+        <tr>
+          <th class="border-2 border-black px-2.5 py-2 text-left bg-gray-200 text-[0.68rem] uppercase tracking-wide">#</th>
+          <th class="border-2 border-black px-2.5 py-2 text-left bg-gray-200 text-[0.68rem] uppercase tracking-wide">Parametr</th>
+          <th class="border-2 border-black px-2.5 py-2 text-left bg-gray-200 text-[0.68rem] uppercase tracking-wide">Dopasowanie</th>
+          <th class="border-2 border-black px-2.5 py-2 text-left bg-gray-200 text-[0.68rem] uppercase tracking-wide">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-gray-200">
+          <td class="border-2 border-black px-2.5 py-2 text-center font-bold">14</td>
+          <td class="border-2 border-black px-2.5 py-2 font-bold">Wytrzymałość</td>
+          <td class="border-2 border-black px-2.5 py-2 text-center font-bold">0.92</td>
+          <td class="border-2 border-black px-2.5 py-2 font-bold">wybrano automatycznie</td>
+        </tr>
+        <tr>
+          <td class="border-2 border-black px-2.5 py-2 text-center font-bold">11</td>
+          <td class="border-2 border-black px-2.5 py-2">Naprężenie</td>
+          <td class="border-2 border-black px-2.5 py-2 text-center font-bold">0.71</td>
+          <td class="border-2 border-black px-2.5 py-2">—</td>
+        </tr>
+        <tr>
+          <td class="border-2 border-black px-2.5 py-2 text-center font-bold">36</td>
+          <td class="border-2 border-black px-2.5 py-2">Złożoność urządzenia</td>
+          <td class="border-2 border-black px-2.5 py-2 text-center font-bold">0.54</td>
+          <td class="border-2 border-black px-2.5 py-2">—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-9 pt-4 border-t-2 border-black">
+    <h2 class="text-sm uppercase tracking-wide mb-2.5">Adnotacje</h2>
+    <ol class="list-decimal pl-6 text-sm leading-7 text-gray-600 marker:font-bold marker:text-black">
+      <li><b class="text-black">Tabela top-5</b> — pełna lista dopasowań semantycznych z wynikiem podobieństwa, nie tylko zwycięzca.</li>
+      <li><b class="text-black">Wiersz wybrany ręcznie</b> — kliknięcie innego wiersza niż domyślna propozycja agenta zastępuje wybór.</li>
+      <li><b class="text-black">Komunikat systemowy</b> — potwierdza, że zmiana uruchomiła ponowne przeliczenie kroków 3–5.</li>
+    </ol>
+  </div>
+
+  <div class="flex justify-between mt-9 pt-4 border-t border-gray-300 text-sm">
+    <a class="text-black no-underline border-2 border-black px-3 py-1.5" href="./02-sprzecznosc.html">← Sprzeczność</a>
+    <a class="text-black no-underline border-2 border-black px-3 py-1.5" href="./04-generowanie.html">Dalej: Generowanie →</a>
+  </div>
+</div>
+</body>
+</html>

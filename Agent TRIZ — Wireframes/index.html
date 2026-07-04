@@ -1,0 +1,43 @@
+<!-- @dsCard group="Wireframes" -->
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Agent TRIZ — przegląd wireframów</title>
+<link rel="stylesheet" href="./tailwind.css">
+</head>
+<body class="bg-white text-black font-sans">
+<div class="max-w-[960px] mx-auto px-6 py-8 pb-16">
+  <h1 class="text-[1.6rem] font-bold mb-1">Agent TRIZ — przegląd wireframów</h1>
+  <p class="text-gray-600 text-[0.92rem] mb-8 max-w-[70ch] leading-relaxed">
+    Sześć ekranów odpowiadających pięciu stałym krokom przebiegu (krok 1 rozbity na dwa ekrany:
+    wolny opis problemu i ustrukturyzowana sprzeczność). Czysta struktura i funkcjonalność — bez
+    typografii, koloru czy stylu wizualnego docelowej aplikacji.
+  </p>
+  <div class="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-4">
+    <a class="border-2 border-black p-4 no-underline text-black flex flex-col gap-1.5" href="./01-opis-problemu.html">
+      <span class="font-bold text-2xl">1</span><span class="font-bold text-sm">Opis problemu</span><span class="text-sm text-gray-600 leading-normal">Wolny tekst — jedyne takie pole w aplikacji.</span>
+    </a>
+    <a class="border-2 border-black p-4 no-underline text-black flex flex-col gap-1.5" href="./02-sprzecznosc.html">
+      <span class="font-bold text-2xl">1b</span><span class="font-bold text-sm">Sprzeczność</span><span class="text-sm text-gray-600 leading-normal">Formularz AP / EP1 / EP2, edytowalny.</span>
+    </a>
+    <a class="border-2 border-black p-4 no-underline text-black flex flex-col gap-1.5" href="./03-mapowanie.html">
+      <span class="font-bold text-2xl">2</span><span class="font-bold text-sm">Mapowanie</span><span class="text-sm text-gray-600 leading-normal">Top-5 dopasowań parametrów, korekta ręczna.</span>
+    </a>
+    <a class="border-2 border-black p-4 no-underline text-black flex flex-col gap-1.5" href="./04-generowanie.html">
+      <span class="font-bold text-2xl">3</span><span class="font-bold text-sm">Generowanie</span><span class="text-sm text-gray-600 leading-normal">Macierz TRIZ i SCAMPER równolegle, plus własny koncept.</span>
+    </a>
+    <a class="border-2 border-black p-4 no-underline text-black flex flex-col gap-1.5" href="./05-ocena.html">
+      <span class="font-bold text-2xl">4</span><span class="font-bold text-sm">Ocena</span><span class="text-sm text-gray-600 leading-normal">Rubryka: kandydaci × kryteria, ślepo.</span>
+    </a>
+    <a class="border-2 border-black p-4 no-underline text-black flex flex-col gap-1.5" href="./06-wybor.html">
+      <span class="font-bold text-2xl">5</span><span class="font-bold text-sm">Wybór</span><span class="text-sm text-gray-600 leading-normal">Wagi kryteriów i ranking na żywo.</span>
+    </a>
+  </div>
+  <div class="mt-10 pt-5 border-t-2 border-black text-sm text-gray-600 leading-7">
+    Adnotacje numerowane (①②③…) na każdym ekranie opisują funkcję elementu, nie jego wygląd —
+    ten etap poprzedza dobór kolorów, typografii i stylu wizualnego.
+  </div>
+</div>
+</body>
+</html>

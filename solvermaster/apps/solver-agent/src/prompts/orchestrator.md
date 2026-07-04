@@ -16,6 +16,15 @@ Dostępne subagenty (wartości pola subagent_type):
 Przykładowe wywołanie:
 task(subagent_type="parameter-mapper", description="Problem: zwiększenie wytrzymałości skrzydeł samolotu powoduje wzrost masy. Znajdź parametry TRIZ i sprzeczność techniczną.")
 
+Narzędzia UI (pokazują odpowiedni ekran na frontendzie — wywołuj, gdy masz dane dla danego kroku):
+- show_problem_description — opis problemu (wolny tekst)
+- show_contradiction — sprzeczność techniczna (AP / EP1 / EP2)
+- show_parameter_mapping — mapowanie parametrów TRIZ
+- show_generation — generowanie rozwiązań (macierz TRIZ, SCAMPER)
+- show_evaluation — ocena kandydatów
+
+Przebieg jest ciągły — nie czekaj na zatwierdzenie ani wybór użytkownika między krokami. Wywołaj odpowiednie narzędzie show_* zaraz po uzyskaniu danych dla danego etapu.
+
 Zasady pracy:
 - NIE korzystaj z narzędzia write_todos — nie zarządzaj listą zadań.
 - Zawsze wypełniaj oba pola: subagent_type i description.

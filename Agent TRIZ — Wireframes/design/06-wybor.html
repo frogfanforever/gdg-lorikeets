@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent TRIZ — Wybór</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    fontFamily: { sans: ['Inter','ui-sans-serif','system-ui','sans-serif'], mono: ['"JetBrains Mono"','ui-monospace','monospace'] },
+    colors: { ink: '#0c0e14', paper: '#eceff4', surface: '#ffffff', line: '#d7dce4', accent: { DEFAULT: '#2f5cff', ink: '#2247d6', soft: '#e9edff' } },
+  } },
+};
+</script>
+<style>
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body { background-color: #eceff4; }
+  .tnum { font-variant-numeric: tabular-nums; }
+  input[type=range] { accent-color: #2f5cff; }
+</style>
+</head>
+<body class="text-ink font-sans antialiased min-h-screen">
+
+<header class="sticky top-0 z-20 border-b border-line bg-[#eceff4]/85 backdrop-blur">
+  <div class="max-w-[1120px] mx-auto px-8 h-16 flex items-center justify-between gap-6">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-md bg-ink text-white grid place-items-center font-mono text-[12px] font-semibold">TZ</div>
+      <div class="leading-tight">
+        <div class="font-mono text-[13px] font-semibold tracking-tight">AGENT&nbsp;TRIZ</div>
+        <div class="text-[11px] text-slate-500 -mt-0.5">Rozwiązywanie sprzeczności technicznych</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 font-mono text-[11px] text-slate-500">
+      <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>przebieg&nbsp;#A-042
+    </div>
+  </div>
+</header>
+
+<main class="max-w-[1120px] mx-auto px-8 py-10">
+
+  <nav aria-label="Kroki" class="mb-12">
+    <ol class="grid grid-cols-2 md:grid-cols-5 gap-x-4 gap-y-5">
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-ink text-white">✓</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 01</div><div class="text-[13px] font-medium text-slate-600 truncate">Sprzeczność</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-accent"></div>
+      </li>
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-ink text-white">✓</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 02</div><div class="text-[13px] font-medium text-slate-600 truncate">Mapowanie</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-accent"></div>
+      </li>
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-ink text-white">✓</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 03</div><div class="text-[13px] font-medium text-slate-600 truncate">Generowanie</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-accent"></div>
+      </li>
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-ink text-white">✓</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 04</div><div class="text-[13px] font-medium text-slate-600 truncate">Ocena</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-accent"></div>
+      </li>
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-accent text-white shadow-[0_0_0_4px_rgba(47,92,255,0.15)]">5</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 05</div><div class="text-[13px] font-medium text-ink truncate">Wybór</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-accent"></div>
+      </li>
+    </ol>
+  </nav>
+
+  <div class="mb-8">
+    <div class="font-mono text-[11px] uppercase tracking-[0.16em] text-accent mb-2.5">Krok 05 · Wybór końcowy</div>
+    <h1 class="text-[30px] font-semibold tracking-[-0.02em] leading-tight">Wybór — ważona suma ocen</h1>
+    <p class="text-[15px] text-slate-500 mt-3 max-w-[68ch] leading-relaxed">Ustaw wagi czterech kryteriów. Ranking przelicza się natychmiast, lokalnie — bez ponownego wywołania modelu.</p>
+  </div>
+
+  <div class="grid lg:grid-cols-[380px_1fr] gap-5 items-start">
+
+    <!-- Weights -->
+    <div class="bg-surface border border-line rounded-xl shadow-[0_1px_2px_rgba(12,14,20,0.04),0_8px_24px_-16px_rgba(12,14,20,0.25)] p-5">
+      <div class="flex items-center gap-3 mb-5">
+        <span class="font-mono text-[11px] uppercase tracking-[0.12em] text-slate-500">Wagi kryteriów</span>
+        <span class="h-px flex-1 bg-line"></span>
+      </div>
+
+      <div class="mb-5">
+        <div class="flex justify-between items-baseline text-[14px] mb-2"><span>Eliminacja sprzeczności</span><span id="w-e-val" class="font-mono tnum text-accent-ink font-semibold">25%</span></div>
+        <input type="range" id="w-e" min="0" max="100" value="50" class="w-full">
+      </div>
+      <div class="mb-5">
+        <div class="flex justify-between items-baseline text-[14px] mb-2"><span>Przyrost idealności</span><span id="w-i-val" class="font-mono tnum text-accent-ink font-semibold">25%</span></div>
+        <input type="range" id="w-i" min="0" max="100" value="50" class="w-full">
+      </div>
+      <div class="mb-5">
+        <div class="flex justify-between items-baseline text-[14px] mb-2"><span>Zasoby systemu</span><span id="w-z-val" class="font-mono tnum text-accent-ink font-semibold">25%</span></div>
+        <input type="range" id="w-z" min="0" max="100" value="50" class="w-full">
+      </div>
+      <div>
+        <div class="flex justify-between items-baseline text-[14px] mb-2"><span>Wykonalność</span><span id="w-w-val" class="font-mono tnum text-accent-ink font-semibold">25%</span></div>
+        <input type="range" id="w-w" min="0" max="100" value="50" class="w-full">
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-5">
+      <!-- Ranking -->
+      <div class="bg-surface border border-line rounded-xl shadow-[0_1px_2px_rgba(12,14,20,0.04),0_8px_24px_-16px_rgba(12,14,20,0.25)] p-5">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="font-mono text-[11px] uppercase tracking-[0.12em] text-slate-500">Ranking na żywo</span>
+          <span class="h-px flex-1 bg-line"></span>
+        </div>
+        <div id="ranking-list"></div>
+        <p id="wf-sensitivity" class="text-[13px] text-slate-500 mt-3 pt-3 border-t border-line"></p>
+      </div>
+
+      <!-- Rationale -->
+      <div class="bg-surface border border-line rounded-xl shadow-[0_1px_2px_rgba(12,14,20,0.04),0_8px_24px_-16px_rgba(12,14,20,0.25)] p-5">
+        <div class="flex items-center gap-3 mb-3.5">
+          <span class="font-mono text-[11px] uppercase tracking-[0.12em] text-slate-500">Uzasadnienie</span>
+          <span class="h-px flex-1 bg-line"></span>
+        </div>
+        <p class="text-[14px] leading-relaxed text-slate-700">Przy równych wagach liderem jest <b class="font-semibold text-ink">koncept własny</b> — nie eliminuje sprzeczności tak mocno jak materiały kompozytowe czy SCAMPER Combine, ale nie poświęca żadnego z pozostałych wymiarów.</p>
+        <a href="03-mapowanie.html" class="inline-flex items-center gap-2 mt-4 border border-line bg-white hover:bg-slate-50 rounded-full pl-3 pr-3.5 py-1.5 text-[13px] text-slate-600 transition"><span aria-hidden="true">✎</span> popraw parametry</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="flex items-center justify-between gap-3 mt-9 pt-6 border-t border-line">
+    <a href="05-ocena.html" class="inline-flex items-center gap-2 border border-line bg-white hover:bg-slate-50 text-[14px] font-medium px-4 py-2.5 rounded-lg text-slate-600 transition"><span aria-hidden="true">←</span> Ocena</a>
+    <button class="inline-flex items-center gap-2 bg-accent hover:bg-accent-ink text-white text-[14px] font-medium px-5 py-2.5 rounded-lg shadow-sm transition">Zaakceptuj wybór <span aria-hidden="true">✓</span></button>
+  </div>
+
+</main>
+
+<script>
+(function () {
+  var candidates = [
+    { name: 'Materiały kompozytowe', tag: 'TRIZ', s: { e: 5, i: 4, z: 2, w: 3 } },
+    { name: 'Segmentacja', tag: 'TRIZ', s: { e: 3, i: 3, z: 4, w: 5 } },
+    { name: 'SCAMPER: Combine', tag: 'SCMP', s: { e: 4, i: 5, z: 3, w: 2 } },
+    { name: 'Koncept własny', tag: 'TY', s: { e: 4, i: 4, z: 4, w: 4 } }
+  ];
+  var ids = ['w-e', 'w-i', 'w-z', 'w-w'];
+  var keys = ['e', 'i', 'z', 'w'];
+
+  function esc(t){ return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  function compute() {
+    var vals = ids.map(function (id) { return parseFloat(document.getElementById(id).value); });
+    var sum = vals.reduce(function (a, b) { return a + b; }, 0) || 1;
+    var norm = vals.map(function (v) { return v / sum; });
+    ids.forEach(function (id, idx) {
+      document.getElementById(id + '-val').textContent = Math.round(norm[idx] * 100) + '%';
+    });
+
+    var scored = candidates.map(function (c) {
+      var val = keys.reduce(function (acc, k, idx) { return acc + c.s[k] * norm[idx]; }, 0);
+      return { name: c.name, tag: c.tag, val: val };
+    }).sort(function (a, b) { return b.val - a.val; });
+
+    var max = scored[0].val || 1;
+    var html = '';
+    scored.forEach(function (c, idx) {
+      var leader = idx === 0;
+      var fill = leader ? '#2f5cff' : '#c3cad6';
+      html += '<div class="flex items-center gap-3 mb-3 last:mb-0">'
+        + '<div class="w-[188px] shrink-0 flex items-center gap-2 min-w-0">'
+        + '<span class="font-mono text-[10px] w-9 shrink-0 ' + (leader ? 'text-accent-ink' : 'text-slate-400') + '">' + c.tag + '</span>'
+        + '<span class="text-[13px] truncate ' + (leader ? 'font-semibold' : '') + '">' + esc(c.name) + '</span>'
+        + '</div>'
+        + '<div class="flex-1 h-2.5 rounded-full bg-slate-100 overflow-hidden">'
+        + '<div class="h-full rounded-full transition-all duration-200" style="width:' + (c.val / max * 100) + '%;background:' + fill + '"></div>'
+        + '</div>'
+        + '<span class="font-mono tnum text-[13px] w-10 text-right shrink-0 ' + (leader ? 'font-semibold text-accent-ink' : 'text-slate-500') + '">' + c.val.toFixed(2) + '</span>'
+        + '<span class="w-16 shrink-0 text-right">' + (leader ? '<span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-accent text-white">lider</span>' : '') + '</span>'
+        + '</div>';
+    });
+    document.getElementById('ranking-list').innerHTML = html;
+
+    var margin = scored[0].val - scored[1].val;
+    var note;
+    if (margin > 0.5) note = 'Wysoka pewność wyboru — przewaga nad 2. miejscem: ' + margin.toFixed(2) + ' pkt.';
+    else if (margin > 0.15) note = 'Umiarkowana pewność — przewaga nad 2. miejscem: ' + margin.toFixed(2) + ' pkt.';
+    else note = 'Wynik niepewny (przewaga ' + margin.toFixed(2) + ' pkt) — sprawdź uzasadnienie przed akceptacją.';
+    document.getElementById('wf-sensitivity').textContent = note;
+  }
+
+  ids.forEach(function (id) {
+    document.getElementById(id).addEventListener('input', compute);
+  });
+  compute();
+})();
+</script>
+
+</body>
+</html>

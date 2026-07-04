@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent TRIZ — Sprzeczność</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    fontFamily: { sans: ['Inter','ui-sans-serif','system-ui','sans-serif'], mono: ['"JetBrains Mono"','ui-monospace','monospace'] },
+    colors: { ink: '#0c0e14', paper: '#eceff4', surface: '#ffffff', line: '#d7dce4', accent: { DEFAULT: '#2f5cff', ink: '#2247d6', soft: '#e9edff' } },
+  } },
+};
+</script>
+<style>
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body { background-color: #eceff4; }
+  .tnum { font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body class="text-ink font-sans antialiased min-h-screen">
+
+<header class="sticky top-0 z-20 border-b border-line bg-[#eceff4]/85 backdrop-blur">
+  <div class="max-w-[1120px] mx-auto px-8 h-16 flex items-center justify-between gap-6">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-md bg-ink text-white grid place-items-center font-mono text-[12px] font-semibold">TZ</div>
+      <div class="leading-tight">
+        <div class="font-mono text-[13px] font-semibold tracking-tight">AGENT&nbsp;TRIZ</div>
+        <div class="text-[11px] text-slate-500 -mt-0.5">Rozwiązywanie sprzeczności technicznych</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 font-mono text-[11px] text-slate-500">
+      <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>przebieg&nbsp;#A-042
+    </div>
+  </div>
+</header>
+
+<main class="max-w-[1120px] mx-auto px-8 py-10">
+
+  <nav aria-label="Kroki" class="mb-12">
+    <ol class="grid grid-cols-2 md:grid-cols-5 gap-x-4 gap-y-5">
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-accent text-white shadow-[0_0_0_4px_rgba(47,92,255,0.15)]">1</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 01</div><div class="text-[13px] font-medium text-ink truncate">Sprzeczność</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-accent"></div>
+      </li>
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-white border border-line text-slate-400">2</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 02</div><div class="text-[13px] font-medium text-slate-500 truncate">Mapowanie</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-line"></div>
+      </li>
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-white border border-line text-slate-400">3</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 03</div><div class="text-[13px] font-medium text-slate-500 truncate">Generowanie</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-line"></div>
+      </li>
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-white border border-line text-slate-400">4</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 04</div><div class="text-[13px] font-medium text-slate-500 truncate">Ocena</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-line"></div>
+      </li>
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-white border border-line text-slate-400">5</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 05</div><div class="text-[13px] font-medium text-slate-500 truncate">Wybór</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-line"></div>
+      </li>
+    </ol>
+  </nav>
+
+  <div class="max-w-[820px] mx-auto">
+
+    <div class="mb-8">
+      <div class="font-mono text-[11px] uppercase tracking-[0.16em] text-accent mb-2.5">Krok 01 · Formułowanie sprzeczności</div>
+      <h1 class="text-[30px] font-semibold tracking-[-0.02em] leading-tight">Popraw sprzeczność</h1>
+      <p class="text-[15px] text-slate-500 mt-3 max-w-[62ch] leading-relaxed">Agent rozłożył opis na trzy pola. Popraw sformułowanie tutaj — bez powrotu do wolnego tekstu.</p>
+    </div>
+
+    <div class="bg-surface border border-line rounded-xl shadow-[0_1px_2px_rgba(12,14,20,0.04),0_8px_24px_-16px_rgba(12,14,20,0.25)] p-5 sm:p-6">
+      <div class="flex items-center gap-3 mb-5">
+        <span class="font-mono text-[11px] uppercase tracking-[0.14em] text-slate-500">Sprzeczność techniczna</span>
+        <span class="h-px flex-1 bg-line"></span>
+      </div>
+
+      <div class="mb-4">
+        <div class="flex items-center gap-2 mb-1.5">
+          <span class="font-mono text-[11px] uppercase tracking-[0.1em] text-slate-500">AP · akcja</span>
+        </div>
+        <input type="text" value="Zmniejszyć grubość ścianki rury" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[15px] outline-none focus:border-accent focus:ring-4 focus:ring-accent/10 transition">
+      </div>
+
+      <div class="mb-4">
+        <div class="flex items-center gap-2 mb-1.5">
+          <span class="font-mono text-[11px] uppercase tracking-[0.1em] text-slate-500">EP1 · efekt pozytywny</span>
+          <span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-accent-soft text-accent-ink">poprawiany</span>
+        </div>
+        <input type="text" value="Mniejsza waga" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[15px] outline-none focus:border-accent focus:ring-4 focus:ring-accent/10 transition">
+      </div>
+
+      <div>
+        <div class="flex items-center gap-2 mb-1.5">
+          <span class="font-mono text-[11px] uppercase tracking-[0.1em] text-slate-500">EP2 · efekt negatywny</span>
+          <span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 border border-line">pogarszany</span>
+        </div>
+        <input type="text" value="Niższa wytrzymałość" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[15px] outline-none focus:border-accent focus:ring-4 focus:ring-accent/10 transition">
+      </div>
+    </div>
+    <p class="text-[13px] text-slate-500 mt-3">Zatwierdzenie to bramka — kolejny krok nie startuje automatycznie, wymaga tej akcji.</p>
+
+    <div class="flex items-center justify-between gap-3 mt-9 pt-6 border-t border-line">
+      <a href="01-opis-problemu.html" class="inline-flex items-center gap-2 border border-line bg-white hover:bg-slate-50 text-[14px] font-medium px-4 py-2.5 rounded-lg text-slate-600 transition"><span aria-hidden="true">←</span> Opis problemu</a>
+      <a href="03-mapowanie.html" class="inline-flex items-center gap-2 bg-accent hover:bg-accent-ink text-white text-[14px] font-medium px-5 py-2.5 rounded-lg shadow-sm transition">Zatwierdź sprzeczność <span aria-hidden="true">→</span></a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!-- @dsCard group="Wireframes" -->
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>WF 6 — Wybór</title>
+<link rel="stylesheet" href="./tailwind.css">
+</head>
+<body class="bg-white text-black font-sans">
+<div class="max-w-[960px] mx-auto px-6 py-8 pb-16">
+
+  <div class="flex justify-between items-center border-b-2 border-black pb-3 mb-6 flex-wrap gap-3">
+    <div class="font-bold text-sm border-2 border-black px-2.5 py-1 tracking-wide">AGENT TRIZ</div>
+    <div class="flex items-center">
+      <div class="w-[26px] h-[26px] border-2 border-black rounded-full flex items-center justify-center text-xs font-bold bg-gray-200">1</div>
+      <div class="w-[18px] h-[1.5px] bg-gray-300 mx-1"></div>
+      <div class="w-[26px] h-[26px] border-2 border-black rounded-full flex items-center justify-center text-xs font-bold bg-gray-200">2</div>
+      <div class="w-[18px] h-[1.5px] bg-gray-300 mx-1"></div>
+      <div class="w-[26px] h-[26px] border-2 border-black rounded-full flex items-center justify-center text-xs font-bold bg-gray-200">3</div>
+      <div class="w-[18px] h-[1.5px] bg-gray-300 mx-1"></div>
+      <div class="w-[26px] h-[26px] border-2 border-black rounded-full flex items-center justify-center text-xs font-bold bg-gray-200">4</div>
+      <div class="w-[18px] h-[1.5px] bg-gray-300 mx-1"></div>
+      <div class="w-[26px] h-[26px] border-2 border-black rounded-full flex items-center justify-center text-xs font-bold bg-black text-white">5</div>
+    </div>
+  </div>
+
+  <h1 class="text-2xl font-bold mb-1 flex items-center gap-2">
+    Wybór — ważona suma ocen
+    <span class="inline-flex items-center justify-center w-[19px] h-[19px] rounded-full bg-black text-white text-[0.68rem] font-bold">1</span>
+  </h1>
+  <p class="text-gray-600 text-sm mb-6">Krok 5 z 5 — wybór końcowy</p>
+
+  <div class="border-2 border-black p-4 mb-4 relative">
+    <span class="absolute -top-2.5 left-3 bg-white px-1.5 text-[0.65rem] tracking-wide uppercase text-gray-600 flex items-center gap-1.5">
+      Wagi kryteriów
+      <span class="inline-flex items-center justify-center w-[19px] h-[19px] rounded-full bg-black text-white text-[0.68rem] font-bold normal-case">2</span>
+    </span>
+
+    <div class="mb-3.5">
+      <div class="flex justify-between text-sm mb-1.5"><span>Eliminacja sprzeczności</span><span id="w-e-val">25%</span></div>
+      <input type="range" id="w-e" min="0" max="100" value="50" class="w-full accent-black">
+    </div>
+    <div class="mb-3.5">
+      <div class="flex justify-between text-sm mb-1.5"><span>Przyrost idealności</span><span id="w-i-val">25%</span></div>
+      <input type="range" id="w-i" min="0" max="100" value="50" class="w-full accent-black">
+    </div>
+    <div class="mb-3.5">
+      <div class="flex justify-between text-sm mb-1.5"><span>Zasoby systemu</span><span id="w-z-val">25%</span></div>
+      <input type="range" id="w-z" min="0" max="100" value="50" class="w-full accent-black">
+    </div>
+    <div>
+      <div class="flex justify-between text-sm mb-1.5"><span>Wykonalność</span><span id="w-w-val">25%</span></div>
+      <input type="range" id="w-w" min="0" max="100" value="50" class="w-full accent-black">
+    </div>
+  </div>
+
+  <div class="border-2 border-black p-4 mb-4 relative">
+    <span class="absolute -top-2.5 left-3 bg-white px-1.5 text-[0.65rem] tracking-wide uppercase text-gray-600 flex items-center gap-1.5">
+      Ranking na żywo
+      <span class="inline-flex items-center justify-center w-[19px] h-[19px] rounded-full bg-black text-white text-[0.68rem] font-bold normal-case">3</span>
+    </span>
+    <div id="ranking-list"></div>
+    <p id="wf-sensitivity" class="text-sm text-gray-600 mt-1"></p>
+  </div>
+
+  <div class="border-2 border-black p-4 mb-4 relative">
+    <span class="absolute -top-2.5 left-3 bg-white px-1.5 text-[0.65rem] tracking-wide uppercase text-gray-600 flex items-center gap-1.5">
+      Uzasadnienie
+      <span class="inline-flex items-center justify-center w-[19px] h-[19px] rounded-full bg-black text-white text-[0.68rem] font-bold normal-case">4</span>
+    </span>
+    <p class="text-sm leading-relaxed">
+      Przy równych wagach liderem jest koncept własny — nie eliminuje sprzeczności tak mocno jak materiały
+      kompozytowe czy SCAMPER Combine, ale nie poświęca żadnego z pozostałych wymiarów.
+    </p>
+  </div>
+
+  <span class="inline-flex items-center gap-2 border-2 border-black rounded-full px-3 py-1 text-xs mb-4">
+    ✎ popraw parametry
+    <span class="inline-flex items-center justify-center w-[19px] h-[19px] rounded-full bg-black text-white text-[0.68rem] font-bold">5</span>
+  </span>
+
+  <div class="mt-9 pt-4 border-t-2 border-black">
+    <h2 class="text-sm uppercase tracking-wide mb-2.5">Adnotacje</h2>
+    <ol class="list-decimal pl-6 text-sm leading-7 text-gray-600 marker:font-bold marker:text-black">
+      <li><b class="text-black">Suwaki wag</b> — interaktywne, przeliczają ranking natychmiast, bez ponownego wywołania modelu.</li>
+      <li><b class="text-black">Grupa suwaków</b> — cztery kryteria z ekranu 4, teraz jako wagi ustawiane przez użytkownika.</li>
+      <li><b class="text-black">Pasek rankingu</b> — długość paska = wynik ważony; kolejność zmienia się wraz z suwakami.</li>
+      <li><b class="text-black">Blok uzasadnienia</b> — tekst generowany po wyborze, opisuje już zapadłą decyzję arytmetyczną.</li>
+      <li><b class="text-black">Chip powrotny</b> — cofa do ekranu 3 (Mapowanie), żeby poprawić parametry i przeliczyć od tego miejsca.</li>
+    </ol>
+  </div>
+
+  <div class="flex justify-between mt-9 pt-4 border-t border-gray-300 text-sm">
+    <a class="text-black no-underline border-2 border-black px-3 py-1.5" href="./05-ocena.html">← Ocena</a>
+    <span></span>
+  </div>
+</div>
+
+<script>
+(function () {
+  var candidates = [
+    { name: 'Materiały kompozytowe', s: { e: 5, i: 4, z: 2, w: 3 } },
+    { name: 'Segmentacja', s: { e: 3, i: 3, z: 4, w: 5 } },
+    { name: 'SCAMPER: Combine', s: { e: 4, i: 5, z: 3, w: 2 } },
+    { name: 'Koncept własny', s: { e: 4, i: 4, z: 4, w: 4 } }
+  ];
+  var ids = ['w-e', 'w-i', 'w-z', 'w-w'];
+  var keys = ['e', 'i', 'z', 'w'];
+
+  function compute() {
+    var vals = ids.map(function (id) { return parseFloat(document.getElementById(id).value); });
+    var sum = vals.reduce(function (a, b) { return a + b; }, 0) || 1;
+    var norm = vals.map(function (v) { return v / sum; });
+    ids.forEach(function (id, idx) {
+      document.getElementById(id + '-val').textContent = Math.round(norm[idx] * 100) + '%';
+    });
+
+    var scored = candidates.map(function (c) {
+      var val = keys.reduce(function (acc, k, idx) { return acc + c.s[k] * norm[idx]; }, 0);
+      return { name: c.name, val: val };
+    }).sort(function (a, b) { return b.val - a.val; });
+
+    var max = scored[0].val || 1;
+    var html = '';
+    scored.forEach(function (c, idx) {
+      var fillColor = idx === 0 ? '#9ca3af' : '#e5e7eb';
+      html += '<div class="flex items-center gap-2.5 mb-2">'
+        + '<span class="w-[190px] text-sm flex-none truncate">' + c.name + (idx === 0 ? ' (lider)' : '') + '</span>'
+        + '<div class="flex-1 h-4 border-2 border-black relative bg-white">'
+        + '<div class="absolute inset-0" style="width:' + (c.val / max * 100) + '%;background:' + fillColor + '"></div>'
+        + '</div>'
+        + '<span class="w-11 text-right text-sm flex-none">' + c.val.toFixed(2) + '</span>'
+        + '</div>';
+    });
+    document.getElementById('ranking-list').innerHTML = html;
+
+    var margin = scored[0].val - scored[1].val;
+    var note;
+    if (margin > 0.5) note = 'Wysoka pewność wyboru — przewaga nad 2. miejscem: ' + margin.toFixed(2) + ' pkt.';
+    else if (margin > 0.15) note = 'Umiarkowana pewność — przewaga nad 2. miejscem: ' + margin.toFixed(2) + ' pkt.';
+    else note = 'Wynik niepewny (przewaga ' + margin.toFixed(2) + ' pkt) — sprawdź uzasadnienie przed akceptacją.';
+    document.getElementById('wf-sensitivity').textContent = note;
+  }
+
+  ids.forEach(function (id) {
+    document.getElementById(id).addEventListener('input', compute);
+  });
+  compute();
+})();
+</script>
+</body>
+</html>

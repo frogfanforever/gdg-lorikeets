@@ -1,0 +1,94 @@
+<!-- @dsCard group="Wireframes" -->
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>WF 5 — Ocena</title>
+<link rel="stylesheet" href="./tailwind.css">
+</head>
+<body class="bg-white text-black font-sans">
+<div class="max-w-[960px] mx-auto px-6 py-8 pb-16">
+
+  <div class="flex justify-between items-center border-b-2 border-black pb-3 mb-6 flex-wrap gap-3">
+    <div class="font-bold text-sm border-2 border-black px-2.5 py-1 tracking-wide">AGENT TRIZ</div>
+    <div class="flex items-center">
+      <div class="w-[26px] h-[26px] border-2 border-black rounded-full flex items-center justify-center text-xs font-bold bg-gray-200">1</div>
+      <div class="w-[18px] h-[1.5px] bg-gray-300 mx-1"></div>
+      <div class="w-[26px] h-[26px] border-2 border-black rounded-full flex items-center justify-center text-xs font-bold bg-gray-200">2</div>
+      <div class="w-[18px] h-[1.5px] bg-gray-300 mx-1"></div>
+      <div class="w-[26px] h-[26px] border-2 border-black rounded-full flex items-center justify-center text-xs font-bold bg-gray-200">3</div>
+      <div class="w-[18px] h-[1.5px] bg-gray-300 mx-1"></div>
+      <div class="w-[26px] h-[26px] border-2 border-black rounded-full flex items-center justify-center text-xs font-bold bg-black text-white">4</div>
+      <div class="w-[18px] h-[1.5px] bg-gray-300 mx-1"></div>
+      <div class="w-[26px] h-[26px] border-2 border-black rounded-full flex items-center justify-center text-xs font-bold bg-white">5</div>
+    </div>
+  </div>
+
+  <h1 class="text-2xl font-bold mb-1 flex items-center gap-2">
+    Ocena kandydatów
+    <span class="inline-flex items-center justify-center w-[19px] h-[19px] rounded-full bg-black text-white text-[0.68rem] font-bold">1</span>
+  </h1>
+  <p class="text-gray-600 text-sm mb-6">Krok 4 z 5 — rubryka ocen</p>
+
+  <table class="w-full border-collapse text-sm mb-4">
+    <thead>
+      <tr>
+        <th class="border-2 border-black px-2.5 py-2.5 text-left bg-gray-200 text-[0.68rem] uppercase tracking-wide">Kandydat</th>
+        <th class="border-2 border-black px-2.5 py-2.5 text-left bg-gray-200 text-[0.68rem] uppercase tracking-wide">Eliminacja</th>
+        <th class="border-2 border-black px-2.5 py-2.5 text-left bg-gray-200 text-[0.68rem] uppercase tracking-wide">Idealność</th>
+        <th class="border-2 border-black px-2.5 py-2.5 text-left bg-gray-200 text-[0.68rem] uppercase tracking-wide">Zasoby</th>
+        <th class="border-2 border-black px-2.5 py-2.5 text-left bg-gray-200 text-[0.68rem] uppercase tracking-wide">Wykonalność</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="border-2 border-black px-2.5 py-2.5">Materiały kompozytowe</td>
+        <td class="border-2 border-black px-2.5 py-2.5 text-center font-bold">5</td>
+        <td class="border-2 border-black px-2.5 py-2.5 text-center font-bold">4</td>
+        <td class="border-2 border-black px-2.5 py-2.5 text-center font-bold">2</td>
+        <td class="border-2 border-black px-2.5 py-2.5 text-center font-bold">3</td>
+      </tr>
+      <tr>
+        <td class="border-2 border-black px-2.5 py-2.5">Segmentacja</td>
+        <td class="border-2 border-black px-2.5 py-2.5 text-center font-bold">3</td>
+        <td class="border-2 border-black px-2.5 py-2.5 text-center font-bold">3</td>
+        <td class="border-2 border-black px-2.5 py-2.5 text-center font-bold">4</td>
+        <td class="border-2 border-black px-2.5 py-2.5 text-center font-bold">5</td>
+      </tr>
+      <tr>
+        <td class="border-2 border-black px-2.5 py-2.5">SCAMPER: Combine</td>
+        <td class="border-2 border-black px-2.5 py-2.5 text-center font-bold">4</td>
+        <td class="border-2 border-black px-2.5 py-2.5 text-center font-bold">5</td>
+        <td class="border-2 border-black px-2.5 py-2.5 text-center font-bold">3</td>
+        <td class="border-2 border-black px-2.5 py-2.5 text-center font-bold">2</td>
+      </tr>
+      <tr>
+        <td class="border-2 border-black px-2.5 py-2.5">Koncept własny</td>
+        <td class="border-2 border-black px-2.5 py-2.5 text-center font-bold">4</td>
+        <td class="border-2 border-black px-2.5 py-2.5 text-center font-bold">4</td>
+        <td class="border-2 border-black px-2.5 py-2.5 text-center font-bold">4</td>
+        <td class="border-2 border-black px-2.5 py-2.5 text-center font-bold">4</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="border-2 border-dashed border-gray-400 px-3 py-2.5 text-sm text-gray-600 mb-4 flex items-center gap-2">
+    Każda ocena — osobne wywołanie, na ślepo (bez informacji o pochodzeniu), w losowej kolejności.
+    <span class="inline-flex items-center justify-center w-[19px] h-[19px] rounded-full bg-black text-white text-[0.68rem] font-bold flex-none">2</span>
+  </div>
+
+  <div class="mt-9 pt-4 border-t-2 border-black">
+    <h2 class="text-sm uppercase tracking-wide mb-2.5">Adnotacje</h2>
+    <ol class="list-decimal pl-6 text-sm leading-7 text-gray-600 marker:font-bold marker:text-black">
+      <li><b class="text-black">Tabela rubryki</b> — każda kolumna to jedno kryterium oceny, wspólne dla wszystkich kandydatów niezależnie od metody pochodzenia.</li>
+      <li><b class="text-black">Adnotacja o metodzie oceny</b> — informuje, że oceniający nie zna źródła konceptu w chwili oceny (eliminacja stronniczości).</li>
+    </ol>
+  </div>
+
+  <div class="flex justify-between mt-9 pt-4 border-t border-gray-300 text-sm">
+    <a class="text-black no-underline border-2 border-black px-3 py-1.5" href="./04-generowanie.html">← Generowanie</a>
+    <a class="text-black no-underline border-2 border-black px-3 py-1.5" href="./06-wybor.html">Dalej: Wybór →</a>
+  </div>
+</div>
+</body>
+</html>

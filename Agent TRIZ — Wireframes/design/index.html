@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent TRIZ — przegląd designu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    fontFamily: { sans: ['Inter','ui-sans-serif','system-ui','sans-serif'], mono: ['"JetBrains Mono"','ui-monospace','monospace'] },
+    colors: { ink: '#0c0e14', paper: '#eceff4', surface: '#ffffff', line: '#d7dce4', accent: { DEFAULT: '#2f5cff', ink: '#2247d6', soft: '#e9edff' } },
+  } },
+};
+</script>
+<style>
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body { background-color: #eceff4; }
+  .dotgrid { background-image: radial-gradient(rgba(12,14,20,0.05) 1px, transparent 1px); background-size: 22px 22px; }
+</style>
+</head>
+<body class="text-ink font-sans antialiased min-h-screen">
+
+<header class="border-b border-line bg-[#eceff4]/85 backdrop-blur">
+  <div class="max-w-[1120px] mx-auto px-8 h-16 flex items-center justify-between gap-6">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-md bg-ink text-white grid place-items-center font-mono text-[12px] font-semibold">TZ</div>
+      <div class="leading-tight">
+        <div class="font-mono text-[13px] font-semibold tracking-tight">AGENT&nbsp;TRIZ</div>
+        <div class="text-[11px] text-slate-500 -mt-0.5">Rozwiązywanie sprzeczności technicznych</div>
+      </div>
+    </div>
+    <div class="font-mono text-[11px] text-slate-500">design v1 · Tailwind</div>
+  </div>
+</header>
+
+<main class="max-w-[1120px] mx-auto px-8 py-14">
+
+  <div class="dotgrid rounded-2xl border border-line bg-surface/40 px-8 py-12 mb-12">
+    <div class="font-mono text-[11px] uppercase tracking-[0.16em] text-accent mb-3">Gotowy design · 6 ekranów</div>
+    <h1 class="text-[40px] font-semibold tracking-[-0.025em] leading-[1.05] max-w-[20ch]">Interfejs agenta TRIZ w pełnej oprawie wizualnej</h1>
+    <p class="text-[16px] text-slate-500 mt-4 max-w-[64ch] leading-relaxed">Pięciokrokowy przebieg od opisu problemu do ważonego wyboru rozwiązania. Kierunek techniczno-inżynierski: monochromatyczna baza, jeden elektryczny akcent, dane w kroju monospace.</p>
+  </div>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+    <a href="01-opis-problemu.html" class="group bg-surface border border-line rounded-xl p-5 shadow-[0_1px_2px_rgba(12,14,20,0.04)] hover:border-accent hover:shadow-[0_8px_24px_-16px_rgba(47,92,255,0.5)] transition">
+      <div class="flex items-center justify-between mb-4">
+        <span class="font-mono text-[11px] uppercase tracking-[0.14em] text-slate-400">Krok 01</span>
+        <span class="w-7 h-7 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-accent-soft text-accent-ink group-hover:bg-accent group-hover:text-white transition">1</span>
+      </div>
+      <div class="text-[16px] font-semibold mb-1">Opis problemu</div>
+      <p class="text-[13px] text-slate-500 leading-relaxed">Wolny tekst — jedyne takie pole w aplikacji.</p>
+    </a>
+
+    <a href="02-sprzecznosc.html" class="group bg-surface border border-line rounded-xl p-5 shadow-[0_1px_2px_rgba(12,14,20,0.04)] hover:border-accent hover:shadow-[0_8px_24px_-16px_rgba(47,92,255,0.5)] transition">
+      <div class="flex items-center justify-between mb-4">
+        <span class="font-mono text-[11px] uppercase tracking-[0.14em] text-slate-400">Krok 01 · b</span>
+        <span class="w-7 h-7 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-accent-soft text-accent-ink group-hover:bg-accent group-hover:text-white transition">1</span>
+      </div>
+      <div class="text-[16px] font-semibold mb-1">Sprzeczność</div>
+      <p class="text-[13px] text-slate-500 leading-relaxed">Formularz AP / EP1 / EP2, edytowalny inline.</p>
+    </a>
+
+    <a href="03-mapowanie.html" class="group bg-surface border border-line rounded-xl p-5 shadow-[0_1px_2px_rgba(12,14,20,0.04)] hover:border-accent hover:shadow-[0_8px_24px_-16px_rgba(47,92,255,0.5)] transition">
+      <div class="flex items-center justify-between mb-4">
+        <span class="font-mono text-[11px] uppercase tracking-[0.14em] text-slate-400">Krok 02</span>
+        <span class="w-7 h-7 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-accent-soft text-accent-ink group-hover:bg-accent group-hover:text-white transition">2</span>
+      </div>
+      <div class="text-[16px] font-semibold mb-1">Mapowanie</div>
+      <p class="text-[13px] text-slate-500 leading-relaxed">Top-5 dopasowań parametrów z korektą ręczną.</p>
+    </a>
+
+    <a href="04-generowanie.html" class="group bg-surface border border-line rounded-xl p-5 shadow-[0_1px_2px_rgba(12,14,20,0.04)] hover:border-accent hover:shadow-[0_8px_24px_-16px_rgba(47,92,255,0.5)] transition">
+      <div class="flex items-center justify-between mb-4">
+        <span class="font-mono text-[11px] uppercase tracking-[0.14em] text-slate-400">Krok 03</span>
+        <span class="w-7 h-7 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-accent-soft text-accent-ink group-hover:bg-accent group-hover:text-white transition">3</span>
+      </div>
+      <div class="text-[16px] font-semibold mb-1">Generowanie</div>
+      <p class="text-[13px] text-slate-500 leading-relaxed">Macierz TRIZ i SCAMPER równolegle + własny koncept.</p>
+    </a>
+
+    <a href="05-ocena.html" class="group bg-surface border border-line rounded-xl p-5 shadow-[0_1px_2px_rgba(12,14,20,0.04)] hover:border-accent hover:shadow-[0_8px_24px_-16px_rgba(47,92,255,0.5)] transition">
+      <div class="flex items-center justify-between mb-4">
+        <span class="font-mono text-[11px] uppercase tracking-[0.14em] text-slate-400">Krok 04</span>
+        <span class="w-7 h-7 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-accent-soft text-accent-ink group-hover:bg-accent group-hover:text-white transition">4</span>
+      </div>
+      <div class="text-[16px] font-semibold mb-1">Ocena</div>
+      <p class="text-[13px] text-slate-500 leading-relaxed">Rubryka kandydaci × kryteria, na ślepo.</p>
+    </a>
+
+    <a href="06-wybor.html" class="group bg-surface border border-line rounded-xl p-5 shadow-[0_1px_2px_rgba(12,14,20,0.04)] hover:border-accent hover:shadow-[0_8px_24px_-16px_rgba(47,92,255,0.5)] transition">
+      <div class="flex items-center justify-between mb-4">
+        <span class="font-mono text-[11px] uppercase tracking-[0.14em] text-slate-400">Krok 05</span>
+        <span class="w-7 h-7 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-accent-soft text-accent-ink group-hover:bg-accent group-hover:text-white transition">5</span>
+      </div>
+      <div class="text-[16px] font-semibold mb-1">Wybór</div>
+      <p class="text-[13px] text-slate-500 leading-relaxed">Interaktywne wagi kryteriów i ranking na żywo.</p>
+    </a>
+
+  </div>
+
+  <div class="mt-12 pt-6 border-t border-line font-mono text-[11px] text-slate-400">
+    Monochrom + akcent #2F5CFF · Inter / JetBrains Mono · Tailwind CSS
+  </div>
+
+</main>
+
+</body>
+</html>

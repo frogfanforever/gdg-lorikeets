@@ -30,10 +30,14 @@ export interface AgentConfig {
   googleApiKey: string;
   mcpServerUrl: string;
   agentModel: string;
+  fallbackAgentModel: string;
+  /** When true, log full prompts, tool I/O, and message transcripts. */
+  verbose: boolean;
 }
 
 const DEFAULT_MCP_SERVER_URL = 'http://localhost:8123/mcp';
 const DEFAULT_AGENT_MODEL = 'gemini-2.5-pro';
+const DEFAULT_FALLBACK_AGENT_MODEL = 'gemini-2.5-pro';
 
 export function loadConfig(): AgentConfig {
   const googleApiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
@@ -50,5 +54,8 @@ export function loadConfig(): AgentConfig {
     googleApiKey,
     mcpServerUrl: process.env.MCP_SERVER_URL ?? DEFAULT_MCP_SERVER_URL,
     agentModel: process.env.AGENT_MODEL ?? DEFAULT_AGENT_MODEL,
+    fallbackAgentModel:
+      process.env.AGENT_FALLBACK_MODEL ?? DEFAULT_FALLBACK_AGENT_MODEL,
+    verbose: process.env.AGENT_VERBOSE === '1',
   };
 }

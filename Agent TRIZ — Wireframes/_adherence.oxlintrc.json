@@ -1,0 +1,99 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": []
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {},
+    "tokens": [
+      "--color-black",
+      "--color-gray-200",
+      "--color-gray-300",
+      "--color-gray-400",
+      "--color-gray-600",
+      "--color-white",
+      "--default-font-family",
+      "--default-mono-font-family",
+      "--font-mono",
+      "--font-sans",
+      "--font-weight-bold",
+      "--leading-normal",
+      "--leading-relaxed",
+      "--spacing",
+      "--text-2xl",
+      "--text-2xl--line-height",
+      "--text-sm",
+      "--text-sm--line-height",
+      "--text-xs",
+      "--text-xs--line-height",
+      "--tracking-wide",
+      "--tw-border-style",
+      "--tw-font-weight",
+      "--tw-leading",
+      "--tw-tracking"
+    ],
+    "tokenKinds": {
+      "--tw-border-style": "other",
+      "--tw-leading": "font",
+      "--tw-font-weight": "font",
+      "--tw-tracking": "font",
+      "--font-sans": "font",
+      "--font-mono": "font",
+      "--color-gray-200": "color",
+      "--color-gray-300": "color",
+      "--color-gray-400": "color",
+      "--color-gray-600": "color",
+      "--color-black": "color",
+      "--color-white": "color",
+      "--spacing": "spacing",
+      "--text-xs": "font",
+      "--text-xs--line-height": "font",
+      "--text-sm": "font",
+      "--text-sm--line-height": "font",
+      "--text-2xl": "font",
+      "--text-2xl--line-height": "font",
+      "--font-weight-bold": "font",
+      "--tracking-wide": "font",
+      "--leading-normal": "font",
+      "--leading-relaxed": "font",
+      "--default-font-family": "font",
+      "--default-mono-font-family": "font"
+    },
+    "fontFamilies": []
+  }
+}

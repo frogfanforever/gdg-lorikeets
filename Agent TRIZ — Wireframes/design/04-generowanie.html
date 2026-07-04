@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent TRIZ — Generowanie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    fontFamily: { sans: ['Inter','ui-sans-serif','system-ui','sans-serif'], mono: ['"JetBrains Mono"','ui-monospace','monospace'] },
+    colors: { ink: '#0c0e14', paper: '#eceff4', surface: '#ffffff', line: '#d7dce4', accent: { DEFAULT: '#2f5cff', ink: '#2247d6', soft: '#e9edff' } },
+  } },
+};
+</script>
+<style>
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body { background-color: #eceff4; }
+  .tnum { font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body class="text-ink font-sans antialiased min-h-screen">
+
+<header class="sticky top-0 z-20 border-b border-line bg-[#eceff4]/85 backdrop-blur">
+  <div class="max-w-[1120px] mx-auto px-8 h-16 flex items-center justify-between gap-6">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-md bg-ink text-white grid place-items-center font-mono text-[12px] font-semibold">TZ</div>
+      <div class="leading-tight">
+        <div class="font-mono text-[13px] font-semibold tracking-tight">AGENT&nbsp;TRIZ</div>
+        <div class="text-[11px] text-slate-500 -mt-0.5">Rozwiązywanie sprzeczności technicznych</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 font-mono text-[11px] text-slate-500">
+      <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>przebieg&nbsp;#A-042
+    </div>
+  </div>
+</header>
+
+<main class="max-w-[1120px] mx-auto px-8 py-10">
+
+  <nav aria-label="Kroki" class="mb-12">
+    <ol class="grid grid-cols-2 md:grid-cols-5 gap-x-4 gap-y-5">
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-ink text-white">✓</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 01</div><div class="text-[13px] font-medium text-slate-600 truncate">Sprzeczność</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-accent"></div>
+      </li>
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-ink text-white">✓</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 02</div><div class="text-[13px] font-medium text-slate-600 truncate">Mapowanie</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-accent"></div>
+      </li>
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-accent text-white shadow-[0_0_0_4px_rgba(47,92,255,0.15)]">3</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 03</div><div class="text-[13px] font-medium text-ink truncate">Generowanie</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-accent"></div>
+      </li>
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-white border border-line text-slate-400">4</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 04</div><div class="text-[13px] font-medium text-slate-500 truncate">Ocena</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-line"></div>
+      </li>
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-white border border-line text-slate-400">5</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 05</div><div class="text-[13px] font-medium text-slate-500 truncate">Wybór</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-line"></div>
+      </li>
+    </ol>
+  </nav>
+
+  <div class="mb-8">
+    <div class="font-mono text-[11px] uppercase tracking-[0.16em] text-accent mb-2.5">Krok 03 · Generowanie · komórka macierzy 01 × 14</div>
+    <h1 class="text-[30px] font-semibold tracking-[-0.02em] leading-tight">Dwie ścieżki generowania konceptów</h1>
+    <p class="text-[15px] text-slate-500 mt-3 max-w-[68ch] leading-relaxed">Deterministyczny odczyt macierzy TRIZ obok heurystyki SCAMPER. Każdy koncept zachowuje jawne pochodzenie — dopisz też własny pomysł do wspólnej puli.</p>
+  </div>
+
+  <!-- Two paths -->
+  <div class="grid md:grid-cols-2 gap-5 mb-6">
+
+    <div class="bg-surface border border-line rounded-xl shadow-[0_1px_2px_rgba(12,14,20,0.04),0_8px_24px_-16px_rgba(12,14,20,0.25)] flex flex-col overflow-hidden">
+      <div class="flex items-center justify-between px-5 py-3.5 border-b border-line">
+        <span class="text-[14px] font-semibold">Ścieżka A</span>
+        <span class="font-mono text-[11px] px-2 py-1 rounded bg-accent-soft text-accent-ink">Macierz TRIZ</span>
+      </div>
+      <div class="px-5 py-4 flex flex-col gap-4 grow">
+        <div class="flex gap-3">
+          <span class="font-mono text-[11px] px-1.5 py-0.5 h-min rounded bg-slate-100 text-slate-600 shrink-0">40</span>
+          <div><div class="text-[14px] font-semibold">Materiały kompozytowe</div><div class="text-[13px] text-slate-500 leading-relaxed mt-0.5">Rura z włókna węglowego w newralgicznych punktach ramy.</div></div>
+        </div>
+        <div class="flex gap-3">
+          <span class="font-mono text-[11px] px-1.5 py-0.5 h-min rounded bg-slate-100 text-slate-600 shrink-0">01</span>
+          <div><div class="text-[14px] font-semibold">Segmentacja</div><div class="text-[13px] text-slate-500 leading-relaxed mt-0.5">Segmentowa rama z mufami zamiast monokoku.</div></div>
+        </div>
+      </div>
+      <div class="px-5 py-3 border-t border-line font-mono text-[11px] text-slate-400">Zasady 10 i 26 znalezione, nierozwinięte w tym przebiegu.</div>
+    </div>
+
+    <div class="bg-surface border border-line rounded-xl shadow-[0_1px_2px_rgba(12,14,20,0.04),0_8px_24px_-16px_rgba(12,14,20,0.25)] flex flex-col overflow-hidden">
+      <div class="flex items-center justify-between px-5 py-3.5 border-b border-line">
+        <span class="text-[14px] font-semibold">Ścieżka B</span>
+        <span class="font-mono text-[11px] px-2 py-1 rounded bg-accent-soft text-accent-ink">SCAMPER</span>
+      </div>
+      <div class="px-5 py-4 flex flex-col gap-4 grow">
+        <div class="flex gap-3">
+          <span class="font-mono text-[11px] px-1.5 py-0.5 h-min rounded bg-slate-100 text-slate-600 shrink-0">S</span>
+          <div><div class="text-[14px] font-semibold">Substitute</div><div class="text-[13px] text-slate-500 leading-relaxed mt-0.5">Łącznik stalowy zamieniony na tytanowy.</div></div>
+        </div>
+        <div class="flex gap-3">
+          <span class="font-mono text-[11px] px-1.5 py-0.5 h-min rounded bg-slate-100 text-slate-600 shrink-0">C</span>
+          <div><div class="text-[14px] font-semibold">Combine</div><div class="text-[13px] text-slate-500 leading-relaxed mt-0.5">Rama pełni jednocześnie funkcję elementu amortyzującego.</div></div>
+        </div>
+      </div>
+      <div class="px-5 py-3 border-t border-line font-mono text-[11px] text-slate-400">Adapt / Modify / Eliminate / Reverse — dostępne, nierozwinięte.</div>
+    </div>
+
+  </div>
+
+  <!-- Own concept -->
+  <div class="flex items-center gap-3 mb-3">
+    <span class="font-mono text-[11px] uppercase tracking-[0.12em] text-slate-500">Twój koncept</span>
+    <span class="h-px flex-1 bg-line"></span>
+  </div>
+  <div class="flex flex-col sm:flex-row gap-3 mb-8">
+    <input type="text" value="Rama hybrydowa — aluminium w większości struktury, kompozyt węglowy tylko w newralgicznych punktach." class="grow bg-surface border border-line rounded-lg px-3.5 py-2.5 text-[14px] outline-none focus:border-accent focus:ring-4 focus:ring-accent/10 transition">
+    <button class="shrink-0 inline-flex items-center justify-center gap-2 border border-line bg-white hover:bg-slate-50 text-[14px] font-medium px-4 py-2.5 rounded-lg text-slate-700 transition"><span aria-hidden="true">+</span> Dodaj do puli</button>
+  </div>
+
+  <!-- Pool -->
+  <div class="bg-surface border border-line rounded-xl shadow-[0_1px_2px_rgba(12,14,20,0.04),0_8px_24px_-16px_rgba(12,14,20,0.25)] p-5">
+    <div class="flex items-center gap-2 mb-3.5">
+      <span class="font-mono text-[11px] uppercase tracking-[0.12em] text-slate-500">Pula do oceny</span>
+      <span class="font-mono text-[11px] px-1.5 py-0.5 rounded-full bg-accent text-white">4</span>
+    </div>
+    <div class="flex flex-wrap gap-2">
+      <span class="inline-flex items-center gap-1.5 border border-line bg-white rounded-full pl-2.5 pr-3 py-1.5 text-[13px]"><span class="font-mono text-[10px] text-slate-400">TRIZ</span> Materiały kompozytowe</span>
+      <span class="inline-flex items-center gap-1.5 border border-line bg-white rounded-full pl-2.5 pr-3 py-1.5 text-[13px]"><span class="font-mono text-[10px] text-slate-400">TRIZ</span> Segmentacja</span>
+      <span class="inline-flex items-center gap-1.5 border border-line bg-white rounded-full pl-2.5 pr-3 py-1.5 text-[13px]"><span class="font-mono text-[10px] text-slate-400">SCMP</span> Combine</span>
+      <span class="inline-flex items-center gap-1.5 border border-accent/40 bg-accent-soft text-accent-ink rounded-full pl-2.5 pr-3 py-1.5 text-[13px]"><span class="font-mono text-[10px]">TY</span> Koncept własny</span>
+    </div>
+  </div>
+
+  <div class="flex items-center justify-between gap-3 mt-9 pt-6 border-t border-line">
+    <a href="03-mapowanie.html" class="inline-flex items-center gap-2 border border-line bg-white hover:bg-slate-50 text-[14px] font-medium px-4 py-2.5 rounded-lg text-slate-600 transition"><span aria-hidden="true">←</span> Mapowanie</a>
+    <a href="05-ocena.html" class="inline-flex items-center gap-2 bg-accent hover:bg-accent-ink text-white text-[14px] font-medium px-5 py-2.5 rounded-lg shadow-sm transition">Dalej: Ocena <span aria-hidden="true">→</span></a>
+  </div>
+
+</main>
+
+</body>
+</html>

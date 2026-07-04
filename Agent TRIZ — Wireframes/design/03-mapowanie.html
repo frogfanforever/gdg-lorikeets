@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent TRIZ — Mapowanie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    fontFamily: { sans: ['Inter','ui-sans-serif','system-ui','sans-serif'], mono: ['"JetBrains Mono"','ui-monospace','monospace'] },
+    colors: { ink: '#0c0e14', paper: '#eceff4', surface: '#ffffff', line: '#d7dce4', accent: { DEFAULT: '#2f5cff', ink: '#2247d6', soft: '#e9edff' } },
+  } },
+};
+</script>
+<style>
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body { background-color: #eceff4; }
+  .tnum { font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body class="text-ink font-sans antialiased min-h-screen">
+
+<header class="sticky top-0 z-20 border-b border-line bg-[#eceff4]/85 backdrop-blur">
+  <div class="max-w-[1120px] mx-auto px-8 h-16 flex items-center justify-between gap-6">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-md bg-ink text-white grid place-items-center font-mono text-[12px] font-semibold">TZ</div>
+      <div class="leading-tight">
+        <div class="font-mono text-[13px] font-semibold tracking-tight">AGENT&nbsp;TRIZ</div>
+        <div class="text-[11px] text-slate-500 -mt-0.5">Rozwiązywanie sprzeczności technicznych</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 font-mono text-[11px] text-slate-500">
+      <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>przebieg&nbsp;#A-042
+    </div>
+  </div>
+</header>
+
+<main class="max-w-[1120px] mx-auto px-8 py-10">
+
+  <nav aria-label="Kroki" class="mb-12">
+    <ol class="grid grid-cols-2 md:grid-cols-5 gap-x-4 gap-y-5">
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-ink text-white">✓</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 01</div><div class="text-[13px] font-medium text-slate-600 truncate">Sprzeczność</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-accent"></div>
+      </li>
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-accent text-white shadow-[0_0_0_4px_rgba(47,92,255,0.15)]">2</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 02</div><div class="text-[13px] font-medium text-ink truncate">Mapowanie</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-accent"></div>
+      </li>
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-white border border-line text-slate-400">3</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 03</div><div class="text-[13px] font-medium text-slate-500 truncate">Generowanie</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-line"></div>
+      </li>
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-white border border-line text-slate-400">4</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 04</div><div class="text-[13px] font-medium text-slate-500 truncate">Ocena</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-line"></div>
+      </li>
+      <li>
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 shrink-0 rounded-full grid place-items-center font-mono text-[12px] font-semibold bg-white border border-line text-slate-400">5</span>
+          <div class="min-w-0"><div class="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">Krok 05</div><div class="text-[13px] font-medium text-slate-500 truncate">Wybór</div></div>
+        </div>
+        <div class="mt-2.5 h-[3px] rounded-full bg-line"></div>
+      </li>
+    </ol>
+  </nav>
+
+  <div class="mb-8">
+    <div class="font-mono text-[11px] uppercase tracking-[0.16em] text-accent mb-2.5">Krok 02 · Mapowanie na parametry</div>
+    <h1 class="text-[30px] font-semibold tracking-[-0.02em] leading-tight">Zweryfikuj mapowanie na parametry TRIZ</h1>
+    <p class="text-[15px] text-slate-500 mt-3 max-w-[68ch] leading-relaxed">Agent dopasował efekty do 39 parametrów TRIZ. Zobacz pełną listę top-5 z wynikiem podobieństwa i skoryguj wybór ręcznie, jeśli trzeba.</p>
+  </div>
+
+  <!-- Recompute banner -->
+  <div class="flex items-start gap-3 rounded-lg border border-accent/30 bg-accent-soft px-4 py-3 text-[13px] text-accent-ink mb-7">
+    <span class="font-mono shrink-0 mt-px">↻</span>
+    <p>Zmieniono parametr poprawiany: <b class="font-semibold">#2 → #1</b>. Kroki 3–5 zostały przeliczone.</p>
+  </div>
+
+  <!-- Table: parametr poprawiany -->
+  <section class="mb-8">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="font-mono text-[11px] uppercase tracking-[0.12em] text-slate-500">Parametr poprawiany — EP1: „mniejsza waga”</span>
+      <span class="h-px flex-1 bg-line"></span>
+    </div>
+    <div class="bg-surface border border-line rounded-xl overflow-hidden shadow-[0_1px_2px_rgba(12,14,20,0.04),0_8px_24px_-16px_rgba(12,14,20,0.25)]">
+      <table class="w-full text-[14px]">
+        <thead>
+          <tr class="bg-slate-50 text-left font-mono text-[10px] uppercase tracking-[0.1em] text-slate-500">
+            <th class="px-4 py-3 w-14">#</th>
+            <th class="px-4 py-3">Parametr</th>
+            <th class="px-4 py-3 w-52">Dopasowanie</th>
+            <th class="px-4 py-3 w-40">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t border-line text-slate-400">
+            <td class="px-4 py-3 font-mono line-through">02</td>
+            <td class="px-4 py-3 line-through">Waga nieruchomego obiektu</td>
+            <td class="px-4 py-3">
+              <div class="flex items-center gap-2.5">
+                <div class="h-1.5 flex-1 rounded-full bg-slate-100"><div class="h-full rounded-full bg-slate-300" style="width:85%"></div></div>
+                <span class="font-mono tnum text-[12px] w-9 text-right line-through">0.85</span>
+              </div>
+            </td>
+            <td class="px-4 py-3 font-mono text-[11px]">odrzucono</td>
+          </tr>
+          <tr class="border-t border-line bg-accent-soft/70 relative">
+            <td class="px-4 py-3 font-mono font-semibold border-l-2 border-accent">01</td>
+            <td class="px-4 py-3 font-semibold">Waga ruchomego obiektu</td>
+            <td class="px-4 py-3">
+              <div class="flex items-center gap-2.5">
+                <div class="h-1.5 flex-1 rounded-full bg-white/70"><div class="h-full rounded-full bg-accent" style="width:81%"></div></div>
+                <span class="font-mono tnum text-[12px] w-9 text-right font-semibold text-accent-ink">0.81</span>
+              </div>
+            </td>
+            <td class="px-4 py-3"><span class="inline-flex items-center gap-1.5 font-mono text-[11px] px-2 py-1 rounded bg-accent text-white">wybrano</span></td>
+          </tr>
+          <tr class="border-t border-line hover:bg-slate-50 transition">
+            <td class="px-4 py-3 font-mono">05</td>
+            <td class="px-4 py-3">Powierzchnia ruchomego obiektu</td>
+            <td class="px-4 py-3">
+              <div class="flex items-center gap-2.5">
+                <div class="h-1.5 flex-1 rounded-full bg-slate-100"><div class="h-full rounded-full bg-slate-400" style="width:44%"></div></div>
+                <span class="font-mono tnum text-[12px] w-9 text-right">0.44</span>
+              </div>
+            </td>
+            <td class="px-4 py-3 text-slate-400 font-mono text-[11px]">—</td>
+          </tr>
+          <tr class="border-t border-line hover:bg-slate-50 transition">
+            <td class="px-4 py-3 font-mono">08</td>
+            <td class="px-4 py-3">Objętość nieruchomego obiektu</td>
+            <td class="px-4 py-3">
+              <div class="flex items-center gap-2.5">
+                <div class="h-1.5 flex-1 rounded-full bg-slate-100"><div class="h-full rounded-full bg-slate-400" style="width:33%"></div></div>
+                <span class="font-mono tnum text-[12px] w-9 text-right">0.33</span>
+              </div>
+            </td>
+            <td class="px-4 py-3 text-slate-400 font-mono text-[11px]">—</td>
+          </tr>
+          <tr class="border-t border-line hover:bg-slate-50 transition">
+            <td class="px-4 py-3 font-mono">21</td>
+            <td class="px-4 py-3">Moc</td>
+            <td class="px-4 py-3">
+              <div class="flex items-center gap-2.5">
+                <div class="h-1.5 flex-1 rounded-full bg-slate-100"><div class="h-full rounded-full bg-slate-400" style="width:19%"></div></div>
+                <span class="font-mono tnum text-[12px] w-9 text-right">0.19</span>
+              </div>
+            </td>
+            <td class="px-4 py-3 text-slate-400 font-mono text-[11px]">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Table: parametr zachowywany -->
+  <section class="mb-2">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="font-mono text-[11px] uppercase tracking-[0.12em] text-slate-500">Parametr zachowywany — EP2: „niższa wytrzymałość”</span>
+      <span class="h-px flex-1 bg-line"></span>
+    </div>
+    <div class="bg-surface border border-line rounded-xl overflow-hidden shadow-[0_1px_2px_rgba(12,14,20,0.04),0_8px_24px_-16px_rgba(12,14,20,0.25)]">
+      <table class="w-full text-[14px]">
+        <thead>
+          <tr class="bg-slate-50 text-left font-mono text-[10px] uppercase tracking-[0.1em] text-slate-500">
+            <th class="px-4 py-3 w-14">#</th>
+            <th class="px-4 py-3">Parametr</th>
+            <th class="px-4 py-3 w-52">Dopasowanie</th>
+            <th class="px-4 py-3 w-40">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t border-line bg-accent-soft/70">
+            <td class="px-4 py-3 font-mono font-semibold border-l-2 border-accent">14</td>
+            <td class="px-4 py-3 font-semibold">Wytrzymałość</td>
+            <td class="px-4 py-3">
+              <div class="flex items-center gap-2.5">
+                <div class="h-1.5 flex-1 rounded-full bg-white/70"><div class="h-full rounded-full bg-accent" style="width:92%"></div></div>
+                <span class="font-mono tnum text-[12px] w-9 text-right font-semibold text-accent-ink">0.92</span>
+              </div>
+            </td>
+            <td class="px-4 py-3"><span class="inline-flex items-center gap-1.5 font-mono text-[11px] px-2 py-1 rounded bg-accent text-white">auto</span></td>
+          </tr>
+          <tr class="border-t border-line hover:bg-slate-50 transition">
+            <td class="px-4 py-3 font-mono">11</td>
+            <td class="px-4 py-3">Naprężenie</td>
+            <td class="px-4 py-3">
+              <div class="flex items-center gap-2.5">
+                <div class="h-1.5 flex-1 rounded-full bg-slate-100"><div class="h-full rounded-full bg-slate-400" style="width:71%"></div></div>
+                <span class="font-mono tnum text-[12px] w-9 text-right">0.71</span>
+              </div>
+            </td>
+            <td class="px-4 py-3 text-slate-400 font-mono text-[11px]">—</td>
+          </tr>
+          <tr class="border-t border-line hover:bg-slate-50 transition">
+            <td class="px-4 py-3 font-mono">36</td>
+            <td class="px-4 py-3">Złożoność urządzenia</td>
+            <td class="px-4 py-3">
+              <div class="flex items-center gap-2.5">
+                <div class="h-1.5 flex-1 rounded-full bg-slate-100"><div class="h-full rounded-full bg-slate-400" style="width:54%"></div></div>
+                <span class="font-mono tnum text-[12px] w-9 text-right">0.54</span>
+              </div>
+            </td>
+            <td class="px-4 py-3 text-slate-400 font-mono text-[11px]">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="flex items-center justify-between gap-3 mt-9 pt-6 border-t border-line">
+    <a href="02-sprzecznosc.html" class="inline-flex items-center gap-2 border border-line bg-white hover:bg-slate-50 text-[14px] font-medium px-4 py-2.5 rounded-lg text-slate-600 transition"><span aria-hidden="true">←</span> Sprzeczność</a>
+    <a href="04-generowanie.html" class="inline-flex items-center gap-2 bg-accent hover:bg-accent-ink text-white text-[14px] font-medium px-5 py-2.5 rounded-lg shadow-sm transition">Dalej: Generowanie <span aria-hidden="true">→</span></a>
+  </div>
+
+</main>
+
+</body>
+</html>
