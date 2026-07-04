@@ -1,0 +1,62 @@
+/** Playful pseudo-work status lines shown by the skeleton loader between steps.
+ *  TRIZ / inventive-problem-solving flavoured. */
+export const LOADING_QUOTES: readonly string[] = [
+  'Defining weights',
+  'Calculating density of matter',
+  'Consulting Altshuller',
+  'Resolving technical contradictions',
+  'Searching the 40 inventive principles',
+  'Cross-referencing the 39×39 matrix',
+  'Measuring the immeasurable',
+  'Separating in space and time',
+  'Extracting the useful, discarding the harmful',
+  'Segmenting the problem',
+  'Nesting dolls within dolls',
+  'Asking "what if we did the opposite?"',
+  'Turning bugs into features',
+  'Consulting the ideal final result',
+  'Minimising entropy',
+  'Balancing improving vs preserving',
+  'Interrogating the parameters',
+  'Embedding meaning into vectors',
+  'Ranking candidate solutions',
+  'Pruning the obviously wrong',
+  'Sharpening the contradiction',
+  'Folding the fourth dimension',
+  'Reticulating splines',
+  'Aligning the flux capacitor',
+  'Negotiating with physics',
+  'Bribing the second law of thermodynamics',
+  'Untangling causality',
+  'Counting grains of sand',
+  'Warming up the idea engine',
+  'Summoning inventive spirits',
+  'Distilling first principles',
+  'Reversing the polarity',
+  'Optimising for elegance',
+  'Consulting nature’s patents',
+  'Borrowing from biomimicry',
+  'Applying preliminary action',
+  'Introducing a mediator',
+  'Adding a pinch of dynamism',
+  'Converting harm to benefit',
+  'Checking the periodic table for inspiration',
+  'Weighing trade-offs on tiny scales',
+  'Triangulating the sweet spot',
+  'Simulating a thousand futures',
+  'Discarding the local optima',
+  'Listening to the problem',
+  'Rotating the mental model',
+  'Composing composite materials',
+  'Pre-stressing the assumptions',
+  'Nudging the parameters',
+  'Rendering the reasoning trail',
+  'Almost there — polishing the insight',
+];
+
+export function randomQuote(exclude?: string): string {
+  if (LOADING_QUOTES.length <= 1) return LOADING_QUOTES[0];
+  let q = exclude;
+  while (q === exclude) q = LOADING_QUOTES[Math.floor(Math.random() * LOADING_QUOTES.length)];
+  return q as string;
+}

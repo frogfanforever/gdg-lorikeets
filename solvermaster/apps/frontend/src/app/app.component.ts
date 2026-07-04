@@ -1,6 +1,7 @@
 import { DecimalPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { SkeletonLoaderComponent } from '@solvermaster/ui';
 import { switchMap } from 'rxjs';
 import { ApiService, Principle, SessionState } from './api.service';
 
@@ -8,7 +9,7 @@ import { ApiService, Principle, SessionState } from './api.service';
 // Proper UI + design system comes later.
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, DecimalPipe],
+  imports: [FormsModule, DecimalPipe, SkeletonLoaderComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

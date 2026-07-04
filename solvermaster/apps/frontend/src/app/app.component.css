@@ -20,3 +20,8 @@ button:disabled { opacity: .5; cursor: default; }
 .rec { background: #f0fff4; border-color: #9ae6b4; }
 .ver { font-size: .7rem; background: #c6f6d5; padding: .1rem .4rem; border-radius: 4px; }
 ul, ol { margin: .3rem 0 .6rem 1.2rem; }
+.overlay { position: fixed; inset: 0; background: rgba(255,255,255,.72);
+  backdrop-filter: blur(2px); display: flex; align-items: center; justify-content: center;
+  z-index: 50; animation: fade .2s ease; }
+.overlay > * { width: min(520px, 90vw); }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }

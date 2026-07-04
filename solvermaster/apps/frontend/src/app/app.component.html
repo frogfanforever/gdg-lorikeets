@@ -1,6 +1,12 @@
 <main class="wrap">
   <h1>🧩 TRIZ Contradiction Solver <span class="rough">rough prototype</span></h1>
 
+  @if (busy()) {
+    <div class="overlay">
+      <sm-skeleton-loader [lines]="4" />
+    </div>
+  }
+
   @if (error()) { <p class="err">⚠ {{ error() }}</p> }
 
   <!-- Step 1: Problem -->
@@ -9,7 +15,6 @@
     <input class="in" [(ngModel)]="title" placeholder="Title (optional)" />
     <textarea class="in" rows="3" [(ngModel)]="statement" placeholder="Describe the technical contradiction…"></textarea>
     <button (click)="analyze()" [disabled]="busy() || !statement">Analyze Problem</button>
-    @if (busy()) { <span class="muted"> working…</span> }
   </section>
 
   @if (session(); as s) {
