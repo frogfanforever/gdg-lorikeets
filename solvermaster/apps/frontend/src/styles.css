@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+body { background-color: #eceff4; }
+
+/* design-system helpers */
+.tnum { font-variant-numeric: tabular-nums; }
+.dotgrid {
+  background-image: radial-gradient(rgba(12, 14, 20, 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
