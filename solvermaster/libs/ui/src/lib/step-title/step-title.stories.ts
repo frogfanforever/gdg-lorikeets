@@ -4,10 +4,10 @@ import { StepTitleComponent } from './step-title.component';
 const meta: Meta<StepTitleComponent> = {
   title: 'UI/StepTitle',
   component: StepTitleComponent,
-  args: { eyebrow: 'Krok 01 · Sformułowanie sprzeczności', title: 'Opisz problem techniczny' },
+  args: { eyebrow: 'Krok 01 · Opis problemu', title: 'Opisz problem techniczny' },
   render: (args) => ({
     props: args,
-    template: `<sm-step-title [eyebrow]="eyebrow" [title]="title">Opisz krótko, na czym polega trudność — agent wyodrębni sprzeczność techniczną.</sm-step-title>`,
+    template: `<sm-step-title [eyebrow]="eyebrow" [title]="title">Opisz krótko, na czym polega trudność — agent wyodrębni sprzeczność i dobierze metody.</sm-step-title>`,
   }),
 };
 export default meta;

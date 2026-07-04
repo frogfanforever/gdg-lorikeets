@@ -2,8 +2,8 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { StepperComponent } from './stepper.component';
 
 const STEPS = [
-  { label: 'Sprzeczność' }, { label: 'Mapowanie' }, { label: 'Generowanie' },
-  { label: 'Ocena' }, { label: 'Wybór' },
+  { label: 'Problem' }, { label: 'Metody' }, { label: 'Analiza' },
+  { label: 'Shortlist' }, { label: 'Wynik' },
 ];
 
 const meta: Meta<StepperComponent> = {

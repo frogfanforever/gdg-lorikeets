@@ -22,7 +22,7 @@ export class SessionStore {
   readonly busy = signal(false);
   readonly error = signal('');
 
-  /** 0-based stepper index (Contradiction, Mapping, Generation, Evaluation, Choice). */
+  /** 0-based stepper index (Problem, Methods, Analysis, Shortlist, Result). */
   readonly stepIndex = signal(0);
 
   readonly hasSession = computed(() => this.session() !== null);

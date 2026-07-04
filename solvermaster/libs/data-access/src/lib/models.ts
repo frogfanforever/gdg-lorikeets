@@ -25,11 +25,11 @@ export interface SessionState {
 }
 
 export const STEPS = [
-  { key: 'contradiction', label: 'Sprzeczność' },
-  { key: 'mapping', label: 'Mapowanie' },
-  { key: 'generation', label: 'Generowanie' },
-  { key: 'evaluation', label: 'Ocena' },
-  { key: 'choice', label: 'Wybór' },
+  { key: 'problem', label: 'Problem' },
+  { key: 'methods', label: 'Metody' },
+  { key: 'analysis', label: 'Analiza' },
+  { key: 'shortlist', label: 'Shortlist' },
+  { key: 'result', label: 'Wynik' },
 ] as const;
 
 /** Evaluation criteria (blind rubric, 1–5). */
