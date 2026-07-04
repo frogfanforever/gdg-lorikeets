@@ -41,3 +41,56 @@ export const STEPS = [
   { key: 'shortlist', label: 'Shortlist' },
   { key: 'result', label: 'Wynik' },
 ] as const;
+
+/** Canonical names of the 40 TRIZ inventive principles — used as a guaranteed
+ *  fallback so a principle never renders as a bare "Zasada {id}". */
+export const TRIZ_PRINCIPLE_NAMES: Record<number, string> = {
+  1: 'Segmentacja',
+  2: 'Wydzielenie',
+  3: 'Lokalna jakość',
+  4: 'Asymetria',
+  5: 'Łączenie',
+  6: 'Uniwersalność',
+  7: 'Zagnieżdżanie',
+  8: 'Przeciwwaga',
+  9: 'Wstępne przeciwdziałanie',
+  10: 'Działanie wyprzedzające',
+  11: 'Wcześniejsze zabezpieczenie',
+  12: 'Ekwipotencjalność',
+  13: 'Odwrotność',
+  14: 'Sferyczność – krzywizna',
+  15: 'Dynamiczność',
+  16: 'Działanie częściowe lub nadmiarowe',
+  17: 'Inny wymiar',
+  18: 'Drgania mechaniczne',
+  19: 'Działanie okresowe',
+  20: 'Ciągłość użytecznego działania',
+  21: 'Przyspieszenie',
+  22: 'Zamiana szkody w korzyść',
+  23: 'Sprzężenie zwrotne',
+  24: 'Pośrednik',
+  25: 'Samoobsługa',
+  26: 'Kopiowanie',
+  27: 'Tanie obiekty krótkotrwałe',
+  28: 'Zastąpienie układu mechanicznego',
+  29: 'Pneumatyka i hydraulika',
+  30: 'Elastyczne powłoki i cienkie błony',
+  31: 'Materiały porowate',
+  32: 'Zmiana barwy',
+  33: 'Jednorodność',
+  34: 'Odrzucanie i regeneracja',
+  35: 'Zmiana parametrów',
+  36: 'Przemiany fazowe',
+  37: 'Rozszerzalność cieplna',
+  38: 'Silne utleniacze',
+  39: 'Atmosfera obojętna',
+  40: 'Materiały kompozytowe',
+};
+
+/** Best available descriptive name for a TRIZ principle id: provided name,
+ *  else canonical Polish table, else — as a last resort — the numeric id. */
+export function principleName(id: number, provided?: string | null): string {
+  const trimmed = provided?.trim();
+  if (trimmed) return trimmed;
+  return TRIZ_PRINCIPLE_NAMES[id] ?? `Zasada ${id}`;
+}

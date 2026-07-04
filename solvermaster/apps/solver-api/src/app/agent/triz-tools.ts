@@ -71,6 +71,58 @@ function paramName(id: number, provided?: string | null): string {
   return TRIZ_PARAM_NAMES[id] ?? `Parameter ${id}`;
 }
 
+/** Canonical names of the 40 TRIZ inventive principles — used as a guaranteed
+ *  fallback so a principle never renders as a bare "Principle {id}". */
+const TRIZ_PRINCIPLE_NAMES: Record<number, string> = {
+  1: 'Segmentation',
+  2: 'Taking out',
+  3: 'Local quality',
+  4: 'Asymmetry',
+  5: 'Merging',
+  6: 'Universality',
+  7: 'Nested doll',
+  8: 'Anti-weight',
+  9: 'Preliminary anti-action',
+  10: 'Preliminary action',
+  11: 'Beforehand cushioning',
+  12: 'Equipotentiality',
+  13: 'The other way round',
+  14: 'Spheroidality – curvature',
+  15: 'Dynamics',
+  16: 'Partial or excessive actions',
+  17: 'Another dimension',
+  18: 'Mechanical vibration',
+  19: 'Periodic action',
+  20: 'Continuity of useful action',
+  21: 'Skipping',
+  22: 'Blessing in disguise',
+  23: 'Feedback',
+  24: 'Intermediary',
+  25: 'Self-service',
+  26: 'Copying',
+  27: 'Cheap short-living objects',
+  28: 'Mechanics substitution',
+  29: 'Pneumatics and hydraulics',
+  30: 'Flexible shells and thin films',
+  31: 'Porous materials',
+  32: 'Color changes',
+  33: 'Homogeneity',
+  34: 'Discarding and recovering',
+  35: 'Parameter changes',
+  36: 'Phase transitions',
+  37: 'Thermal expansion',
+  38: 'Strong oxidants',
+  39: 'Inert atmosphere',
+  40: 'Composite materials',
+};
+
+/** Best available name for a TRIZ principle id: provided, canonical table, else generic. */
+export function principleName(id: number, provided?: string | null): string {
+  const trimmed = provided?.trim();
+  if (trimmed) return trimmed;
+  return TRIZ_PRINCIPLE_NAMES[id] ?? `Principle ${id}`;
+}
+
 /** Unwrap common envelopes the engine may nest a param under. */
 function unwrap(raw: any): any {
   return raw?.parameter ?? raw?.data ?? raw?.result ?? raw?.item ?? raw;
@@ -92,7 +144,7 @@ function normPrinciple(raw: any): Principle | null {
   if (!id) return null;
   return {
     id,
-    name: name ? String(name) : `Principle ${id}`,
+    name: principleName(id, name),
     description: pick<string>(raw, ['description', 'desc', 'summary', 'text']),
   };
 }

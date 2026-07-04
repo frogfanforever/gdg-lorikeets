@@ -18,7 +18,7 @@ import {
 import { EngineClient } from '../domain/engine.client';
 import { SessionSnapshot } from './contract';
 import { RunContext, EmitFn } from './run-context';
-import { buildEngineTrizTools } from './triz-tools';
+import { buildEngineTrizTools, principleName } from './triz-tools';
 import { buildUiComponentTools } from './ui-tools';
 
 export interface RunParams {
@@ -127,12 +127,12 @@ export class AgentRunnerService {
       ctx.setPrinciples(
         c.improving_parameter.id,
         c.worsening_parameter.id,
-        solution.proposed_principles.map((p) => ({ id: p.id, name: p.name, description: p.application })),
+        solution.proposed_principles.map((p) => ({ id: p.id, name: principleName(p.id, p.name), description: p.application })),
       );
     }
 
     const applications = solution.proposed_principles
-      .map((p) => `• [${p.id}] ${p.name}: ${p.application}`)
+      .map((p) => `• [${p.id}] ${principleName(p.id, p.name)}: ${p.application}`)
       .join('\n');
     const text = [solution.summary, applications].filter(Boolean).join('\n\n');
 

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit, computed, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { SessionStore } from '@solvermaster/data-access';
+import { SessionStore, principleName } from '@solvermaster/data-access';
 import { StepTitleComponent } from '@solvermaster/ui';
 
 @Component({
@@ -68,7 +68,10 @@ export class ResultPage implements OnInit {
   readonly appliedPrinciples = computed(() => {
     const ids = this.recommendation()?.applied_principle_ids ?? [];
     const byId = new Map(this.store.principles().map((p) => [p.id, p]));
-    return ids.map((id) => byId.get(id) ?? { id, name: `Zasada ${id}` });
+    return ids.map((id) => {
+      const found = byId.get(id);
+      return { id, name: principleName(id, found?.name), description: found?.description };
+    });
   });
 
   ngOnInit() {
