@@ -3,7 +3,10 @@
 FROM python:3.13-slim
 WORKDIR /app
 
-# The service is pure stdlib; just needs the ai/ package tree.
+# Runtime deps (pytriz — real TRIZ matrix, BM25 offline). Copied first for layer cache.
+COPY ai/solver/service/requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
 COPY ai/ /app/ai/
 
 ENV PYTHONUNBUFFERED=1 \

@@ -33,6 +33,30 @@ STORE: Store
 LLM = stub_llm
 
 
+def _reframe_triz(problem: Problem) -> tuple[dict, dict]:
+    """TRIZ reframing via the real pytriz contradiction matrix (BM25, offline)."""
+    from .triz_engine import triz_contradiction
+
+    t0 = time.perf_counter()
+    data = triz_contradiction(problem.title, problem.statement)
+    duration_ms = round((time.perf_counter() - t0) * 1000, 2)
+    contradiction = {
+        "method": "triz",
+        "improving": data["improving"],
+        "preserving": data["preserving"],
+        "summary": data["summary"],
+        "principles": data.get("principles", []),
+    }
+    meta = {
+        "model": "pytriz-bm25",
+        "params": {"top_k": 5, "matrix": "39x39"},
+        "tokens": 0,
+        "cost": 0.0,
+        "duration_ms": duration_ms,
+    }
+    return contradiction, meta
+
+
 def _reframe(problem: Problem, method: str, llm) -> tuple[dict, dict]:
     """Reframe the problem as a contradiction *through a method's lens*.
     Returns (contradiction dict, metadata dict). Method-aware prompt so a real LLM
@@ -146,7 +170,10 @@ class Handler(BaseHTTPRequestHandler):
 
         contradictions = []
         for m in methods:
-            contradiction, meta = _reframe(problem, m, LLM)
+            if m == "triz":
+                contradiction, meta = _reframe_triz(problem)
+            else:
+                contradiction, meta = _reframe(problem, m, LLM)
             STORE.record_step(
                 run_id=run_id, step="reframe", method=m,
                 inputs={"problem": _problem_view_from(problem)}, output=contradiction,
